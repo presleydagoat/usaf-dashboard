@@ -252,6 +252,13 @@ tr.nw td{background:#1b2f2a}
 
 .lks{display:flex;gap:14px;margin-bottom:28px;align-items:center}.lks input{height:56px;font-size:17px;flex:1}.lks .nb{margin:0}.lkhint{padding:26px;border:1px dashed var(--ln);color:var(--mu);line-height:1.6}.lkhint b{display:block;color:var(--tx);margin-bottom:4px}.lkp{display:flex;gap:22px;align-items:center;padding:24px;border:1px solid var(--ln);background:var(--p);border-top:3px solid var(--gold)}.lkav{flex:0 0 84px;height:84px;background:var(--p2);display:flex;align-items:center;justify-content:center;font:700 34px "Chakra Petch",sans-serif;overflow:hidden}.lkav img{width:100%;height:100%;object-fit:cover}.lkp h2{font:700 30px "Chakra Petch",sans-serif;letter-spacing:.05em;text-transform:uppercase;margin-bottom:4px}.lkh{font:600 13px "Chakra Petch",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:30px 0 12px}.lkh span{color:var(--mu);margin-left:6px}.lka{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px}.lkac{display:flex;gap:16px;border:1px solid var(--ln);background:var(--p);padding:18px}.lkac.none{color:var(--mu);grid-column:1/-1}.lkdav{flex:0 0 48px;height:48px;border-radius:50%;background:#5865f2;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px}.lkac b{display:block;font-size:17px}.lkac span.mu{display:block;font-size:13px}.lkb{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.lkt{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin:26px 0}.lkt>div{border:1px solid var(--ln);background:var(--p);padding:16px 18px}.lkt b{display:block;font:700 28px "Chakra Petch",sans-serif}.lkt span{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mu)}.lkseg{display:flex;flex-wrap:wrap;border-bottom:1px solid var(--ln);margin:6px 0 16px}.lkseg button{padding:12px 20px;font:600 12.5px "Chakra Petch",sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--mu);border-bottom:3px solid transparent}.lkseg button i{font-style:normal;color:var(--blue);margin-left:4px}.lkseg button.on{color:var(--tx);border-bottom-color:var(--gold)}.lkform{display:flex;gap:14px;align-items:flex-end;flex-wrap:wrap;padding:16px;border:1px solid var(--ln);background:var(--p);margin-bottom:14px}.lka2{color:var(--blue);cursor:pointer;text-decoration:none}.lka2:hover{text-decoration:underline}.te .chip.lock{opacity:.7;cursor:not-allowed}@media(max-width:900px){.lkt{grid-template-columns:repeat(2,1fr)}.lks{flex-wrap:wrap}.lkp{flex-direction:column;align-items:flex-start}}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.runwarn{border:1px solid var(--ln);border-left:3px solid #d9a441;background:var(--p);padding:14px 18px;margin-bottom:20px;font-size:14px;line-height:1.55}.runwarn b{color:var(--tx)}
+.runsrv{display:block;padding:11px 0;font-weight:500}
+.rcode{width:100%;font:13.5px/1.55 "Roboto Mono",monospace;background:#070b22;color:#dfe6ff;border:1px solid var(--ln);padding:16px 18px;tab-size:2;white-space:pre;overflow:auto;resize:vertical;min-height:300px}
+.runst{display:flex;gap:14px;align-items:center;margin-bottom:10px}
+.runout{font:13px/1.55 "Roboto Mono",monospace;background:#070b22;border:1px solid var(--ln);padding:14px 18px;margin:0;white-space:pre-wrap;word-break:break-word;max-height:420px;overflow:auto;color:#dfe6ff}
+.runerr{color:#f08a93}
+.pill.ok{color:#5fd39a;border-color:#5fd39a}.pill.bad{color:#f08a93;border-color:#f08a93}
 </style></head><body><div id="login">
  <div class="l-img"><div><div class="eyebrow">United States Air Force</div><h1>Server<br>Management</h1></div></div>
  <div class="l-form">
@@ -375,6 +382,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
  <div class="tab" id="t-look"><div class="sec"><div class="in"><h2 class="sh">Member lookup</h2><div class="lks"><input id="lq" placeholder="Roblox username, Roblox ID or Discord user" autocomplete="off" spellcheck="false"><button class="nb big" id="lgo">Search</button></div><div id="lkres"></div></div></div></div>
 
+ <div class="tab" id="t-run"><div class="sec"><div class="in"><h2 class="sh">Run code</h2><div id="runbox"></div></div></div></div>
  <div class="tab" id="t-kills"><div class="sec"><div class="in"><h2 class="sh">Kill log</h2><div id="killbox"></div></div></div></div>
 
  <div class="tab" id="t-auto"><div class="sec"><div class="in"><h2 class="sh">Automod rules</h2><div id="autobox"></div></div></div></div>
@@ -445,7 +453,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 <div class="mo hidden" id="mmo"><div class="wide"><h3 id="mtl"></h3><div class="mu" id="mwho"></div><div><label class="mu">Reason template</label><select id="mtp"></select></div><div><label class="mu">Reason</label><textarea id="mr" rows="3" style="width:100%"></textarea></div><div id="mx"></div><div class="row"><button class="nb s" id="mok">Confirm</button><button class="nb s d" id="mno">Cancel</button></div></div></div>
 <div id="toast"></div>
 <script>
-const BACKEND="https://usaf-bot.onrender.com"; // after the bot is deployed, put its Render address between the quotes, like "https://usaf-bot.onrender.com"
+const BACKEND=""; // after the bot is deployed, put its Render address between the quotes, like "https://usaf-bot.onrender.com"
 const $=i=>document.getElementById(i),esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const toast=t=>{const e=$("toast");e.textContent=t;e.classList.add("on");clearTimeout(toast.h);toast.h=setTimeout(()=>e.classList.remove("on"),2400)};
 const ls=(k,v)=>{try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){}};
@@ -728,6 +736,7 @@ const VR=[["spam","timeout","hey hey hey hey hey hey hey hey"],["duplicate","war
 const VIO=Array.from({length:46},(_,i)=>{const r=VR[Math.floor(_rnd()*VR.length)],p=Math.floor(_rnd()*PEOPLE.length);return{id:"v"+(900-i),time:NOW-(i*2.6+_rnd()*2)*HR,userId:"u"+p,user:PEOPLE[p],channel:["general","support","off-topic"][Math.floor(_rnd()*3)],rule:r[0],action:r[1],excerpt:r[2],warnTotal:1+Math.floor(_rnd()*4)}});
 const JOINS=[["Cadet_Briggs",2,.4],["rblx_user_4471",1,1.1],["Pilot_Lang",412,2.5],["newaccount_88",0,3.2],["Torres_E",930,5.9],["Kessler_P",87,8.1]].map(j=>({name:j[0],ageDays:j[1],time:NOW-j[2]*HR}));
 const TPLDB={};
+const RUNH=[{id:"r1",time:Date.now()-3*3600e3,lang:"python",guildId:"g1",code:"print(\"hello\")",exitCode:0,ms:2100,timedOut:false,stopped:false,output:"Created 12 roles\nCreated 8 channels"},{id:"r2",time:Date.now()-26*3600e3,lang:"bash",guildId:"g1",code:"exit 2",exitCode:2,ms:300,timedOut:false,stopped:false,output:"curl: (6) Could not resolve host"}];
 const _mockBase=mockApiBase;
 function mockApi(p,m,b){
  const u=new URL(p,"http://x"),path=u.pathname;let x;b=b||{};
@@ -742,6 +751,10 @@ function mockApi(p,m,b){
   if(k==="violations")return out(VIO);
   if(k==="joins")return out(JOINS);
  }
+ if(path==="/api/run/languages")return out(["javascript","node","python","bash","ruby","perl","php","lua"].map(i=>({id:i,label:{javascript:"JavaScript (bot session: client, guild, discord ready)",node:"Node.js (standalone script)",python:"Python",bash:"Bash",ruby:"Ruby",perl:"Perl",php:"PHP",lua:"Lua"}[i],available:i!=="lua",note:i==="python"?"discord.py 2.4.0 is installed.":undefined})));
+ if(path==="/api/run/history")return out(RUNH);
+ if(path==="/api/run/stop")return out({stopped:true});
+ if(path==="/api/run"&&m==="POST"){const o="Created role Example Role\nCreated 3 channels in Example\n";RUNH.unshift({id:"r"+Date.now(),time:Date.now(),lang:b.lang,guildId:b.guildId,code:b.code,exitCode:0,ms:1800,timedOut:false,stopped:false,output:o});return new Promise(r=>setTimeout(()=>r({exitCode:0,stdout:o,stderr:"",ms:1800,timedOut:false,stopped:false,truncated:false}),900))}
  if(path.match(/^\/api\/guilds\/\w+\/lookup$/)){const r=lkMock(u.searchParams.get("q"));return r?out(r):Promise.reject(new Error("No Roblox account found for that search."))}
  if(path.match(/^\/api\/guilds\/\w+\/kills$/))return out(KILLS);
  if(path.match(/^\/api\/guilds\/\w+\/killcfg$/)){if(m==="POST"){if(b.on!==undefined)KC.on=b.on;if(b.channel!==undefined)KC.channel=b.channel;return out({ok:true})}return out(KC)}
@@ -760,7 +773,7 @@ const MENU=[
  ["Moderation","Act on members and review everything on record.",[["look","Member lookup","Roblox account, linked Discord accounts and full record"],["mem","Members","Search, warn, time out, kick and ban"],["cases","Cases","Every moderation action on record"],["warn","Warnings","Totals and escalation thresholds"],["vio","Automod violations","What Automod caught, with excerpts"]]],
  ["Automod","Automatic rules that protect the server.",[["auto","Automod rules","Spam, duplicates, links, mentions, caps, invites"],["wf","Word filter","Your own word and phrase rules"],["raid","Raid protection","Join gate and raid mode"]]],
  ["Server","Day-to-day server operations.",[["comms","Messages","Read and send as the bot"],["tickets","Tickets","Open support tickets"],["audit","Audit log","Discord's own audit trail"],["awards","Awards","Award catalog and member awards"],["kills","Kill log","Kills and deaths reported by the game"],["tools","Channel tools","Purge, slowmode, lock, announce"],["srv","Servers","Servers the bot is in"]]],
- ["Bot","Configure the bot itself.",[["cmds","Commands","Turn commands on or off and set levels"],["tpl","Message templates","Every message the bot sends, editable"],["set","Settings","Roles, channels, messages, templates"],["id","Bot identity","Name, avatar and status"],["priv","Data and privacy","What the bot stores and why"]]]];
+ ["Bot","Configure the bot itself.",[["cmds","Commands","Turn commands on or off and set levels"],["tpl","Message templates","Every message the bot sends, editable"],["set","Settings","Roles, channels, messages, templates"],["run","Run code","Run a script as the bot"],["id","Bot identity","Name, avatar and status"],["priv","Data and privacy","What the bot stores and why"]]]];
 const META={home:{t:"Home"},bots:{t:"Our bots",d:"Every bot website we have built",g:"Bots"}};MENU.forEach(g=>g[2].forEach(i=>META[i[0]]={t:i[1],d:i[2],g:g[0]}));
 /* ---------- our bots ----------
  Change the url of a bot if its GitHub Pages address is different. "logo" is tried in order; if none load, only the name shows. */
@@ -787,7 +800,7 @@ function go(t){
  if(home)renderHome();
  if(t=="comms"){const el=$("msgs");if(S.stick)el.scrollTop=el.scrollHeight;updJump()}
  if(t=="mem")loadMem();if(t=="cases")loadCases();if(t=="audit")loadAudit(true);if(t=="tickets")loadTickets();if(t=="awards")loadAwards();if(t=="cmds")loadCmds();if(t=="set")loadSet();
- if(t=="auto")loadAuto();if(t=="wf")loadWF();if(t=="raid")loadRaid();if(t=="warn")loadWarn();if(t=="vio")loadVio();if(t=="priv")loadPriv();if(t=="bots")loadBots();if(t=="tpl")loadTpl();if(t=="look")loadLook();if(t=="kills")loadKills();
+ if(t=="auto")loadAuto();if(t=="wf")loadWF();if(t=="raid")loadRaid();if(t=="warn")loadWarn();if(t=="vio")loadVio();if(t=="priv")loadPriv();if(t=="bots")loadBots();if(t=="tpl")loadTpl();if(t=="look")loadLook();if(t=="kills")loadKills();if(t=="run")loadRun();
 }
 async function enter(){$("login").classList.add("hidden");$("app").classList.remove("hidden");
  buildNav();bind();initUsaf();
@@ -1141,6 +1154,111 @@ function killR(){
   b.addEventListener("input",e=>{if(e.target.id==="kq"){KF.q=e.target.value;killT()}});
   b.addEventListener("change",e=>{if(e.target.id==="kd"){KF.days=e.target.value;killT()}})}}
 function killT(){const L=killFiltered();$("ktb2").innerHTML=L.slice(0,300).map(k=>`<tr><td class="mono">${zT(k.time)}</td><td><a class="lka2" data-lk="${esc(k.killer)}">${esc(k.killer)}</a></td><td><a class="lka2" data-lk="${esc(k.victim)}">${esc(k.victim)}</a></td></tr>`).join("")||'<tr><td class="mu" colspan="3">No kills match.</td></tr>';$("kcount").textContent=L.length>300?"Showing 300 of "+L.length:L.length+" entries"}
+
+/* ----- run code page ----- */
+const RUNEX={
+javascript:`// Runs inside the bot. These are ready to use: client, guild, discord, sleep
+const role = await guild.roles.create({ name: "Example Role", color: 0x4a68e8, reason: "Run code" });
+const category = await guild.channels.create({ name: "Example", type: discord.ChannelType.GuildCategory });
+await guild.channels.create({ name: "example-channel", type: discord.ChannelType.GuildText, parent: category.id });
+console.log("Created role", role.name, "and a channel in", category.name);`,
+node:`// A normal Node.js script. DISCORD_TOKEN and GUILD_ID are available as environment variables.
+const { Client, GatewayIntentBits, ChannelType } = require("discord.js");
+const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+client.once("ready", async () => {
+  const guild = await client.guilds.fetch(process.env.GUILD_ID);
+  await guild.channels.create({ name: "example-channel", type: ChannelType.GuildText });
+  console.log("Done");
+  client.destroy();
+});
+client.login(process.env.DISCORD_TOKEN);`,
+python:`# DISCORD_TOKEN and GUILD_ID are available as environment variables.
+# If your script already has its own token line, it works as it is.
+import os, discord
+
+client = discord.Client(intents=discord.Intents.default())
+
+@client.event
+async def on_ready():
+    guild = client.get_guild(int(os.environ["GUILD_ID"]))
+    role = await guild.create_role(name="Example Role")
+    category = await guild.create_category("Example")
+    await guild.create_text_channel("example-channel", category=category)
+    print("Created", role.name)
+    await client.close()
+
+client.run(os.environ["DISCORD_TOKEN"])`,
+bash:`# DISCORD_TOKEN and GUILD_ID are available. This calls Discord's REST API with curl.
+curl -s -X POST "https://discord.com/api/v10/guilds/$GUILD_ID/roles" \\
+  -H "Authorization: Bot $DISCORD_TOKEN" -H "Content-Type: application/json" \\
+  -d '{"name":"Example Role"}'`,
+ruby:`# DISCORD_TOKEN and GUILD_ID are available. This calls Discord's REST API.
+require "net/http"; require "json"
+uri = URI("https://discord.com/api/v10/guilds/#{ENV['GUILD_ID']}/roles")
+req = Net::HTTP::Post.new(uri, "Authorization" => "Bot #{ENV['DISCORD_TOKEN']}", "Content-Type" => "application/json")
+req.body = { name: "Example Role" }.to_json
+res = Net::HTTP.start(uri.host, uri.port, use_ssl: true) { |h| h.request(req) }
+puts res.body`,
+php:`<?php
+// DISCORD_TOKEN and GUILD_ID are available. This calls Discord's REST API.
+$ch = curl_init("https://discord.com/api/v10/guilds/" . getenv("GUILD_ID") . "/roles");
+curl_setopt_array($ch, [CURLOPT_POST => true, CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_HTTPHEADER => ["Authorization: Bot " . getenv("DISCORD_TOKEN"), "Content-Type: application/json"],
+  CURLOPT_POSTFIELDS => json_encode(["name" => "Example Role"])]);
+echo curl_exec($ch);`,
+perl:`# DISCORD_TOKEN and GUILD_ID are available. This calls Discord's REST API with curl.
+my $url = "https://discord.com/api/v10/guilds/$ENV{GUILD_ID}/roles";
+print \`curl -s -X POST "$url" -H "Authorization: Bot $ENV{DISCORD_TOKEN}" -H "Content-Type: application/json" -d '{"name":"Example Role"}'\`;`,
+lua:`-- DISCORD_TOKEN and GUILD_ID are available through os.getenv.
+local url = "https://discord.com/api/v10/guilds/" .. os.getenv("GUILD_ID") .. "/roles"
+local cmd = 'curl -s -X POST "' .. url .. '" -H "Authorization: Bot ' .. os.getenv("DISCORD_TOKEN") .. '" -H "Content-Type: application/json" -d \\'{"name":"Example Role"}\\''
+print(io.popen(cmd):read("*a"))`};
+const RUNLB={javascript:"JavaScript",node:"Node.js",python:"Python",bash:"Bash",ruby:"Ruby",perl:"Perl",php:"PHP",lua:"Lua"};
+let RLANG=[],RHIST=[],RB=false,RCUR="python",RRES=null,RBUSY=false;
+const rkey=l=>"usaf-run-"+l;
+const rget=l=>{try{return localStorage.getItem(rkey(l))}catch(e){return null}};
+const rset=(l,v)=>{try{localStorage.setItem(rkey(l),v)}catch(e){}};
+async function loadRun(){
+ if(!curG())return noGuild("runbox");
+ const[lg,hs]=await Promise.all([T(()=>api("/api/run/languages")),soft(api("/api/run/history"),[])]);if(!lg)return;
+ RLANG=lg;RHIST=hs;if(!RLANG.some(l=>l.id===RCUR&&l.available))RCUR=(RLANG.find(l=>l.available)||{id:"python"}).id;runR()}
+function runR(keep){
+ const ta=$("rcode"),code=keep&&ta?ta.value:(rget(RCUR)??RUNEX[RCUR]??"");
+ const L=RLANG.find(l=>l.id===RCUR)||{};
+ $("runbox").innerHTML=`<div class="runwarn"><b>Scripts run on the bot's server with the bot's token and its Administrator permission.</b> Anything in the script can change or delete roles, channels and members in the server. Run only code you wrote or trust.</div>
+ <div class="ctl"><div><label>Language</label><select id="rlang">${RLANG.map(l=>`<option value="${l.id}" ${l.id===RCUR?"selected":""} ${l.available?"":"disabled"}>${esc(l.label.split(" (")[0])}${l.available?"":" (not installed)"}</option>`).join("")}</select></div>
+ <div><label>Server</label><b class="runsrv">${esc((gInfo()||{}).name||"")}</b></div>
+ <div><label>Time limit</label><select id="rtime">${[[30,"30 seconds"],[60,"60 seconds"],[110,"110 seconds"]].map(o=>`<option value="${o[0]}" ${o[0]===60?"selected":""}>${o[1]}</option>`).join("")}</select></div>
+ <span class="sp"></span><div style="align-self:end;display:flex;gap:10px;flex-wrap:wrap"><button class="nb s" id="rex">Load example</button><button class="nb s" id="rstop" ${RBUSY?"":"disabled"}>Stop</button><button class="nb" id="rrun" ${RBUSY?"disabled":""}>${RBUSY?"Running...":"Run script"}</button></div></div>
+ ${L.note?`<div class="mu" style="margin:-8px 0 16px">${esc(L.note)}</div>`:""}
+ ${RCUR==="javascript"?'<div class="mu" style="margin:-8px 0 16px">Ready to use inside the script: <span class="mono">client</span>, <span class="mono">guild</span>, <span class="mono">discord</span>, <span class="mono">sleep(ms)</span>. You can use <span class="mono">await</span> directly.</div>':'<div class="mu" style="margin:-8px 0 16px">Environment variables available to the script: <span class="mono">DISCORD_TOKEN</span> and <span class="mono">GUILD_ID</span> (the server shown above).</div>'}
+ <textarea id="rcode" class="rcode" spellcheck="false" rows="20" placeholder="Paste your script here">${esc(code)}</textarea>
+ <div class="mu" id="rcount" style="margin:6px 0 22px"></div>
+ <h3 class="lkh">Output</h3><div id="rout"></div>
+ <h3 class="lkh" style="margin-top:30px">Recent runs <span>${RHIST.length}</span></h3>
+ <div class="pnl" style="overflow:auto"><table><thead><tr><th>Time</th><th>Language</th><th>Result</th><th class="r">Duration</th><th>Output</th><th></th></tr></thead><tbody>${RHIST.map((h,i)=>`<tr><td class="mono" style="white-space:nowrap">${zT(h.time)}</td><td>${esc(RUNLB[h.lang]||h.lang)}</td><td>${h.stopped?'<span class="pill">Stopped</span>':h.timedOut?'<span class="pill">Timed out</span>':h.exitCode===0?'<span class="pill ok">Finished</span>':'<span class="pill bad">Failed ('+h.exitCode+')</span>'}</td><td class="r num">${(h.ms/1000).toFixed(1)} s</td><td class="mu" style="max-width:360px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc((h.output||"").replace(/\s+/g," ").slice(0,120))}</td><td style="text-align:right"><button class="nb s" data-rl="${i}">Load</button></td></tr>`).join("")||'<tr><td class="mu" colspan="6">Nothing has been run yet.</td></tr>'}</tbody></table></div>`;
+ rOut();rCount();
+ if(!RB){RB=true;const b=$("runbox");
+  b.addEventListener("input",e=>{if(e.target.id==="rcode"){rset(RCUR,e.target.value);rCount()}});
+  b.addEventListener("change",e=>{if(e.target.id==="rlang"){RCUR=e.target.value;RRES=null;runR()}});
+  b.addEventListener("keydown",e=>{if(e.target.id==="rcode"&&e.key==="Tab"){e.preventDefault();const t=e.target,s=t.selectionStart;t.setRangeText("  ",s,t.selectionEnd,"end");rset(RCUR,t.value);rCount()}});
+  b.addEventListener("click",async e=>{const x=e.target.closest("button");if(!x)return;
+   if(x.id==="rex"){if($("rcode").value.trim()&&!confirm("Replace what is in the box with the example?"))return;rset(RCUR,RUNEX[RCUR]||"");runR();return}
+   if(x.dataset.rl!==undefined){const h=RHIST[+x.dataset.rl];if(h){RCUR=h.lang;rset(h.lang,h.code);RRES=null;runR()}return}
+   if(x.id==="rstop"){await T(()=>api("/api/run/stop","POST",{}),"Stop requested");return}
+   if(x.id==="rrun"){const g=curG(),code=$("rcode").value;if(!code.trim()){toast("Paste some code first");return}
+    if(!confirm("Run this "+(RUNLB[RCUR]||RCUR)+" script as the bot in "+((gInfo()||{}).name||"this server")+"?"))return;
+    RBUSY=true;RRES=null;const tl=+$("rtime").value||60;runR(true);$("rtime").value=tl;
+    try{RRES=await api("/api/run","POST",{lang:RCUR,code,guildId:g,timeout:tl})}catch(er){RRES={error:er.message||"The run failed"}}
+    RBUSY=false;RHIST=await soft(api("/api/run/history"),RHIST);runR(true);$("rtime").value=tl}})}}
+function rCount(){const t=$("rcode");if(t)$("rcount").textContent=t.value.split("\n").length+" lines, "+t.value.length.toLocaleString("en-US")+" characters"}
+function rOut(){const o=$("rout");if(!o)return;
+ if(RBUSY){o.innerHTML='<div class="runout"><span class="mu">Running. Output appears when the script finishes.</span></div>';return}
+ if(!RRES){o.innerHTML='<div class="runout"><span class="mu">Nothing run yet.</span></div>';return}
+ if(RRES.error){o.innerHTML=`<div class="runout"><span class="runerr">${esc(RRES.error)}</span></div>`;return}
+ const r=RRES,st=r.stopped?"Stopped":r.timedOut?"Timed out":r.exitCode===0?"Finished":"Failed";
+ o.innerHTML=`<div class="runst"><span class="pill ${r.exitCode===0&&!r.timedOut&&!r.stopped?"ok":"bad"}">${st}</span><span class="mu">Exit code ${r.exitCode} &middot; ${(r.ms/1000).toFixed(1)} seconds${r.truncated?" &middot; output was cut off at 200,000 characters":""}</span></div>
+ <pre class="runout">${r.stdout?esc(r.stdout):'<span class="mu">(no output)</span>'}${r.stderr?`\n<span class="runerr">${esc(r.stderr)}</span>`:""}</pre>`}
 
 function bind(){
  $("stb").onclick=e=>{const b=e.target.closest("button");if(b)setPres(b.dataset.s,S.me.activity?S.me.activity.type:"Playing",S.me.activity?S.me.activity.text:"")};
