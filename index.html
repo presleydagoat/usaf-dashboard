@@ -469,7 +469,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 <div class="mo hidden" id="mmo"><div class="wide"><h3 id="mtl"></h3><div class="mu" id="mwho"></div><div><label class="mu">Reason template</label><select id="mtp"></select></div><div><label class="mu">Reason</label><textarea id="mr" rows="3" style="width:100%"></textarea></div><div id="mx"></div><div class="row"><button class="nb s" id="mok">Confirm</button><button class="nb s d" id="mno">Cancel</button></div></div></div>
 <div id="toast"></div>
 <script>
-const BACKEND=""; // after the bot is deployed, put its Render address between the quotes, like "https://usaf-bot.onrender.com"
+const BACKEND="https://usaf-bot.onrender.com"; // after the bot is deployed, put its Render address between the quotes, like "https://usaf-bot.onrender.com"
 const $=i=>document.getElementById(i),esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const toast=t=>{const e=$("toast");e.textContent=t;e.classList.add("on");clearTimeout(toast.h);toast.h=setTimeout(()=>e.classList.remove("on"),2400)};
 const ls=(k,v)=>{try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){}};
