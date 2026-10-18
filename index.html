@@ -379,9 +379,24 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 #ddlg h3{font:700 15px 'Chakra Petch',sans-serif;letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px}
 #ddlg .form{margin-bottom:16px}
 ::highlight(dfind){background:#ffe066;color:#000}::highlight(dcur){background:#ff9f43;color:#000}
-#t-docs .dtool select{width:auto;flex:none;max-width:180px}#dsty{width:120px!important}#dfont{width:150px!important}#dls,#dlt{width:96px!important}
+#t-docs .dtool select{width:auto;flex:none;max-width:180px}#dsty{width:120px!important}#dfont{width:150px!important}#dls,#dlt{width:96px!important}#dcase{width:62px!important}#dins{width:104px!important}
 body.dediting #banner{display:none}
+#dtpl button.mine{position:relative}#dtpl button.mine i{position:absolute;right:6px;top:4px;font-style:normal;font-size:18px;line-height:1;color:var(--mu);padding:2px 6px}#dtpl button.mine i:hover{color:#ff7b7b}
+body.dshare header.top,body.dshare #banner,body.dshare footer.foot,body.dshare .dmenus,body.dshare .dtool,body.dshare .dttbl,body.dshare #dfind,body.dshare #dback,body.dshare #dsave,body.dshare #druler{display:none!important}
+body.dshare .tab:not(#t-docs){display:none!important}body.dshare #t-docs{display:block!important}
+body.dshare #t-docs .sec{padding-top:12px}
 @media(max-width:780px){#dscroll{height:calc(100vh - 160px)}.dtool{padding:4px}.dd{position:fixed;left:8px;right:8px;top:auto;min-width:0}}
+
+/* PIN lock bar, read-only look, nav pane, painter, TOC */
+.dlockbar{display:flex;align-items:center;gap:10px;padding:8px 12px;background:#2a2410;border:1px solid #6b5a1f;color:#ecc56a;font-size:14px;margin-bottom:6px}
+#dedv.dro .dmenus>div:not([data-m="0"]):not([data-m="2"]),#dedv.dro .dtool,#dedv.dro .dttbl{display:none!important}
+#dnavp{position:absolute;left:0;top:26px;z-index:6;width:230px;box-shadow:4px 0 16px #0008;background:#10163a;border:1px solid #232c5c;overflow:auto;max-height:calc(100vh - 250px);font-size:14px}
+#dnavp.hidden{display:none}
+#dnavp .nh{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;border-bottom:1px solid #232c5c}
+#dnavp .nh button{background:none;border:0;color:inherit;font-size:20px;cursor:pointer}
+#dnavp a{display:block;padding:6px 10px;cursor:pointer;color:#c8d1f5;border-bottom:1px solid #1a2147}
+#dnavp a:hover{background:#1b2550}
+#dedit.painting{cursor:copy}
 /* the paper */
 #dedit{font:11pt/1.15 Arial,Helvetica,sans-serif;white-space:pre-wrap;word-wrap:break-word}
 #dedit p,#dedit div.p{margin:0 0 8pt}
@@ -465,7 +480,28 @@ body.dediting #banner{display:none}
 
  <section class="banner hidden" id="banner"><div class="banner-in"><div class="eyebrow" id="bey"></div><h1 id="bt1"></h1><p id="bds"></p><div class="crumbs" id="bcr"></div></div></section>
 
- <div class="tab" id="t-srv"><div class="sec"><div class="in"><h2 class="sh">Servers</h2><table class="tb" id="tb"></table><div style="text-align:center;margin-top:24px"><button class="nb" id="sinv">Add bot to a server</button></div></div></div></div>
+ <div class="tab" id="t-docs"><div class="sec"><div class="in">
+ <div id="dlist"><h2 class="sh">Documents</h2>
+  <div class="row"><button class="nb" id="dnew">New blank document</button><button class="nb s" id="dimp">Open a file from this computer</button><span class="mu" style="font-size:13px">Opens .docx, .html, .md, .txt and PIN-locked .usafdoc files</span></div>
+  <div class="dtpl" id="dtpl"></div>
+  <div class="dgrid" id="dgrid"></div></div>
+ <div id="dedv" class="hidden">
+  <div class="dtop"><button class="nb s" id="dback">All documents</button><input id="dtitle" maxlength="120" spellcheck="false" aria-label="Document name"><span id="dsave" class="mu"></span><span style="flex:1"></span><button class="nb s" data-da="x:pdf">Download PDF</button><button class="nb s" data-da="x:docx">Download Word</button></div>
+  <div class="dmenus" id="dmenus"></div>
+  <div class="dtool" id="dtool"></div>
+  <div class="dtool dttbl hidden" id="dttbl"></div>
+  <div class="dfind hidden" id="dfind"><input id="dfq" placeholder="Find" autocomplete="off"><input id="dfr" placeholder="Replace with" autocomplete="off"><button class="nb s" data-da="fprev">Previous</button><button class="nb s" data-da="fnext">Next</button><button class="nb s" data-da="frep">Replace</button><button class="nb s" data-da="frall">Replace all</button><label class="ck"><input type="checkbox" id="dfcs"><span>Match case</span></label><span id="dfn" class="mu"></span><span style="flex:1"></span><button class="nb s" data-da="fclose">Close</button></div>
+  <div id="dview"><div id="druler"></div><div id="dnavp" class="hidden"></div>
+   <div id="dscroll"><div id="dzw"><div id="dsheet"><div id="dhf"></div><div id="dedit" contenteditable="true" spellcheck="true" role="textbox" aria-multiline="true" aria-label="Document"></div></div></div>
+    <div id="dimgbox"><i data-h="nw" style="left:-6px;top:-6px;cursor:nwse-resize"></i><i data-h="ne" style="right:-6px;top:-6px;cursor:nesw-resize"></i><i data-h="sw" style="left:-6px;bottom:-6px;cursor:nesw-resize"></i><i data-h="se" style="right:-6px;bottom:-6px;cursor:nwse-resize"></i></div>
+    <div id="dimgbar"></div></div></div>
+  <div id="dstat"></div>
+ </div></div></div></div>
+<div id="ddlg" class="hidden"><div class="box" id="ddbox"></div></div>
+<div id="dpop" class="dpop hidden"></div>
+<input type="file" id="dfile" class="hidden"><input type="file" id="dimgf" accept="image/png,image/jpeg,image/gif,image/webp,image/svg+xml" class="hidden">
+
+<div class="tab" id="t-srv"><div class="sec"><div class="in"><h2 class="sh">Servers</h2><table class="tb" id="tb"></table><div style="text-align:center;margin-top:24px"><button class="nb" id="sinv">Add bot to a server</button></div></div></div></div>
 
 <div class="tab" id="t-comms"><div class="sec"><div class="in"><h2 class="sh">Messages</h2>
  <div class="chat"><div class="side" id="side"></div><div class="cm"><div class="chh f" id="chh">No channel selected</div><div class="msgs" id="msgs"></div><button id="jump" class="hidden">Jump to latest</button>
@@ -508,7 +544,7 @@ body.dediting #banner{display:none}
  <div class="row" style="margin-bottom:14px"><select id="cgs" style="width:240px"></select><input id="cq" placeholder="Search commands" style="flex:1;min-width:200px"></div><div class="row" id="cf" style="margin-bottom:8px"></div><div class="cg" id="cg"></div></div></div></div>
 
 <div class="tab" id="t-tools"><div class="sec"><div class="in"><h2 class="sh">Channels and backups</h2><div class="cg" style="margin-top:0">
- <div class="cd" id="cpn"><h3 class="f">Manage a channel</h3><select id="tc"></select><input id="tv" placeholder="Value (amount, seconds, or name)"><div class="row"><button class="nb s" data-b="purge">Purge</button><button class="nb s" data-b="slowmode">Slowmode</button><button class="nb s" data-b="lock">Lock</button><button class="nb s" data-b="unlock">Unlock</button><button class="nb s" data-b="rename">Rename</button><button class="nb s" data-b="topic">Set topic</button><button class="nb s" data-b="create">Create channel</button><button class="nb s d" data-b="delete">Delete</button></div></div>
+ <div class="cd" id="cpn"><h3 class="f">Manage a channel</h3><select id="tc"></select><input id="tv" placeholder="Value (amount, seconds, name, or a lock time like 30m or inf)"><div class="row"><button class="nb s" data-b="purge">Purge</button><button class="nb s" data-b="slowmode">Slowmode</button><button class="nb s" data-b="lock">Lock</button><button class="nb s" data-b="unlock">Unlock</button><button class="nb s" data-b="rename">Rename</button><button class="nb s" data-b="topic">Set topic</button><button class="nb s" data-b="create">Create channel</button><button class="nb s d" data-b="delete">Delete</button></div></div>
  <div class="cd" id="apn"><h3 class="f">Send an announcement</h3><select id="ac"></select><input id="atl" placeholder="Title"><textarea id="ads" rows="3" placeholder="Message" style="width:100%"></textarea><input id="acl" placeholder="Color (hex, e.g. #2b3a67)"><div class="row"><button class="nb s" data-b="embed">Send as embed</button><button class="nb s" data-b="plain">Send as plain text</button></div></div>
 </div><div id="bkbox"></div></div></div></div>
 
@@ -533,7 +569,7 @@ body.dediting #banner{display:none}
  <div class="tab" id="t-look"><div class="sec"><div class="in"><h2 class="sh">Member lookup</h2><div class="lks"><input id="lq" placeholder="Roblox username, Roblox ID or Discord user" autocomplete="off" spellcheck="false"><button class="nb big" id="lgo">Search</button></div><div id="lkres"></div></div></div></div>
 
  <div class="tab" id="t-appeals"><div class="sec"><div class="in"><h2 class="sh">Appeals</h2><div id="apbox"></div></div></div></div>
- <div class="tab" id="t-sched"><div class="sec"><div class="in"><h2 class="sh">Scheduled and info messages</h2><div id="schbox"></div><h2 class="sh" style="margin-top:46px">Rules and info messages</h2><div id="infobox"></div></div></div></div>
+ <div class="tab" id="t-sched"><div class="sec"><div class="in"><h2 class="sh">Scheduled and info messages</h2><div id="schbox"></div><h2 class="sh" style="margin-top:46px">Channel locks</h2><div id="lockbox"></div><h2 class="sh" style="margin-top:46px">Rules and info messages</h2><div id="infobox"></div></div></div></div>
  <div class="tab" id="t-logins"><div class="sec"><div class="in"><h2 class="sh">Login and action log</h2><div id="logbox"></div></div></div></div>
  <div class="tab" id="t-run"><div class="sec"><div class="in"><h2 class="sh">Run code</h2><div id="runbox"></div></div></div></div>
  <div class="tab" id="t-kills"><div class="sec"><div class="in"><h2 class="sh">Kill log</h2><div id="killbox"></div></div></div></div>
@@ -612,28 +648,7 @@ body.dediting #banner{display:none}
 <div class="mo hidden" id="fmo"><div><h3>Forward message</h3><div class="mu" id="fp"></div><select id="fs"></select><div class="row"><button class="nb s" id="fg">Forward</button><button class="nb s d" id="fx">Cancel</button></div></div></div>
 <div class="mo hidden" id="mmo"><div class="wide"><h3 id="mtl"></h3><div class="mu" id="mwho"></div><div><label class="mu">Reason template</label><select id="mtp"></select></div><div><label class="mu">Reason</label><textarea id="mr" rows="3" style="width:100%"></textarea></div><div id="mx"></div><div class="row"><button class="nb s" id="mok">Confirm</button><button class="nb s d" id="mno">Cancel</button></div></div></div>
 <div id="toast"></div>
-<div id="gmov" class="hidden"><div class="gmp"><div class="gmh"><h2>Game tools</h2><div class="gmtabs" id="gmtabs"><button data-gt="ann">Announcement</button><button data-gt="sd">Shut down servers</button><button data-gt="hist">History</button></div><button class="nb s" id="gmx">Close</button></div><div class="gmb" id="gmb"></div></div></div>
-<div class="tab" id="t-docs"><div class="sec"><div class="in">
- <div id="dlist"><h2 class="sh">Documents</h2>
-  <div class="row"><button class="nb" id="dnew">New blank document</button><button class="nb s" id="dimp">Open a file from this computer</button><span class="mu" style="font-size:13px">Opens .docx, .html, .md and .txt files</span></div>
-  <div class="dtpl" id="dtpl"></div>
-  <div class="dgrid" id="dgrid"></div></div>
- <div id="dedv" class="hidden">
-  <div class="dtop"><button class="nb s" id="dback">All documents</button><input id="dtitle" maxlength="120" spellcheck="false" aria-label="Document name"><span id="dsave" class="mu"></span><span style="flex:1"></span><button class="nb s" data-da="x:pdf">Download PDF</button><button class="nb s" data-da="x:docx">Download Word</button></div>
-  <div class="dmenus" id="dmenus"></div>
-  <div class="dtool" id="dtool"></div>
-  <div class="dtool dttbl hidden" id="dttbl"></div>
-  <div class="dfind hidden" id="dfind"><input id="dfq" placeholder="Find" autocomplete="off"><input id="dfr" placeholder="Replace with" autocomplete="off"><button class="nb s" data-da="fprev">Previous</button><button class="nb s" data-da="fnext">Next</button><button class="nb s" data-da="frep">Replace</button><button class="nb s" data-da="frall">Replace all</button><label class="ck"><input type="checkbox" id="dfcs"><span>Match case</span></label><span id="dfn" class="mu"></span><span style="flex:1"></span><button class="nb s" data-da="fclose">Close</button></div>
-  <div id="dview"><div id="druler"></div>
-   <div id="dscroll"><div id="dzw"><div id="dsheet"><div id="dhf"></div><div id="dedit" contenteditable="true" spellcheck="true" role="textbox" aria-multiline="true" aria-label="Document"></div></div></div>
-    <div id="dimgbox"><i data-h="nw" style="left:-6px;top:-6px;cursor:nwse-resize"></i><i data-h="ne" style="right:-6px;top:-6px;cursor:nesw-resize"></i><i data-h="sw" style="left:-6px;bottom:-6px;cursor:nesw-resize"></i><i data-h="se" style="right:-6px;bottom:-6px;cursor:nwse-resize"></i></div>
-    <div id="dimgbar"></div></div></div>
-  <div id="dstat"></div>
- </div></div></div></div>
-<div id="ddlg" class="hidden"><div class="box" id="ddbox"></div></div>
-<div id="dpop" class="dpop hidden"></div>
-<input type="file" id="dfile" class="hidden"><input type="file" id="dimgf" accept="image/png,image/jpeg,image/gif,image/webp,image/svg+xml" class="hidden">
-
+<div id="gmov" class="hidden"><div class="gmp"><div class="gmh"><h2>Game tools</h2><div class="gmtabs" id="gmtabs"><button data-gt="ann">Announcement</button><button data-gt="sd">Shut down servers</button><button data-gt="ban">Game bans</button><button data-gt="hist">History</button></div><button class="nb s" id="gmx">Close</button></div><div class="gmb" id="gmb"></div></div></div>
 <script>
 const BACKEND="https://usaf-bot.onrender.com"; // after the bot is deployed, put its Render address between the quotes, like "https://usaf-bot.onrender.com"
 const $=i=>document.getElementById(i),esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -680,7 +695,7 @@ const BKCFG={auto:true,every:24,channel:null,members:true};
 const NKC={on:false,window:30,action:"strip",limits:{channelDelete:3,channelCreate:6,roleDelete:3,roleCreate:6,ban:5,kick:5,webhook:5},trusted:[],blockBots:true,lockdown:false,autoRestore:true};
 const NKLOG=[];
 const FRZM={active:false};const GMLOG=[{id:"a",at:Date.now()-36e5,kind:"announce",target:"both",by:"SpazzReal",who:"Dashboard",title:"Operation briefing tonight",results:["Discord: sent","Roblox: sent"]}],GMCH={v:null};
-const ACTLOG=[{id:"a1",time:Date.now()-36e5,ok:true,summary:"Member action \"ban\" on 12345678901234567: Raiding",ip:"203.0.113.10"},{id:"a2",time:Date.now()-5*36e5,ok:true,summary:"Changed automod: raid",ip:"203.0.113.10"},{id:"a3",time:Date.now()-9*36e5,ok:false,summary:"Sent a message as the bot",ip:"203.0.113.10"}];
+const ACTLOG=[{id:"a1",time:Date.now()-36e5,ok:true,summary:"Member action \"ban\" on 12345678901234567: Raiding",ip:"203.0.113.10",undoLabel:"Unban 12345678901234567"},{id:"a2",time:Date.now()-5*36e5,ok:true,summary:"Changed automod: raid",ip:"203.0.113.10",undoLabel:"Put the old settings back"},{id:"a3",time:Date.now()-9*36e5,ok:false,summary:"Sent a message as the bot",ip:"203.0.113.10"}];
 const EVDC={config:{on:false,action:"flag"},known:3,rowifi:true};
 const PROBC={on:true,hours:24,links:true,invites:true,attachments:true,mentions:5,action:"delete",minutes:10,role:null,exemptRole:null};
 const TRLS=[{id:"t1",uid:"u4",name:"Nguyen_K",roleId:"r4",roleName:"Moderator",until:Date.now()+2*864e5,by:"Becker_T"}];
@@ -919,7 +934,7 @@ const TH_ACTS=[["warn","Warn"],["timeout","Time out"],["kick","Kick"],["ban","Ba
 const AM={enabled:true,logChannel:"c6",
  modules:{spam:{on:true,action:"timeout",minutes:10,max:5,seconds:5},duplicate:{on:true,action:"warn",max:3,seconds:30},links:{on:true,action:"warn",allow:["youtube.com","roblox.com","discord.com"]},mentions:{on:true,action:"timeout",minutes:30,max:5},caps:{on:false,action:"delete",percent:70,minLength:12},invites:{on:true,action:"warn",allowOwn:true},scam:{on:true,action:"timeout",minutes:1440,domains:["free-nitro-gift.example","disc0rd-gifts.example"]}},
  exempt:{roles:["r1","r3"],channels:["c6"]},
- thresholds:[{warns:3,action:"timeout",minutes:60},{warns:5,action:"kick"},{warns:7,action:"tempban",minutes:4320}],
+ thresholds:[{warns:3,action:"timeout",minutes:60},{warns:5,action:"kick"},{warns:7,action:"tempban",minutes:4320}],strike:{on:true,expireDays:0},
  words:[{id:"w1",pattern:"free nitro",match:"contains",action:"delete",minutes:0,on:true},{id:"w2",pattern:"giveaway scam",match:"contains",action:"warn",minutes:0,on:true},{id:"w3",pattern:"nsfw",match:"word",action:"timeout",minutes:30,on:true}],
  raid:{raidmode:false,joingate:7,autoRaid:true,joins:10,seconds:30}};
 let WID=500;
@@ -938,14 +953,15 @@ const _mockBase=mockApiBase;
 function mockApi(p,m,b){
  const u=new URL(p,"http://x"),path=u.pathname;let x;b=b||{};
  const out=v=>new Promise(r=>setTimeout(()=>r(JSON.parse(JSON.stringify(v))),40));
- if(x=path.match(/^\/api\/docs(?:\/([\w-]+))?$/)){window.DOCSM=window.DOCSM||{};const M=window.DOCSM;
-  if(!x[1])return out(Object.values(M).map(d=>({id:d.id,title:d.title,updated:d.updated,words:d.words,created:d.created})));
-  if(m==="PUT"){M[x[1]]=Object.assign({},b,{id:x[1]});return out({ok:true})}
+ if(x=path.match(/^\/api\/docs(?:\/([\w-]+))?(\/share)?$/)){window.DOCSM=window.DOCSM||{};const M=window.DOCSM;
+  if(x[2]){const d=M[x[1]];if(!d)return Promise.reject(new Error("Save the document first"));d.share=b.on===false?undefined:(d.share||Math.random().toString(36).slice(2)+Math.random().toString(36).slice(2));return out({token:d.share||null})}
+  if(!x[1])return out(Object.values(M).map(d=>({id:d.id,title:d.title,updated:d.updated,words:d.words,created:d.created,tpl:!!d.tpl,shared:!!d.share,locked:d.lock?d.lock.mode:null})));
+  if(m==="PUT"){const o=M[x[1]];M[x[1]]=Object.assign({},b,{id:x[1],share:o&&o.share});return out({ok:true})}
   if(m==="DELETE"){delete M[x[1]];return out({ok:true})}
-  return M[x[1]]?out(M[x[1]]):Promise.reject(new Error("Not found"))}
+  return M[x[1]]?out(Object.assign({},M[x[1]],{shared:!!M[x[1]].share})):Promise.reject(new Error("Not found"))}
  if(x=path.match(/^\/api\/guilds\/\w+\/(automod|warnings|violations|joins)(?:\/(\w+))?(?:\/(\w+))?$/)){
   const k=x[1];
-  if(k==="automod"){if(m==="POST"){["modules","exempt","raid","thresholds","words"].forEach(s=>{if(b[s]!==undefined)AM[s]=b[s]});if(b.enabled!==undefined)AM.enabled=b.enabled;if(b.logChannel!==undefined)AM.logChannel=b.logChannel;return out({ok:true})}return out(AM)}
+  if(k==="automod"){if(m==="POST"){["modules","exempt","raid","thresholds","words","strike"].forEach(s=>{if(b[s]!==undefined)AM[s]=b[s]});if(b.enabled!==undefined)AM.enabled=b.enabled;if(b.logChannel!==undefined)AM.logChannel=b.logChannel;return out({ok:true})}return out(AM)}
   if(k==="warnings"){
    if(m==="POST"&&x[3]==="clear"){const i=WARN.findIndex(w=>w.userId===x[2]);if(i>=0)WARN.splice(i,1);return out({ok:true})}
    if(m==="DELETE"){const w=WARN.find(w=>w.userId===x[2]);if(w){w.items=w.items.filter(i=>i.id!==x[3]);if(!w.items.length)WARN.splice(WARN.indexOf(w),1)}return out({ok:true})}
@@ -955,6 +971,13 @@ function mockApi(p,m,b){
  }
  if(path.match(/^\/api\/guilds\/\w+\/appeals\/config$/)){if(m==="POST"){["channel","on","form"].forEach(k=>{if(b[k]!==undefined)APCFG[k]=b[k]});return out({ok:true})}return out(APCFG)}
  if(x=path.match(/^\/api\/guilds\/\w+\/appeals(?:\/(\d+)\/decision)?$/)){if(x[1]){const a=APPS.find(z=>z.n===+x[1]);if(a){a.status=b.status;a.decidedBy="Dashboard";a.note=b.note||"";a.decidedAt=Date.now()}return out({ok:true})}return out(APPS.slice().reverse())}
+ if(x=path.match(/^\/api\/guilds\/\w+\/locks(?:\/(unlock|schedule))?(?:\/(\w+))?$/)){window.LKM=window.LKM||{active:[],schedule:[]};const M=window.LKM;
+  const dur=v=>{v=String(v||"").trim();if(!v||/^(inf|forever|0)$/i.test(v))return null;const q=/^(\d+)\s*([mhdw])?$/i.exec(v);if(!q)return undefined;return +q[1]*{m:6e4,h:36e5,d:864e5,w:6048e5}[(q[2]||"m").toLowerCase()]};
+  if(!x[1]){if(m==="POST"){const ms=dur(b.time);if(ms===undefined)return Promise.reject(new Error("Time must look like 30m, 2h, 1d or inf."));(b.channels||[]).forEach(c=>{const ch=gInfo().channels.find(z=>z.id===c);M.active=M.active.filter(a=>a.channel!==c);M.active.push({channel:c,name:ch?ch.name:"deleted",by:"Dashboard",reason:b.reason||"",at:Date.now(),until:ms?Date.now()+ms:null,scheduled:false})});return out({done:b.channels||[],failed:[]})}return out(M)}
+  if(x[1]==="unlock"){M.active=M.active.filter(a=>!(b.channels||[]).includes(a.channel));return out({done:b.channels,failed:[]})}
+  if(m==="DELETE"){M.schedule=M.schedule.filter(s=>s.id!==x[2]);return out({ok:true})}
+  if(!(b.channels||[]).length)return Promise.reject(new Error("Pick at least one channel."));const d=dur(b.duration);if(d===undefined)return Promise.reject(new Error("Time must look like 30m, 2h, 1d or inf."));
+  let s=b.id&&M.schedule.find(z=>z.id===b.id);if(!s){s={id:"k"+Date.now(),runs:0};M.schedule.push(s)}Object.assign(s,{channels:b.channels,at:b.at,duration:d,repeat:b.repeat,reason:b.reason||"",on:b.on!==false,status:"pending"});return out(s)}
  if(x=path.match(/^\/api\/guilds\/\w+\/schedule(?:\/(\w+))?$/)){if(m==="DELETE"){const i=SCHED.findIndex(z=>z.id===x[1]);if(i>=0)SCHED.splice(i,1);return out({ok:true})}
   if(m==="POST"){if(!b.channel)return Promise.reject(new Error("Pick a channel."));if(!b.content&&!(b.embed&&(b.embed.title||b.embed.desc)))return Promise.reject(new Error("Write a message or fill in the embed."));if(b.at<Date.now()-6e4&&b.repeat==="none")return Promise.reject(new Error("That time has already passed. Pick a time in the future."));
    let s=b.id&&SCHED.find(z=>z.id===b.id);if(!s){s={id:"s"+Date.now(),runs:0,created:Date.now()};SCHED.push(s)}Object.assign(s,{channel:b.channel,content:b.content||"",embed:b.embed||null,at:b.at,repeat:b.repeat,status:"pending",lastError:""});return out(s)}
@@ -984,12 +1007,17 @@ function mockApi(p,m,b){
   if(m==="POST"){if(!b.channel)return Promise.reject(new Error("Pick a channel."));let i=INFOS.find(z=>z.id===b.id);if(!i){i={id:"i"+Date.now()};INFOS.push(i)}Object.assign(i,b,{color:String(b.color).replace("#","")});if(b.post!==false){i.messageId="m"+Date.now();i.postedAt=Date.now();i.url="https://discord.com/channels/1/1/4";i.postedIn=b.channel}return out(i)}
   return out(INFOS)}
  if(path.match(/^\/api\/guilds\/\w+\/(freeze|unfreeze)$/)){if(path.endsWith("/unfreeze")){FRZM.active=false;return out({steps:[]})}if(m==="POST"){Object.assign(FRZM,{active:true,by:"Dashboard",reason:b.reason||"",at:Date.now(),until:Date.now()+b.minutes*6e4,steps:{invites:"done",raid:"done",lockdown:"done"}});return out(FRZM)}return out(FRZM)}
- if(path.match(/^\/api\/guilds\/\w+\/game$/))return out({ready:true,channel:GMCH.v,log:GMLOG});
+ window.GMB=window.GMB||{sync:false,bans:[]};
+ if(path.match(/^\/api\/guilds\/\w+\/game$/))return out({ready:true,channel:GMCH.v,log:GMLOG,sync:GMB.sync,bans:GMB.bans});
+ if(path.match(/\/game\/ban$/)){GMB.bans.unshift({id:String(1000+GMB.bans.length),name:b.username,reason:b.reason,by:"Dashboard",at:Date.now(),until:b.duration==="inf"?null:Date.now()+864e5,src:"manual"});GMLOG.unshift({id:"b"+Date.now(),at:Date.now(),kind:"gameban",by:"Dashboard",who:"Dashboard",title:b.username+": "+b.reason,results:["Permanent"]});return out({name:b.username,kicked:true})}
+ if(path.match(/\/game\/unban$/)){GMB.bans=GMB.bans.filter(x=>x.id!==b.username&&x.name!==b.username);return out({ok:true})}
+ if(path.match(/\/game\/sync$/)){GMB.sync=!!b.on;return out({ready:true,channel:GMCH.v,log:GMLOG,sync:GMB.sync,bans:GMB.bans})}
  if(path.match(/\/game\/config$/)){GMCH.v=b.channel||null;return out({ready:true,channel:GMCH.v,log:GMLOG})}
  if(path.match(/\/announce$/)){if(/^nobody$/i.test(b.username))return Promise.reject(new Error("I couldn't find a Roblox user called "+b.username+"."));const res=[];if(b.target!=="roblox")res.push({where:"Discord",ok:true,note:"#announcements"});if(b.target!=="discord")res.push({where:"Roblox",ok:true,note:"Sent to every running server."});GMLOG.unshift({id:"n"+Date.now(),at:Date.now(),kind:"announce",target:b.target,by:b.username,who:"Dashboard",title:(b.roblox&&b.roblox.title)||(b.embed&&b.embed.title)||"",results:res.map(x=>x.where+": sent")});return out({results:res,as:b.username})}
  if(path.match(/\/game\/shutdown$/)){GMLOG.unshift({id:"s"+Date.now(),at:Date.now(),kind:"shutdown",target:"",by:b.username,who:"Dashboard",title:b.reason,results:["Countdown "+b.seconds+"s"]});return out({secs:b.seconds,lock:b.lock,reason:b.reason})}
  if(path.match(/\/game\/cancel$/))return out({ok:true})
  if(path==="/api/action-log")return out(ACTLOG);
+ if(/^\/api\/actions\/\w+\/undo$/.test(path)){const a=ACTLOG.find(z=>path.includes("/"+z.id+"/"));if(a){delete a.undoLabel;a.undone=Date.now();ACTLOG.unshift({id:"u"+Date.now(),time:Date.now(),ok:true,summary:"Undid an earlier action",ip:"203.0.113.10"})}return out({ok:true,message:"Done."})}
  if(path==="/api/login-log")return out(LOGINS);
  if(path==="/api/run/languages")return out(["javascript","node","python","bash","ruby","perl","php","lua"].map(i=>({id:i,label:{javascript:"JavaScript (bot session: client, guild, discord ready)",node:"Node.js (standalone script)",python:"Python",bash:"Bash",ruby:"Ruby",perl:"Perl",php:"PHP",lua:"Lua"}[i],available:i!=="lua",note:i==="python"?"discord.py 2.4.0 is installed.":undefined})));
  if(path==="/api/run/history")return out(RUNH);
@@ -1149,6 +1177,16 @@ const GE={tab:"ann",target:"both",username:"",channel:"",ping:"",content:"",useE
  r:{same:true,title:"",text:"",secs:12},sd:{reason:"Server maintenance",secs:60,lock:0}};
 let GST={ready:false,channel:null,log:[]},GROLES=[],GRES=null;
 const gPlain=s=>String(s||"").replace(/```[a-z]*\n?/gi,"").replace(/\[([^\]]+)\]\([^)]+\)/g,"$1").replace(/<[@#][!&]?\d+>/g,"").replace(/[*_~`>|]/g,"").replace(/\n{3,}/g,"\n\n").trim();
+GE.bn={username:"",duration:"inf",reason:"",alts:true};
+function gmBan(){const b=GE.bn,list=GST.bans||[];
+ return `<p style="margin-bottom:18px">${gmStatus()}</p><div class="gms"><h3>Ban a player from the game</h3><p class="mu" style="margin-bottom:14px">The player is removed from every running server at once and cannot rejoin until the ban ends. Needs the Roblox API key to include the user restriction permission (see the update guide).</p>
+ <div class="form">${gi("Roblox username",'data-bn="username" maxlength="20"',b.username,"The account to ban","")}
+ <div><label>Length</label><select data-bn="duration">${[["inf","Permanent"],["1h","1 hour"],["1d","1 day"],["3d","3 days"],["7d","7 days"],["14d","14 days"],["30d","30 days"],["90d","90 days"]].map(o=>`<option value="${o[0]}" ${b.duration===o[0]?"selected":""}>${o[1]}</option>`).join("")}</select></div>
+ ${gi("Reason (the player sees this)",'data-bn="reason" maxlength="200"',b.reason,"","class=\"w\"")}
+ <label class="ck w"><input type="checkbox" data-bn="alts" ${b.alts?"checked":""}><span>Also block their alternate accounts</span></label></div>
+ <div class="row" style="margin-top:16px"><button class="nb d" data-gact="ban">Ban from the game</button></div><div class="gmres" id="gres">${GRES||""}</div></div>
+ <div class="gms"><h3>Keep Discord bans and the game in step</h3><label class="ck"><input type="checkbox" data-gsync ${GST.sync?"checked":""}><span>When someone with a linked Roblox account is banned or unbanned in Discord through this bot, do the same in the game</span></label></div>
+ <h3 class="f" style="margin:22px 0 10px">Banned from here (${list.length})</h3><div class="pnl" style="overflow:auto"><table><thead><tr><th>Player</th><th>Ends</th><th>Reason</th><th>By</th><th></th></tr></thead><tbody>${list.map(l=>`<tr><td><b>${esc(l.name)}</b><div class="mu mono">${esc(l.id)}</div></td><td>${l.until?zT(l.until):"Never"}</td><td>${esc(l.reason)}</td><td>${esc(l.by)}${l.src==="sync"?' <span class="pill">Synced</span>':""}</td><td><button class="nb s" data-gun="${esc(l.id)}">Lift ban</button></td></tr>`).join("")||'<tr><td colspan="5" class="mu">No game bans made through the bot yet. Bans made inside Roblox are not listed here.</td></tr>'}</tbody></table></div>`}
 function gmd(t){const L=[];t=String(t||"").replace(/\[([^\]\n]+)\]\((https?:\/\/[^)\s]+)\)/g,(_,x,u)=>{L.push([x,u]);return "\u0001"+(L.length-1)+"\u0001"});return md(t).replace(/\u0001(\d+)\u0001/g,(_,i)=>`<a href="${esc(L[i][1])}" target="_blank" rel="noopener noreferrer">${esc(L[i][0])}</a>`)}
 const rbT=()=>GE.r.same?{title:GE.e.title,text:gPlain(GE.e.description)}:{title:GE.r.title,text:GE.r.text};
 async function gmOpen(tab){const g=curG();if(!g)return toast("The bot is not in a server yet");
@@ -1159,7 +1197,7 @@ function gmClose(){$("gmov").classList.add("hidden");document.body.style.overflo
 function gmStatus(){return GST.ready?`<span class="pill g">Roblox connected</span>`:`<span class="pill a">Roblox not connected</span> <span class="mu">Add ROBLOX_API_KEY and ROBLOX_UNIVERSE_ID on Render to use the Roblox side. Discord still works.</span>`}
 function gmR(){document.querySelectorAll("#gmtabs button").forEach(b=>b.classList.toggle("on",b.dataset.gt===GE.tab));
  const b=$("gmb");
- if(GE.tab==="ann")b.innerHTML=gmAnn();else if(GE.tab==="sd")b.innerHTML=gmSd();else b.innerHTML=gmHist();
+ if(GE.tab==="ann")b.innerHTML=gmAnn();else if(GE.tab==="sd")b.innerHTML=gmSd();else if(GE.tab==="ban")b.innerHTML=gmBan();else b.innerHTML=gmHist();
  if(GE.tab==="ann")gmPrev()}
 const gi=(label,attr,val,ph,more)=>`<div ${more||""}><label>${label}</label><input ${attr} value="${esc(val||"")}" placeholder="${esc(ph||"")}"></div>`;
 function gmAnn(){const e=GE.e,d=GE.target!=="roblox",r=GE.target!=="discord",rt=rbT();
@@ -1209,27 +1247,30 @@ function gmSd(){const s=GE.sd;return `<p style="margin-bottom:18px">${gmStatus()
  <div><label>Keep new servers closed for</label><select data-sd="lock">${[[0,"Do not close them"],[5,"5 minutes"],[10,"10 minutes"],[30,"30 minutes"],[60,"1 hour"],[180,"3 hours"]].map(o=>`<option value="${o[0]}" ${+s.lock===o[0]?"selected":""}>${o[1]}</option>`).join("")}</select></div></div>
  <div class="row" style="margin-top:16px"><button class="nb d" data-gact="sd">Shut down all servers</button><button class="nb s" data-gact="sdc">Cancel a shutdown in progress</button></div><div class="gmres" id="gres">${GRES||""}</div></div></div>
  <div class="gmprev"><div><h4>What players see</h4><div class="rbn" style="border-left-color:#d84a56"><b>Server shutdown</b><p>${esc(s.reason)}</p><small style="color:#d84a56;font-weight:700;font-size:15px">${+s.secs?"Servers close in "+s.secs+" seconds":"Closing now"}</small><small>Announced by ${esc(GE.username||"your username")}</small></div></div></div></div>`}
-function gmHist(){return `<h3 class="f" style="margin-bottom:12px">Sent from here and from Discord</h3><div class="pnl" style="overflow:auto"><table><thead><tr><th>When</th><th>What</th><th>Who</th><th>Title</th><th>Result</th></tr></thead><tbody>${(GST.log||[]).map(l=>`<tr><td class="mono" style="white-space:nowrap">${zT(l.at)}</td><td>${{announce:"Announcement ("+esc(l.target)+")",shutdown:"Shutdown",cancel:"Shutdown cancelled"}[l.kind]||esc(l.kind)}</td><td>${esc(l.by)}<div class="mu" style="font-size:12px">via ${esc(l.who||"")}</div></td><td>${esc(l.title||"")}</td><td class="mu">${(l.results||[]).map(esc).join("<br>")}</td></tr>`).join("")||'<tr><td class="mu" colspan="5">Nothing has been sent yet.</td></tr>'}</tbody></table></div>`}
+function gmHist(){return `<h3 class="f" style="margin-bottom:12px">Sent from here and from Discord</h3><div class="pnl" style="overflow:auto"><table><thead><tr><th>When</th><th>What</th><th>Who</th><th>Title</th><th>Result</th></tr></thead><tbody>${(GST.log||[]).map(l=>`<tr><td class="mono" style="white-space:nowrap">${zT(l.at)}</td><td>${{announce:"Announcement ("+esc(l.target)+")",shutdown:"Shutdown",cancel:"Shutdown cancelled",gameban:"Game ban",gameunban:"Game ban lifted"}[l.kind]||esc(l.kind)}</td><td>${esc(l.by)}<div class="mu" style="font-size:12px">via ${esc(l.who||"")}</div></td><td>${esc(l.title||"")}</td><td class="mu">${(l.results||[]).map(esc).join("<br>")}</td></tr>`).join("")||'<tr><td class="mu" colspan="5">Nothing has been sent yet.</td></tr>'}</tbody></table></div>`}
 function gmRes(r){GRES=r.map(x=>`<div class="${x.ok?"":"x"}"><b>${esc(x.where)}:</b> ${x.ok?"Sent":"Failed"}. ${esc(x.note||"")}</div>`).join("");const e=$("gres");if(e)e.innerHTML=GRES}
 function gmBind(){
  $("gmx").onclick=gmClose;
  $("gmov").addEventListener("mousedown",e=>{if(e.target.id==="gmov")gmClose()});
  document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!$("gmov").classList.contains("hidden"))gmClose()});
- $("gmtabs").onclick=async e=>{const t=e.target.dataset.gt;if(!t)return;if(t==="hist")GST=await soft(api(`/api/guilds/${curG()}/game`),GST);GE.tab=t;GRES=null;gmR()};
+ $("gmtabs").onclick=async e=>{const t=e.target.dataset.gt;if(!t)return;if(t==="hist"||t==="ban")GST=await soft(api(`/api/guilds/${curG()}/game`),GST);GE.tab=t;GRES=null;gmR()};
  $("gmb").addEventListener("input",e=>{const x=e.target,d=x.dataset;
   if(d.g){GE[d.g]=x.type==="checkbox"?x.checked:x.value;if(d.g==="username"){document.querySelectorAll('[data-g="username"]').forEach(z=>{if(z!==x)z.value=x.value});const sm=$("gmb").querySelector(".rbn small:last-child");if(sm&&GE.tab==="sd")sm.textContent="Announced by "+(x.value||"your username")}if(d.g==="useEmbed"){gmR();return}}
   if(d.e){if(x.type==="checkbox")GE.e[d.e]=x.checked;else{GE.e[d.e]=x.value;if(d.e==="color")document.querySelectorAll('[data-e="color"]').forEach(z=>{if(z!==x)z.value=x.value})}}
   if(d.r){if(x.type==="checkbox"){GE.r.same=x.checked;gmR();return}GE.r[d.r]=x.value;if(d.r==="text"&&$("rcnt"))$("rcnt").textContent=x.value.length}
+  if(d.bn){GE.bn[d.bn]=x.type==="checkbox"?x.checked:x.value;return}
   if(d.sd){GE.sd[d.sd]=x.value;if(d.sd==="reason"){const p=$("gmb").querySelector(".rbn p");if(p)p.textContent=x.value}return}
   if(d.fi!==undefined){const f=GE.e.fields[+d.fi];f[d.fk]=x.type==="checkbox"?x.checked:x.value}
   gmPrev()});
- $("gmb").addEventListener("change",e=>{if(e.target.dataset.sd)gmR()});
+ $("gmb").addEventListener("change",async e=>{if(e.target.dataset.sd)gmR();if(e.target.dataset.gsync!==undefined){const r=await T(()=>api(`/api/guilds/${curG()}/game/sync`,"POST",{on:e.target.checked}),e.target.checked?"Game ban sync on":"Game ban sync off");if(r)GST=r}});
  $("gmb").addEventListener("click",async e=>{const x=e.target.closest("button");if(!x)return;const d=x.dataset;
   if(d.gtg){GE.target=d.gtg;GRES=null;gmR();return}
   if(d.gfm){const[i,m]=d.gfm.split(":"),a=GE.e.fields,k=+i;if(m==="x")a.splice(k,1);else{const j=k+ +m;if(j<0||j>=a.length)return;[a[k],a[j]]=[a[j],a[k]]}gmR();return}
   if(d.gup){const inp=document.createElement("input");inp.type="file";inp.accept="image/png,image/jpeg,image/gif,image/webp";inp.onchange=()=>{const f=inp.files[0];if(!f)return;if(f.size>8e6)return toast("That image is over 8 MB");const r=new FileReader();r.onload=()=>{GE.e[d.gup]={name:f.name,data:r.result};gmR()};r.readAsDataURL(f)};inp.click();return}
   if(d.gdel){GE.e[d.gdel]=null;gmR();return}
+  if(d.gun){if(!confirm("Lift this game ban?"))return;const r=await T(()=>api(`/api/guilds/${curG()}/game/unban`,"POST",{username:d.gun}),"Game ban lifted");if(r){GST=await soft(api(`/api/guilds/${curG()}/game`),GST);gmR()}return}
   const a=d.gact;if(!a)return;const g=curG();
+  if(a==="ban"){const b=GE.bn;if(!b.username.trim())return toast("Enter the Roblox username");if(!b.reason.trim())return toast("Write a reason");if(!confirm(`Ban ${b.username.trim()} from the game ${b.duration==="inf"?"permanently":"for "+b.duration}?`))return;x.disabled=true;const r=await T(()=>api(`/api/guilds/${g}/game/ban`,"POST",{username:b.username.trim(),duration:b.duration,reason:b.reason.trim(),alts:b.alts}));x.disabled=false;if(r){GRES=`<div><b>${esc(r.name)}:</b> banned. ${r.kicked?"Removed from running servers.":"Could not reach running servers, the ban applies when they rejoin."}</div>`;GST=await soft(api(`/api/guilds/${g}/game`),GST);b.username="";gmR()}return}
   if(a==="addf"){GE.e.fields.push({name:"",value:"",inline:false});gmR();return}
   if(a==="reset"){if(!confirm("Clear everything you typed?"))return;const u=GE.username,c=GE.channel;GE.content="";GE.ping="";Object.assign(GE.e,{color:"#4a68e8",authorName:"",authorUrl:"",authorIcon:"",title:"",url:"",description:"",thumbnail:"",image:"",thumbFile:null,imageFile:null,fields:[],footerText:"",footerIcon:"",timestamp:false});GE.r={same:true,title:"",text:"",secs:12};GE.username=u;GE.channel=c;GRES=null;gmR();return}
   if(a==="defch"){if(!GE.channel)return toast("Pick a channel first");const r=await T(()=>api(`/api/guilds/${g}/game/config`,"POST",{channel:GE.channel}),"Saved as the default channel");if(r)GST=r;return}
@@ -1431,14 +1472,28 @@ function raidR(){const r=RW;
 async function saveRaid(msg){const g=curG(),b=clone(RW);delete b._j;const r=await T(()=>api(`/api/guilds/${g}/automod`,"POST",{raid:b}),msg||"Raid settings saved");if(r)loadRaid()}
 
 /* ---------- Warnings ---------- */
-let WTH=null,WLIST=[],WOPEN=null;
+let WTH=null,WLIST=[],WOPEN=null,WSTR={on:true,expireDays:0},WROLES=[];
+const TH_ACTS2=[["timeout","Time out"],["kick","Kick"],["ban","Ban"],["tempban","Temporary ban"],["role","Give a role"],["removerole","Remove a role"]];
+const thDef=()=>({id:"r"+Math.random().toString(36).slice(2,8),name:"",on:true,warns:(WTH.length?WTH[WTH.length-1].warns:0)+2,action:"timeout",minutes:60,role:"",window:0,every:0,reason:"",dm:true});
+function thFire(list,str,n){/* the same rule the bot uses, for the test box */const out=[];if(!str.on)return out;list.forEach(t=>{if(t.on===false)return;if(n===t.warns||(t.every>0&&n>t.warns&&(n-t.warns)%t.every===0))out.push(t)});return out}
+const thText=t=>(TH_ACTS2.find(a=>a[0]===t.action)||[0,t.action])[1].toLowerCase()+(/timeout|tempban/.test(t.action)?" for "+t.minutes+" min":"")+(/role/.test(t.action)?" ("+((WROLES.find(r=>r.id===t.role)||{}).name||"no role chosen")+(t.action==="role"&&t.minutes>0?", "+t.minutes+" min":"")+")":"");
 async function loadWarn(){const g=curG();if(!g)return noGuild("warnbox");
- const[am,wl]=await Promise.all([T(()=>api(`/api/guilds/${g}/automod`)),soft(api(`/api/guilds/${g}/warnings`),[])]);if(!am)return;WTH=clone(am.thresholds||[]);WLIST=wl;warnR()}
-function warnR(){const q=($("wq")?$("wq").value:"").toLowerCase();
+ const[am,wl,ro]=await Promise.all([T(()=>api(`/api/guilds/${g}/automod`)),soft(api(`/api/guilds/${g}/warnings`),[]),soft(api(`/api/guilds/${g}/roles`),[])]);if(!am)return;WTH=clone(am.thresholds||[]).map(t=>Object.assign({on:true,name:"",role:"",window:0,every:0,reason:"",dm:true,minutes:60},t));WSTR=Object.assign({on:true,expireDays:0},am.strike||{});WROLES=ro||[];WLIST=wl;warnR()}
+function thSim(){const e=$("thtest");if(!e)return;const n=Math.max(1,+e.value||1),hit=thFire(WTH,WSTR,n);$("thsim").innerHTML=hit.length?hit.map(t=>`<div>At ${n} warnings: ${esc(thText(t))}${t.window?" (counting the last "+t.window+" days)":""}</div>`).join(""):`<div>Nothing happens at ${n} warning${n===1?"":"s"}.</div>`}
+function warnR(){warnR0();thSim()}
+function warnR0(){const q=($("wq")?$("wq").value:"").toLowerCase();
  const L=WLIST.filter(w=>w.name.toLowerCase().includes(q)).sort((a,b)=>b.total-a.total);
- $("warnbox").innerHTML=`<h3 class="disp" style="font-size:20px;margin-bottom:6px">Escalation thresholds</h3><p class="mu" style="margin-bottom:14px">When a member reaches this many warnings, the bot takes the action automatically.</p>
- <table class="tb" id="thT"><thead><tr><th style="width:140px">Warnings</th><th>Action</th><th style="width:150px">Minutes</th><th class="r"></th></tr></thead><tbody>${WTH.map((t,i)=>`<tr><td><input type="number" min="1" data-k="${i}.warns" value="${esc(t.warns)}"></td><td>${actSel(i+".action",t.action,TH_ACTS)}</td><td><div class="mins ${/timeout|tempban/.test(t.action)?"":"hidden"}"><input type="number" min="1" data-k="${i}.minutes" value="${esc(t.minutes||60)}"></div></td><td class="r"><button class="nb s d" data-th="del" data-i="${i}">Remove</button></td></tr>`).join("")||'<tr><td colspan="4" class="mu" style="padding:20px">No thresholds. Warnings never escalate on their own.</td></tr>'}</tbody></table>
- <div class="row" style="margin:14px 0 40px"><button class="nb" data-th="add">Add threshold</button><button class="nb hot" data-th="save">Save thresholds</button></div>
+ $("warnbox").innerHTML=`<h3 class="disp" style="font-size:20px;margin-bottom:6px">Strike rules</h3><p class="mu" style="margin-bottom:14px">Rules the bot applies by itself when a member's warning count reaches a number. Several rules can fire together, for example a time out and a role. Every part of a rule can be changed. Up to 20 rules.</p>
+ <div class="form" style="margin-bottom:16px"><div><label>Strike rules</label><select data-sg="on"><option value="1" ${WSTR.on!==false?"selected":""}>On</option><option value="0" ${WSTR.on===false?"selected":""}>Off (warnings never escalate)</option></select></div><div><label>Warnings expire after this many days (0 = never)</label><input type="number" min="0" max="365" data-sg="expireDays" value="${esc(WSTR.expireDays||0)}"></div></div>
+ ${WTH.map((t,i)=>`<div class="strk" style="border:1px solid var(--ln);background:#0a1130;padding:14px;margin-bottom:12px;${t.on===false?"opacity:.6":""}"><div class="row" style="margin-bottom:10px;flex-wrap:wrap"><label class="ck"><input type="checkbox" data-k="${i}.on" ${t.on!==false?"checked":""}><span>Rule is on</span></label><input data-k="${i}.name" placeholder="Name for this rule (optional)" value="${esc(t.name||"")}" style="max-width:280px"><span style="flex:1"></span><button class="nb s" data-th="up" data-i="${i}">Move up</button><button class="nb s" data-th="dn" data-i="${i}">Move down</button><button class="nb s d" data-th="del" data-i="${i}">Remove</button></div>
+ <div class="form"><div><label>At this many warnings</label><input type="number" min="1" max="100" data-k="${i}.warns" value="${esc(t.warns)}"></div><div><label>The bot will</label>${actSel(i+".action",t.action,TH_ACTS2)}</div>
+ ${/timeout|tempban|^role$/.test(t.action)?`<div><label>${t.action==="role"?"Remove the role after (minutes, 0 = keep it)":"Length in minutes"}</label><input type="number" min="0" max="525600" data-k="${i}.minutes" value="${esc(t.minutes)}"></div>`:""}
+ ${/role/.test(t.action)?`<div><label>Role</label><select data-k="${i}.role"><option value="">Choose a role</option>${WROLES.filter(r=>r.id!==curG()).map(r=>`<option value="${r.id}" ${r.id===t.role?"selected":""}>${esc(r.name)}</option>`).join("")}</select></div>`:""}
+ <div><label>Only count warnings from the last (days, 0 = use the setting above)</label><input type="number" min="0" max="365" data-k="${i}.window" value="${esc(t.window||0)}"></div><div><label>Also repeat every (warnings, 0 = once only)</label><input type="number" min="0" max="100" data-k="${i}.every" value="${esc(t.every||0)}"></div></div>
+ <div class="form" style="margin-top:10px"><div style="grid-column:1/-1"><label>Reason shown in the case and to the member (leave empty for the default; {warnings} is replaced by the count)</label><input data-k="${i}.reason" maxlength="200" value="${esc(t.reason||"")}" placeholder="Warning limit reached ({warnings} warnings)"></div></div>
+ <label class="ck" style="margin-top:10px"><input type="checkbox" data-k="${i}.dm" ${t.dm!==false?"checked":""}><span>Send the member a message about it</span></label></div>`).join("")||'<div class="mu" style="padding:16px 0">No rules. Warnings never escalate on their own.</div>'}
+ <div class="row" style="margin:14px 0 18px;flex-wrap:wrap"><button class="nb" data-th="add">Add rule</button><button class="nb hot" data-th="save">Save rules</button></div>
+ <div class="ctl" style="margin-bottom:40px"><div><label>Test: a member just reached this many warnings</label><input type="number" min="1" id="thtest" value="3" style="max-width:140px"></div><div style="flex:1;min-width:240px"><label>What the bot would do</label><div id="thsim" class="mu" style="padding:9px 0"></div></div></div>
  <h3 class="disp" style="font-size:20px;margin-bottom:12px">Members with warnings</h3>
  <div class="ctl"><div style="flex:1;min-width:220px"><label>Search</label><input id="wq" placeholder="Search by name" value="${esc(q)}"></div><div><label>Warn a member by ID</label><div class="row" style="flex-wrap:nowrap"><input id="wid" placeholder="Discord user ID" style="min-width:200px"><button class="nb s" data-wa="byid">Warn</button></div></div></div>
  <table class="tb"><thead><tr><th>Member</th><th class="r">Warnings</th><th>Latest</th><th class="r"></th></tr></thead><tbody>${L.map(w=>{const last=w.items[w.items.length-1]||{},open=WOPEN===w.userId;return `<tr data-wa="open" data-u="${w.userId}" style="cursor:pointer"><td><b>${esc(w.name)}</b></td><td class="r num">${w.total}</td><td class="mu">${esc(last.reason||"")} &middot; ${last.time?ago(last.time):""}</td><td class="r"><button class="nb s" data-wa="add" data-u="${w.userId}" data-n="${esc(w.name)}">Warn</button> <button class="nb s d" data-wa="clear" data-u="${w.userId}" data-n="${esc(w.name)}">Clear all</button></td></tr>${open?`<tr><td colspan="4" style="background:#0a1130;padding:0"><table>${w.items.map(i=>`<tr><td style="width:150px" class="mono">${zT(i.time)}</td><td>${esc(i.reason)}</td><td class="mu">${i.source==="automod"?'<span class="pill">Automod</span>':"by "+esc(i.mod)}</td><td class="r"><button class="nb s d" data-wa="rm" data-u="${w.userId}" data-w="${i.id}">Remove</button></td></tr>`).join("")}</table></td></tr>`:""}`}).join("")||'<tr><td colspan="4" class="mu" style="padding:22px">No warnings on record.</td></tr>'}</tbody></table>`}
@@ -1494,12 +1549,16 @@ function initUsaf(){
  rb.addEventListener("click",e=>{if(e.target.id==="rsave")saveRaid();if(e.target.id==="rtog"){if(!RW.raidmode&&!confirm("Turn on raid mode? New members will be removed as they join."))return;RW.raidmode=!RW.raidmode;saveRaid(RW.raidmode?"Raid mode on":"Raid mode off")}});
  /* warnings */
  const wbx=$("warnbox");
- wbx.addEventListener("input",e=>{const t=e.target;if(t.id==="wq")return warnR();const k=t.dataset&&t.dataset.k;if(!k||!WTH)return;const[i,f]=k.split(".");const th=WTH[+i];
-  th[f]=t.tagName==="SELECT"?t.value:Math.max(1,+t.value||1);if(f==="action"){const mn=t.closest("tr").querySelector(".mins");if(mn)mn.classList.toggle("hidden",!/timeout|tempban/.test(t.value))}});
+ wbx.addEventListener("input",e=>{const t=e.target;if(t.id==="wq")return warnR();if(t.id==="thtest")return thSim();
+  if(t.dataset&&t.dataset.sg){if(t.dataset.sg==="on")WSTR.on=t.value==="1";else WSTR.expireDays=Math.max(0,Math.min(365,+t.value||0));return thSim()}
+  const k=t.dataset&&t.dataset.k;if(!k||!WTH)return;const[i,f]=k.split(".");const th=WTH[+i];if(!th)return;
+  if(t.type==="checkbox")th[f]=t.checked;else if(t.tagName==="SELECT"||t.type==="text"||!t.type)th[f]=t.value;else th[f]=Math.max(f==="warns"?1:0,+t.value||0);
+  if(f==="action"||f==="on"){warnR();return}thSim()});
  wbx.addEventListener("click",async e=>{const t=e.target.closest("[data-th],[data-wa]");if(!t)return;const g=curG();
-  if(t.dataset.th==="add"){WTH.push({warns:(WTH.length?WTH[WTH.length-1].warns:0)+2,action:"timeout",minutes:60});return warnR()}
+  if(t.dataset.th==="add"){if(WTH.length>=20)return toast("20 rules is the limit");WTH.push(thDef());return warnR()}
+  if(t.dataset.th==="up"||t.dataset.th==="dn"){const i=+t.dataset.i,j=i+(t.dataset.th==="up"?-1:1);if(j>=0&&j<WTH.length){[WTH[i],WTH[j]]=[WTH[j],WTH[i]];warnR()}return}
   if(t.dataset.th==="del"){WTH.splice(+t.dataset.i,1);return warnR()}
-  if(t.dataset.th==="save"){WTH.sort((a,b)=>a.warns-b.warns);const r=await T(()=>api(`/api/guilds/${g}/automod`,"POST",{thresholds:WTH}),"Thresholds saved");if(r)loadWarn();return}
+  if(t.dataset.th==="save"){const bad=WTH.find(r=>/role/.test(r.action)&&!r.role);if(bad)return toast("Choose a role for the rule at "+bad.warns+" warnings");const r=await T(()=>api(`/api/guilds/${g}/automod`,"POST",{thresholds:WTH,strike:WSTR}),"Strike rules saved");if(r)loadWarn();return}
   const a=t.dataset.wa;e.stopPropagation();
   if(a==="open"){WOPEN=WOPEN===t.dataset.u?null:t.dataset.u;return warnR()}
   if(a==="add")return openMod("warn",t.dataset.u,t.dataset.n);
@@ -1570,7 +1629,11 @@ const T_=(id,g,name,when,kind,color,title,desc,fields,footer)=>TPLS.push({id,g,n
  T_("freeze.on",TG[10],"Emergency freeze started","Posted in the log channel (and where the command was used) when the freeze starts.","log",R,"EMERGENCY FREEZE","The server is frozen. Invites are paused, new members are removed, and members cannot send messages.",[["Started by","{moderator}"],["Lasts","{duration}"],["Ends","{expires}"],["Reason","{reason}",false],["What was switched on","{note}",false]],"Emergency freeze");
  T_("freeze.off",TG[10],"Emergency freeze lifted","Posted in the log channel when the freeze ends, by staff or when the time runs out.","log",G,"Freeze lifted","The emergency freeze is over.",[["Lifted by","{moderator}"],["Reason","{reason}",false],["What was switched off","{note}",false]],"Emergency freeze");
  T_("game.shutdown",TG[7],"Game servers shut down","Posted in the log channel when someone shuts down every game server.","log",R,"Game servers shutting down","Every server of the game is being emptied.",[["Requested by","{moderator}"],["Roblox account","{user}"],["Countdown","{duration}"],["New servers closed","{expires}"],["Reason","{reason}",false]],"Game control");
+ T_("game.ban",TG[7],"Game ban","Posted in the log channel when someone is banned from the game.","log",R,"Banned from the game","A player was banned from the game.",[["Roblox account","{user}"],["Banned by","{moderator}"],["Length","{duration}"],["Ends","{expires}"],["Reason","{reason}"]],"Game control");
+ T_("game.unban",TG[7],"Game ban lifted","Posted in the log channel when a game ban is lifted.","log",G,"Game ban lifted","A player can play the game again.",[["Roblox account","{user}"],["Lifted by","{moderator}"],["Reason","{reason}"]],"Game control");
  T_("game.cancel",TG[7],"Game shutdown cancelled","Posted in the log channel when a shutdown is cancelled.","log",G,"Shutdown cancelled","The game shutdown was cancelled.",[["Cancelled by","{moderator}"]],"Game control");
+ T_("chlock.on",TG[8],"Channel locked","Posted in a channel when it is locked with the lock command, the dashboard or a schedule. The countdown updates by itself.","log",R,"This channel is locked","Members cannot send messages in {channel} right now. It unlocks {lifts}.",["moderator","reason",["Time left","{lifts}"],["Unlocks at","{expires}"]],"Channel lock");
+ T_("chlock.off",TG[8],"Channel unlocked","Posted in a channel when it is unlocked, by staff or when the time ends.","log",G,"This channel is unlocked","Members can send messages in {channel} again.",["moderator","reason"],"Channel lock");
  T_("lock.off",TG[8],"Lockdown lifted","Posted when a lockdown ends, either by staff or when the time runs out.","log",G,"Lockdown lifted","Normal channel permissions are restored. Members can send messages again.",["moderator","reason"],"Lockdown");
  T_("ap.received",TG[9],"Appeal received: message to the member","Shown to the member right after they submit the appeal form.","dm",B,"Your appeal was received","Your appeal #{appealno} was sent to staff for review. You will receive a message here with the decision. Do not submit another appeal for the same action.",["action","case"],"{server}");
  T_("ap.accepted",TG[9],"Appeal accepted: message to the member","Sent to the member when staff accept the appeal.","dm",G,"Your appeal was accepted","Staff reviewed appeal #{appealno} and accepted it. The action against you has been lifted. Please follow the server rules.",["note"],"{server}");
@@ -1877,7 +1940,7 @@ let SCL=[],SCF=null,SCB=false;
 const SCREP={none:"Once",daily:"Every day",weekly:"Every week",monthly:"Every month"};
 const toLocalVal=t=>{const d=new Date(t);return d.getUTCFullYear()+"-"+zp2(d.getUTCMonth()+1)+"-"+zp2(d.getUTCDate())+"T"+zp2(d.getUTCHours())+":"+zp2(d.getUTCMinutes())};
 async function loadSched(){const g=curG();if(!g)return noGuild("schbox");SCL=await soft(api(`/api/guilds/${g}/schedule`),[]);
- if(!SCF)SCF={id:"",channel:"",at:toLocalVal(Date.now()+3600e3),repeat:"none",content:"",box:false,title:"",desc:"",color:"#4a68e8",image:""};schR();loadInfo()}
+ if(!SCF)SCF={id:"",channel:"",at:toLocalVal(Date.now()+3600e3),repeat:"none",content:"",box:false,title:"",desc:"",color:"#4a68e8",image:""};schR();loadInfo();loadLocks()}
 function schR(){const f=SCF;
  $("schbox").innerHTML=`<div class="runwarn"><b>Times are UTC (Zulu).</b> Scheduled messages are kept in the bot's data file, so they are erased if Render restarts or redeploys the bot. Check the list after a restart.</div>
  <div class="cd" style="margin-bottom:26px"><h3 class="f">${f.id?"Edit scheduled message":"New scheduled message"}</h3><div class="two"><div><label>Channel</label><select id="sc_ch">${chOpts(f.channel,"Pick a channel")}</select></div><div><label>Send at (UTC)</label><input type="datetime-local" id="sc_at" value="${esc(f.at)}"><div class="mu" id="sc_loc" style="margin-top:4px"></div></div>
@@ -1899,16 +1962,48 @@ function schR(){const f=SCF;
     const r=await T(()=>api(`/api/guilds/${g}/schedule`,"POST",body),SCF.id?"Changes saved":"Message scheduled");if(r){SCF=null;loadSched()}}})}}
 function schLoc(){const e=$("sc_loc");if(!e)return;const t=Date.parse(SCF.at+":00Z");e.textContent=isNaN(t)?"":"That is "+new Date(t).toLocaleString([], {dateStyle:"medium",timeStyle:"short"})+" in your time zone"}
 
+/* ----- channel locks ----- */
+let KLV={active:[],schedule:[]},KLF=null,KLN={sel:[],time:"30m",reason:""},KLB=false,KLT=null;
+const KLREP={none:"Once",daily:"Every day",weekly:"Every week"};
+const klLeft=u=>{if(!u)return "No end time";const s=Math.round((u-Date.now())/1000);if(s<=0)return "ending now";if(s<90)return s+" sec";if(s<5400)return Math.round(s/60)+" min";if(s<172800)return Math.floor(s/3600)+" h "+Math.round((s%3600)/60)+" min";return Math.round(s/86400)+" days"};
+const klFmt=ms=>!ms?"until staff unlock":ms%864e5===0?ms/864e5+"d":ms%36e5===0?ms/36e5+"h":Math.round(ms/6e4)+"m";
+async function loadLocks(){const g=curG();if(!g)return;KLV=await soft(api(`/api/guilds/${g}/locks`),{active:[],schedule:[]});
+ if(!KLF)KLF={id:"",channels:[],at:toLocalVal(Date.now()+3600e3),duration:"8h",repeat:"daily",reason:"",on:true};klR();
+ clearInterval(KLT);KLT=setInterval(()=>{document.querySelectorAll("[data-lku]").forEach(e=>e.textContent=klLeft(+e.dataset.lku||0))},1000)}
+const klChecks=(sel,key)=>`<div class="lkch" style="max-height:200px;overflow:auto;border:1px solid var(--ln);background:#080e26;padding:8px 12px;display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:2px 14px">${gInfo().channels.map(c=>`<label class="ck"><input type="checkbox" data-lkc="${key}" value="${c.id}" ${sel.includes(c.id)?"checked":""}><span># ${esc(c.name)}</span></label>`).join("")||'<span class="mu">No channels</span>'}</div>`;
+function klR(){const f=KLF,nm=id=>{const c=gInfo().channels.find(x=>x.id===id);return c?c.name:"deleted"};
+ $("lockbox").innerHTML=`<div class="runwarn">Locked channels stop members from sending messages and starting threads. Discord then shows its own "no permission to send messages" bar. The bot posts a notice with a live countdown, puts [LOCKED] at the start of the channel topic, and puts everything back when the lock ends. Times are UTC. The commands are <b>lock [#channel] [30m, 2h, 1d or inf] [reason]</b> and <b>unlock</b>.</div>
+ <h3 class="disp" style="font-size:18px;margin:18px 0 10px">Locked now</h3>
+ <div class="pnl" style="overflow:auto"><table><thead><tr><th>Channel</th><th>By</th><th>Reason</th><th>Unlocks in</th><th class="r"></th></tr></thead><tbody>${KLV.active.map(a=>`<tr><td># ${esc(a.name)}${a.scheduled?' <span class="pill">Schedule</span>':""}</td><td>${esc(a.by)}</td><td class="mu">${esc(a.reason||"")}</td><td class="mono"><span data-lku="${a.until||0}">${klLeft(a.until)}</span></td><td class="r"><button class="nb s" data-lku-un="${a.channel}">Unlock</button></td></tr>`).join("")||'<tr><td colspan="5" class="mu" style="padding:18px">No channel is locked.</td></tr>'}</tbody></table></div>
+ <div class="cd" style="margin:22px 0"><h3 class="f">Lock channels now</h3><label>Channels</label>${klChecks(KLN.sel,"now")}<div class="two" style="margin-top:12px"><div><label>For how long (30m, 2h, 1d, 1w or inf)</label><input id="lk_t" value="${esc(KLN.time)}" placeholder="inf = until staff unlock"></div><div><label>Reason (shown in the notice)</label><input id="lk_r" maxlength="200" value="${esc(KLN.reason)}"></div></div><div class="row" style="margin-top:14px"><button class="nb hot" id="lk_go">Lock the selected channels</button></div></div>
+ <div class="cd" style="margin-bottom:22px"><h3 class="f">${f.id?"Edit lock schedule":"Schedule a lock"}</h3><label>Channels to lock</label>${klChecks(f.channels,"sch")}
+ <div class="two" style="margin-top:12px"><div><label>Lock at (UTC)</label><input type="datetime-local" id="lks_at" value="${esc(f.at)}"></div><div><label>Stay locked for (30m, 8h, 1d or inf)</label><input id="lks_d" value="${esc(f.duration)}"></div>
+ <div><label>Repeat</label><select id="lks_rep">${Object.keys(KLREP).map(k=>`<option value="${k}" ${f.repeat===k?"selected":""}>${KLREP[k]}</option>`).join("")}</select></div><div><label>Reason (shown in the notice)</label><input id="lks_r" maxlength="200" value="${esc(f.reason)}"></div></div>
+ <div class="row" style="margin-top:14px"><button class="nb" id="lks_save">${f.id?"Save changes":"Save schedule"}</button>${f.id?'<button class="nb s" id="lks_new">Cancel editing</button>':""}</div></div>
+ <h3 class="disp" style="font-size:18px;margin:0 0 10px">Lock schedules</h3>
+ <div class="pnl" style="overflow:auto"><table><thead><tr><th>Next lock (UTC)</th><th>Channels</th><th>Stays locked</th><th>Repeat</th><th>Status</th><th class="r"></th></tr></thead><tbody>${KLV.schedule.map(s=>`<tr><td class="mono" style="white-space:nowrap">${zT(s.at)}</td><td>${s.channels.map(c=>"# "+esc(nm(c))).join(", ")}</td><td>${klFmt(s.duration)}</td><td>${KLREP[s.repeat]}</td><td><span class="pill ${s.status==="done"?"ok":s.on===false?"bad":""}" ${s.lastError?`title="${esc(s.lastError)}"`:""}>${s.status==="done"?"Finished":s.on===false?"Paused":"Waiting"}</span></td><td class="r"><button class="nb s" data-lkse="${s.id}">Edit</button> <button class="nb s" data-lkst="${s.id}">${s.on===false?"Resume":"Pause"}</button> <button class="nb s d" data-lksd="${s.id}">Delete</button></td></tr>`).join("")||'<tr><td colspan="6" class="mu" style="padding:18px">No schedules.</td></tr>'}</tbody></table></div>`;
+ if(!KLB){KLB=true;const b=$("lockbox");
+  b.addEventListener("input",e=>{const t=e.target;if(t.id==="lk_t")KLN.time=t.value;if(t.id==="lk_r")KLN.reason=t.value;if(t.id==="lks_at")KLF.at=t.value;if(t.id==="lks_d")KLF.duration=t.value;if(t.id==="lks_r")KLF.reason=t.value});
+  b.addEventListener("change",e=>{const t=e.target;if(t.id==="lks_rep")KLF.repeat=t.value;if(t.dataset.lkc){const L=t.dataset.lkc==="now"?KLN.sel:KLF.channels,i=L.indexOf(t.value);if(t.checked&&i<0)L.push(t.value);if(!t.checked&&i>=0)L.splice(i,1)}});
+  b.addEventListener("click",async e=>{const x=e.target.closest("button");if(!x)return;const g=curG(),ds=x.dataset;
+   if(ds.lkuUn){const r=await T(()=>api(`/api/guilds/${g}/locks/unlock`,"POST",{channels:[ds.lkuUn]}),"Channel unlocked");if(r)loadLocks();return}
+   if(x.id==="lk_go"){if(!KLN.sel.length)return toast("Pick at least one channel");const r=await T(()=>api(`/api/guilds/${g}/locks`,"POST",{channels:KLN.sel,time:KLN.time.trim()||"inf",reason:KLN.reason}),null);if(r){if(r.failed&&r.failed.length)toast("Could not lock: "+r.failed.map(f=>f.error).join("; "));else toast(r.done.length+" channel"+(r.done.length===1?"":"s")+" locked");KLN.sel=[];loadLocks()}return}
+   if(ds.lkse){const s=KLV.schedule.find(z=>z.id===ds.lkse);KLF={id:s.id,channels:s.channels.slice(),at:toLocalVal(s.at),duration:s.duration?klFmt(s.duration):"inf",repeat:s.repeat,reason:s.reason||"",on:s.on!==false};klR();return}
+   if(ds.lkst){const s=KLV.schedule.find(z=>z.id===ds.lkst);const r=await T(()=>api(`/api/guilds/${g}/locks/schedule`,"POST",Object.assign({},s,{on:s.on===false,status:"pending"})),s.on===false?"Schedule resumed":"Schedule paused");if(r)loadLocks();return}
+   if(ds.lksd){if(!confirm("Delete this lock schedule?"))return;const r=await T(()=>api(`/api/guilds/${g}/locks/schedule/${ds.lksd}`,"DELETE"),"Deleted");if(r){KLF=null;loadLocks()}return}
+   if(x.id==="lks_new"){KLF=null;loadLocks();return}
+   if(x.id==="lks_save"){const body={id:KLF.id||undefined,channels:KLF.channels,at:Date.parse(KLF.at+":00Z"),duration:KLF.duration.trim()||"inf",repeat:KLF.repeat,reason:KLF.reason,on:KLF.on};const r=await T(()=>api(`/api/guilds/${g}/locks/schedule`,"POST",body),KLF.id?"Changes saved":"Schedule saved");if(r){KLF=null;loadLocks()}}})}}
+
 /* ----- login log page ----- */
 let LGL=[],LGF="all",LGT="in",LGA=[],LGQ="";
 async function loadLogins(){[LGL,LGA]=await Promise.all([soft(api("/api/login-log"),[]),soft(api("/api/action-log"),[])]);lgR()}
 function lgR(){
  $("logbox").innerHTML=`<div class="lkseg" style="margin-bottom:18px"><button data-lgt="in" class="${LGT==="in"?"on":""}">Sign-ins</button><button data-lgt="act" class="${LGT==="act"?"on":""}">Actions in the dashboard (${LGA.length})</button></div><div id="lgbody"></div>`;
- if(!$("logbox").dataset.b2){$("logbox").dataset.b2=1;$("logbox").addEventListener("click",e=>{const x=e.target.closest("button");if(x&&x.dataset.lgt){LGT=x.dataset.lgt;lgR()}if(x&&x.id==="lgare")loadLogins()});$("logbox").addEventListener("input",e=>{if(e.target.id==="lgaq"){LGQ=e.target.value;const p=e.target.selectionStart;lgAct();const n=$("lgaq");n.focus();n.setSelectionRange(p,p)}})}
+ if(!$("logbox").dataset.b2){$("logbox").dataset.b2=1;$("logbox").addEventListener("click",e=>{const x=e.target.closest("button");if(x&&x.dataset.lgt){LGT=x.dataset.lgt;lgR()}if(x&&x.id==="lgare")loadLogins();if(x&&x.dataset.undo){const a=LGA.find(z=>z.id===x.dataset.undo);if(!a||!confirm("Undo this? "+a.summary+"\n\nThis will: "+(a.undoLabel||"undo it")+"."))return;x.disabled=true;T(()=>api("/api/actions/"+encodeURIComponent(a.id)+"/undo","POST",{})).then(r=>{if(r)toast(r.message||"Undone");loadLogins()})}});$("logbox").addEventListener("input",e=>{if(e.target.id==="lgaq"){LGQ=e.target.value;const p=e.target.selectionStart;lgAct();const n=$("lgaq");n.focus();n.setSelectionRange(p,p)}})}
  LGT==="act"?lgAct():lgIn()}
 function lgAct(){const q=LGQ.toLowerCase(),L=LGA.filter(a=>(LGF!=="fail"||!a.ok)&&(!q||(a.summary+" "+a.path+" "+a.ip).toLowerCase().includes(q)));
  $("lgbody").innerHTML=`<div class="lkseg">${[["all","All"],["fail","Failed only"]].map(o=>`<button data-lgf="${o[0]}" class="${LGF===o[0]?"on":""}">${o[1]}</button>`).join("")}<span class="sp" style="flex:1"></span><button id="lgare">Refresh</button></div><div class="row" style="margin-bottom:12px"><input id="lgaq" placeholder="Search what was done" value="${esc(LGQ)}" style="flex:1;min-width:220px"></div>
- <div class="pnl" style="overflow:auto"><table><thead><tr><th>Time (UTC)</th><th>What was done</th><th>Result</th><th>Address</th></tr></thead><tbody>${L.map(a=>`<tr><td class="mono" style="white-space:nowrap">${zT(a.time)}</td><td>${esc(a.summary)}</td><td><span class="pill ${a.ok?"ok":"bad"}">${a.ok?"Done":"Failed"}</span></td><td class="mono">${esc(a.ip)}</td></tr>`).join("")||'<tr><td class="mu" colspan="4">Nothing recorded yet.</td></tr>'}</tbody></table></div>
+ <div class="pnl" style="overflow:auto"><table><thead><tr><th>Time (UTC)</th><th>What was done</th><th>Result</th><th>Address</th><th></th></tr></thead><tbody>${L.map(a=>`<tr><td class="mono" style="white-space:nowrap">${zT(a.time)}</td><td>${esc(a.summary)}</td><td><span class="pill ${a.ok?"ok":"bad"}">${a.ok?"Done":"Failed"}</span></td><td class="mono">${esc(a.ip)}</td><td style="white-space:nowrap">${a.undoLabel?`<button class="nb s" data-undo="${esc(a.id)}" title="${esc(a.undoLabel)}">Undo</button>`:a.undone?'<span class="mu">Undone</span>':""}</td></tr>`).join("")||'<tr><td class="mu" colspan="5">Nothing recorded yet.</td></tr>'}</tbody></table></div>
  <div class="mu" style="margin-top:12px">Every change made from this dashboard is listed: settings, moderation actions, messages sent as the bot, scripts run. The text of messages and code is not stored. Kept for the last 1000 actions, and erased when Render redeploys.</div>`}
 function lgIn(){const L=LGL.filter(l=>LGF==="all"||!l.ok),last=LGL.find(l=>l.ok),f24=LGL.filter(l=>!l.ok&&l.time>=Date.now()-864e5).length;
  $("lgbody").innerHTML=`<div class="lkt" style="grid-template-columns:repeat(3,1fr);margin-top:0"><div><b>${last?ago(last.time):"-"}</b><span>Last successful sign-in</span></div><div><b>${f24}</b><span>Failed attempts in 24 hours</span></div><div><b>${LGL.filter(l=>l.ok).length}</b><span>Sign-ins on record</span></div></div>
@@ -1918,7 +2013,7 @@ function lgIn(){const L=LGL.filter(l=>LGF==="all"||!l.ok),last=LGL.find(l=>l.ok)
  if(!$("logbox").dataset.b){$("logbox").dataset.b=1;$("logbox").addEventListener("click",e=>{const x=e.target.closest("button");if(!x)return;if(x.dataset.lgf){LGF=x.dataset.lgf;LGT==="act"?lgAct():lgIn()}if(x.id==="lgre")loadLogins()})}}
 const lgUa=u=>{u=u||"";const b=/Edg\//.test(u)?"Edge":/OPR\//.test(u)?"Opera":/Chrome\//.test(u)?"Chrome":/Firefox\//.test(u)?"Firefox":/Safari\//.test(u)?"Safari":"Unknown browser";const o=/Windows/.test(u)?"Windows":/Android/.test(u)?"Android":/iPhone|iPad/.test(u)?"iOS":/Mac OS/.test(u)?"macOS":/Linux/.test(u)?"Linux":"";return b+(o?" on "+o:"")};
 
-function bind(){gmBind();if(window.dBind)dBind();$("gmann").onclick=()=>gmOpen("ann");$("gmgame").onclick=()=>gmOpen("sd");
+function bind(){gmBind();$("gmann").onclick=()=>gmOpen("ann");$("gmgame").onclick=()=>gmOpen("sd");
  $("stb").onclick=e=>{const b=e.target.closest("button");if(b)setPres(b.dataset.s,S.me.activity?S.me.activity.type:"Playing",S.me.activity?S.me.activity.text:"")};
  $("aset").onclick=()=>setPres(S.me.status,$("at").value,$("ax").value.trim());
  $("aclr").onclick=()=>{$("ax").value="";setPres(S.me.status,"Playing","")};
@@ -1980,7 +2075,7 @@ function bind(){gmBind();if(window.dBind)dBind();$("gmann").onclick=()=>gmOpen("
  $("sgs").onchange=loadSet;$("ssave").onclick=saveSet;
  $("cpn").onclick=async e=>{const b=e.target.dataset.b;if(!b)return;const c=$("tc").value,v=$("tv").value.trim();if(!c)return toast("Pick a channel first");
   if(b=="create"){if(!v)return toast("Enter a channel name");const g=S.guilds.find(x=>x.channels.some(y=>y.id==c));await T(()=>api(`/api/guilds/${g.id}/channels`,"POST",{name:v}),"Channel created");return refresh()}
-  const P={purge:["/purge","POST",{count:+v||10}],slowmode:["/slowmode","POST",{seconds:+v||0}],lock:["/lock","POST",{lock:true}],unlock:["/lock","POST",{lock:false}],rename:["","PATCH",{name:v}],topic:["","PATCH",{topic:v}],delete:["","DELETE"]}[b];
+  const P={purge:["/purge","POST",{count:+v||10}],slowmode:["/slowmode","POST",{seconds:+v||0}],lock:["/lock","POST",{lock:true,time:v||"inf"}],unlock:["/lock","POST",{lock:false}],rename:["","PATCH",{name:v}],topic:["","PATCH",{topic:v}],delete:["","DELETE"]}[b];
   if((b=="purge"||b=="delete")&&!confirm(b+" this channel's "+(b=="purge"?"last "+(+v||10)+" messages":"channel")+"?"))return;
   const r=await T(()=>api(`/api/channels/${c}${P[0]}`,P[1],P[2]),"Done");if(r&&/rename|delete/.test(b))refresh()};
  $("apn").onclick=async e=>{const b=e.target.dataset.b;if(!b)return;const c=$("ac").value,t=$("atl").value.trim(),d=$("ads").value.trim();if(!c)return toast("Pick a channel first");if(!t&&!d)return toast("Write something first");
@@ -1991,7 +2086,7 @@ function bind(){gmBind();if(window.dBind)dBind();$("gmann").onclick=()=>gmOpen("
 }
 
 try{const ru=localStorage.getItem("usaf-ru");if(ru){$("u").value=ru;$("rm").checked=true}}catch(e){}
-try{if(sessionStorage.getItem("usaf-in")||TOK)enter()}catch(e){}
+try{if((sessionStorage.getItem("usaf-in")||TOK)&&!/^#\/doc\//.test(location.hash))enter()}catch(e){}
 </script><script>/* touch press: keep the swapped state long enough for the 0.45s animation to be seen, even if the tap re-renders the page */
 (function(){var t=new WeakMap();function on(e){var b=e.target.closest&&e.target.closest(".nb,.sb");if(!b)return;b.classList.add("pr");clearTimeout(t.get(b));t.set(b,setTimeout(function(){b.classList.remove("pr")},700))}
 document.addEventListener("touchstart",on,{passive:true});document.addEventListener("pointerdown",function(e){if(e.pointerType!=="mouse")on(e)},{passive:true});
@@ -2025,13 +2120,13 @@ const dDefault=()=>({title:"Untitled document",html:"<p><br></p>",page:{size:"le
 function dPg(){const p=DS.cur.page,s=D_SIZES[p.size]||D_SIZES.letter;return{w:p.land?s[1]:s[0],h:p.land?s[0]:s[1],mt:p.mt*D_IN,mb:p.mb*D_IN,ml:p.ml*D_IN,mr:p.mr*D_IN}}
 const dTextOf=h=>{const t=document.createElement("div");t.innerHTML=h;t.querySelectorAll(".pgsp,.pgb").forEach(x=>x.remove());return (t.innerText||t.textContent||"").replace(/​/g,"")};
 const dWords=h=>{const t=dTextOf(h).trim();return t?t.split(/\s+/).length:0};
-const dMeta=d=>({id:d.id,title:d.title,updated:d.updated,words:d.words!=null?d.words:dWords(d.html||""),created:d.created});
+const dMeta=d=>({id:d.id,title:d.title,updated:d.updated,words:d.words!=null?d.words:dWords(d.html||""),created:d.created,tpl:!!d.tpl,shared:d.shared!=null?!!d.shared:!!d.share,locked:d.locked!==undefined?d.locked:(d.lock?d.lock.mode:null)});
 const dStatus=t=>{const e=$("dsave");if(e)e.textContent=t};
 
 /* local copy in this browser (IndexedDB), so documents survive the bot restarting */
 const dIdb=()=>DS.idb||(DS.idb=new Promise(res=>{try{const r=indexedDB.open("usaf-docs",1);r.onupgradeneeded=()=>r.result.createObjectStore("docs",{keyPath:"id"});r.onsuccess=()=>res(r.result);r.onerror=()=>res(null)}catch(e){res(null)}}));
 async function dIdbOp(mode,fn){const db=await dIdb();if(!db)return null;return new Promise(res=>{try{const tx=db.transaction("docs",mode),rq=fn(tx.objectStore("docs"));tx.oncomplete=()=>res(rq?rq.result:true);tx.onerror=tx.onabort=()=>res(null)}catch(e){res(null)}})}
-const dLocalPut=d=>dIdbOp("readwrite",s=>s.put(d)),dLocalAll=()=>dIdbOp("readonly",s=>s.getAll()),dLocalDel=id=>dIdbOp("readwrite",s=>s.delete(id));
+const dLocalPut=d=>dIdbOp("readwrite",s=>s.put(d)),dLocalAll=async()=>((await dIdbOp("readonly",s=>s.getAll()))||[]).filter(x=>!String(x.id).startsWith("v:")),dLocalDel=async id=>{await dIdbOp("readwrite",s=>s.delete(id));await dIdbOp("readwrite",s=>s.delete("v:"+id))};
 
 async function dLoadList(){
  const srv=await soft(api("/api/docs"),null),loc=(await dLocalAll())||[];
@@ -2043,14 +2138,15 @@ async function dLoadList(){
  DS.list.sort((a,b)=>b.updated-a.updated);
 }
 async function docsOpen(){
+ if(!DS.bound){DS.bound=true;dBind()}
  if(DS.cur&&!$("dedv").classList.contains("hidden")){dLayout();return}
  await dLoadList();dShowList();
 }
 function dShowList(){
  $("dedv").classList.add("hidden");$("dlist").classList.remove("hidden");document.body.classList.remove("dediting");
- $("dtpl").innerHTML=D_TPLS.map((t,i)=>`<button data-tpl="${i}"><b>${esc(t.n)}</b><span>${esc(t.d)}</span></button>`).join("");
- $("dgrid").innerHTML=DS.list.map(d=>`<div class="dcard" data-open="${d.id}"><div class="pv" data-pv="${d.id}"></div><div class="tt">${esc(d.title)}</div><div class="mt">Edited ${ago(d.updated)} &middot; ${d.words} word${d.words===1?"":"s"}</div><div class="ac"><button class="nb s" data-open="${d.id}">Open</button><button class="nb s" data-copy="${d.id}">Copy</button><button class="nb s d" data-del="${d.id}">Delete</button></div></div>`).join("")||'<div class="mu">No documents yet. Start one above.</div>';
- dLocalAll().then(all=>{(all||[]).forEach(x=>{const e=document.querySelector(`[data-pv="${x.id}"]`);if(e)e.innerHTML=(x.html||"").replace(/<img[^>]*>/g,"").replace(/<div class="pgb[^>]*><\/div>/g,"").slice(0,1500)})});
+ $("dtpl").innerHTML=D_TPLS.map((t,i)=>`<button data-tpl="${i}"><b>${esc(t.n)}</b><span>${esc(t.d)}</span></button>`).join("")+DS.list.filter(d=>d.tpl).map(d=>`<button data-utpl="${d.id}" class="mine"><b>${esc(d.title)}</b><span>Your template</span><i data-deltpl="${d.id}" title="Delete this template">&times;</i></button>`).join("");
+ $("dgrid").innerHTML=DS.list.filter(d=>!d.tpl).map(d=>`<div class="dcard" data-open="${d.id}"><div class="pv" data-pv="${d.id}"></div><div class="tt">${esc(d.title)}${d.shared?' <span class="pill">Shared</span>':""}${d.locked?' <span class="pill">Locked</span>':""}</div><div class="mt">Edited ${ago(d.updated)} &middot; ${d.words} word${d.words===1?"":"s"}</div><div class="ac"><button class="nb s" data-open="${d.id}">Open</button><button class="nb s" data-copy="${d.id}">Copy</button><button class="nb s d" data-del="${d.id}">Delete</button></div></div>`).join("")||'<div class="mu">No documents yet. Start one above.</div>';
+ dLocalAll().then(all=>{(all||[]).filter(x=>!(x.lock&&x.lock.mode==="open")).forEach(x=>{const e=document.querySelector(`[data-pv="${x.id}"]`);if(e)e.innerHTML=(x.html||"").replace(/<img[^>]*>/g,"").replace(/<div class="pgb[^>]*><\/div>/g,"").slice(0,1500)})});
 }
 async function dCreate(html,title,extra){
  const d=Object.assign(dDefault(),extra||{});if(html)d.html=html;if(title)d.title=title;d.id=dNewId();d.words=dWords(d.html);
@@ -2060,11 +2156,27 @@ async function dOpenDoc(id){
  let d=await soft(api("/api/docs/"+id),null);const l=((await dLocalAll())||[]).find(x=>x.id===id);
  if(l&&(!d||l.updated>d.updated))d=l;
  if(!d)return toast("That document could not be opened");
+ if(d.lock&&d.lock.mode==="open"){d=await dUnlockOpen(d);if(!d)return}
  dEnter(d);
 }
-async function dDelete(id){const m=DS.list.find(x=>x.id===id);if(!confirm(`Delete "${m?m.title:"this document"}"? This cannot be undone.`))return;await soft(api("/api/docs/"+id,"DELETE"),null);await dLocalDel(id);DS.list=DS.list.filter(x=>x.id!==id);dShowList();toast("Document deleted")}
+/* the secret for a locked document, asked for with its PIN. undefined = not locked, null = cancelled */
+async function dAuthFor(id){
+ const d=(DS.cur&&DS.cur.id===id?DS.cur:null)||await soft(api("/api/docs/"+id),null)||((await dLocalAll())||[]).find(x=>x.id===id);
+ if(!d||!d.lock)return undefined;
+ if(DS.unl&&DS.unl.id===id)return DS.unl.auth;
+ const r=await dAskPin("PIN needed","This document is locked. Type its PIN to continue.",async pin=>{const a=await dAuthOf(pin,d.lock);if(await dHashOf(a)!==d.lock.hash)throw new Error("That PIN is not right.");return a},"Continue");
+ return r?r.v:null}
+async function dDelete(id){const m=DS.list.find(x=>x.id===id);if(!confirm(`Delete "${m?m.title:"this document"}"? This cannot be undone.`))return;const auth=await dAuthFor(id);if(auth===null)return;try{await api("/api/docs/"+id,"DELETE",auth?{auth}:undefined)}catch(e){return toast(e.message)}await dLocalDel(id);DS.list=DS.list.filter(x=>x.id!==id);dShowList();toast("Document deleted")}
 async function dCopy(id){let d=await soft(api("/api/docs/"+id),null);if(!d)d=((await dLocalAll())||[]).find(x=>x.id===id);if(!d)return;const c=JSON.parse(JSON.stringify(d));c.id=dNewId();c.title="Copy of "+d.title;c.created=c.updated=Date.now();await dLocalPut(c);await soft(api("/api/docs/"+c.id,"PUT",c),null);DS.list.unshift(dMeta(c));dShowList();toast("Copy made")}
 
+async function dFromTpl(id){
+ let d=await soft(api("/api/docs/"+id),null);if(!d)d=((await dLocalAll())||[]).find(x=>x.id===id);
+ if(!d)return toast("That template could not be opened");
+ const n=await dCreate(d.html,(d.title||"Untitled document").replace(/^Template: /,""),{page:d.page,hf:d.hf,tpl:false});dEnter(n)}
+async function dSaveTpl(){
+ if(!DS.cur)return;if(DS.cur.lock&&DS.cur.lock.mode==="open")return toast("A document locked with a PIN cannot be saved as a template. Remove the lock from a copy first.");DS.dirty=true;await dSave();const d=DS.cur;
+ await dCreate(d.html,"Template: "+d.title,{page:JSON.parse(JSON.stringify(d.page)),hf:JSON.parse(JSON.stringify(d.hf)),tpl:true});toast("Saved as a template. It appears on the Documents page under Start a document.")}
+async function dDelTpl(id){if(!confirm("Delete this template? Documents made from it are not affected."))return;await soft(api("/api/docs/"+id,"DELETE"),null);await dLocalDel(id);DS.list=DS.list.filter(x=>x.id!==id);dShowList()}
 const D_TPLS=[
  {n:"Blank",d:"An empty page",h:"<p><br></p>",t:"Untitled document"},
  {n:"Memorandum",d:"Official memo layout",t:"Memorandum",h:'<p style="text-align:center"><b>[ORGANIZATION NAME]</b><br>[Address line]</p><p><br></p><p>[Date]</p><p>MEMORANDUM FOR [Recipient]</p><p>FROM: [Sender, title]</p><p>SUBJECT: [Subject of the memorandum]</p><p><br></p><ol><li>Purpose. [State the purpose in one or two sentences.]</li><li>Background. [Give the information the reader needs.]</li><li>Action required. [Say who does what and by when.]</li></ol><p><br></p><p>For questions, contact [name] at [contact].</p><p><br></p><p><br></p><p>[SIGNATURE BLOCK]<br>[Name]<br>[Title]</p>'},
@@ -2083,20 +2195,20 @@ const D_IC={
  image:'<rect x="3" y="4" width="18" height="16"/><circle cx="9" cy="10" r="2"/><path d="m3 18 6-5 4 3 3-3 5 4"/>',table:'<rect x="3" y="4" width="18" height="16"/><path d="M3 10h18M3 15h18M9 4v16M15 4v16"/>',
  hr:'<path d="M3 12h18"/><path d="M7 7h10M7 17h10" stroke-dasharray="2 3"/>',pb:'<path d="M5 3v6h14V3M5 21v-6h14v6"/><path d="M2 12h3M8 12h3M13 12h3M19 12h3" />',
  clear:'<path d="M5 5h12l-5 14"/><path d="m15 15 6 6m0-6-6 6"/>',sym:'<path d="M6 20h4v-2a8 8 0 1 1 4 0v2h4"/>',find:'<circle cx="11" cy="11" r="6"/><path d="m16 16 5 5"/>',
- spc:'<path d="M12 3v18M8 7l4-4 4 4M8 17l4 4 4-4"/>'};
+ pnt:'<path d="M5 4h12v5H5z"/><path d="M17 6.5h3v5.5h-9v3"/><path d="M11 15v6"/>',spc:'<path d="M12 3v18M8 7l4-4 4 4M8 17l4 4 4-4"/>'};
 const dI=n=>`<svg viewBox="0 0 24 24">${D_IC[n]}</svg>`;
 const D_FONTS=["Arial","Helvetica","Times New Roman","Courier New","Georgia","Verdana","Trebuchet MS","Tahoma","Calibri","Cambria","Garamond","Palatino Linotype"];
 const D_SZ=[8,9,10,10.5,11,12,14,16,18,20,24,28,32,36,48,60,72];
 const D_PAL=["#000000","#434343","#666666","#999999","#b7b7b7","#cccccc","#d9d9d9","#efefef","#f3f3f3","#ffffff","#980000","#ff0000","#ff9900","#ffff00","#00ff00","#00ffff","#4a86e8","#0000ff","#9900ff","#ff00ff","#e6b8af","#f4cccc","#fce5cd","#fff2cc","#d9ead3","#d0e0e3","#c9daf8","#cfe2f3","#d9d2e9","#ead1dc","#dd7e6b","#ea9999","#f9cb9c","#ffe599","#b6d7a8","#a2c4c9","#a4c2f4","#9fc5e8","#b4a7d6","#d5a6bd","#cc4125","#e06666","#f6b26b","#ffd966","#93c47d","#76a5af","#6d9eeb","#6fa8dc","#8e7cc3","#c27ba0","#a61c00","#cc0000","#e69138","#f1c232","#6aa84f","#45818e","#3c78d8","#3d85c6","#674ea7","#a64d79","#5b0f00","#660000","#783f04","#7f6000","#274e13","#0c343d","#1c4587","#073763","#20124d","#4c1130"];
 const D_SYM="© ® ™ § ¶ † ‡ • · … – — ‘ ’ “ ” « » ° ± × ÷ ≈ ≠ ≤ ≥ ∞ µ € £ ¥ ¢ ¼ ½ ¾ ¹ ² ³ ← → ↑ ↓ ↔ √ ∑ ∆ π Ω α β γ δ θ λ σ φ ω á é í ó ú ñ ü ö ä ß ç è à â ê î ô û ì ò ù ã õ ¿ ¡".split(" ");
 const D_MENUS=[
- ["File",[["New blank document","new"],["Make a copy","copy"],["Rename","rename"],"-",["h","Download as"],["PDF document (.pdf)","x:pdf"],["Word document (.docx)","x:docx"],["Word 97-2003 document (.doc)","x:doc"],["OpenDocument text (.odt)","x:odt"],["Rich text (.rtf)","x:rtf"],["Web page (.html)","x:html"],["Plain text (.txt)","x:txt"],["Markdown (.md)","x:md"],"-",["Print (opens the PDF)","print","Ctrl+P"],["Open a file from this computer","import"],"-",["All documents","back"],["Delete this document","delete"]]],
- ["Edit",[["Undo","undo","Ctrl+Z"],["Redo","redo","Ctrl+Y"],"-",["Cut","c:cut","Ctrl+X"],["Copy","c:copy","Ctrl+C"],["Paste","paste","Ctrl+V"],["Select all","c:selectAll","Ctrl+A"],"-",["Find and replace","find","Ctrl+F"]]],
- ["View",[["Zoom 50%","z:.5"],["Zoom 75%","z:.75"],["Zoom 100%","z:1"],["Zoom 125%","z:1.25"],["Zoom 150%","z:1.5"],["Zoom 200%","z:2"],["Fit page width","zfit"],"-",["Show or hide the ruler","ruler"]]],
- ["Insert",[["Image from this computer","image"],["Table","tbldlg"],["Link","link","Ctrl+K"],["Horizontal line","c:insertHorizontalRule"],["Page break","pbrk","Ctrl+Enter"],["Special characters","sym"],["Today's date","date"]]],
- ["Format",[["Bold","c:bold","Ctrl+B"],["Italic","c:italic","Ctrl+I"],["Underline","c:underline","Ctrl+U"],["Strikethrough","c:strikeThrough"],["Superscript","c:superscript"],["Subscript","c:subscript"],"-",["h","Line spacing"],["Single","ls:1"],["1.15","ls:1.15"],["1.5","ls:1.5"],["Double","ls:2"],["Paragraph options","para"],"-",["Clear formatting","clearfmt","Ctrl+\\"]]],
- ["Table",[["Insert table","tbldlg"],"-",["Row above","t:rowA"],["Row below","t:rowB"],["Column left","t:colL"],["Column right","t:colR"],"-",["Delete row","t:delRow"],["Delete column","t:delCol"],["Delete table","t:delTbl"],"-",["Merge with the cell on the right","t:mergeR"],["Merge with the cell below","t:mergeD"],["Split cell","t:split"],"-",["Header row on or off","t:head"],["Cell shading","t:shade"],["Borders","t:borders"]]],
- ["Page",[["Page setup","pgset"],["Header and footer","hfdlg"],["Insert page number in footer","pgnum"]]]];
+ ["File",[["New blank document","new"],["Make a copy","copy"],["Rename","rename"],["Share by link","share"],["Save as a template","savetpl"],["Lock with a PIN","lockdlg"],["Version history","vers"],["Document properties","props"],"-",["h","Download as"],["PDF document (.pdf)","x:pdf"],["Word document (.docx)","x:docx"],["Word 97-2003 document (.doc)","x:doc"],["OpenDocument text (.odt)","x:odt"],["Rich text (.rtf)","x:rtf"],["Web page (.html)","x:html"],["Plain text (.txt)","x:txt"],["Markdown (.md)","x:md"],["Encrypted copy (.usafdoc, needs the PIN)","x:usafdoc"],"-",["Print (opens the PDF)","print","Ctrl+P"],["Open a file from this computer","import"],"-",["All documents","back"],["Delete this document","delete"]]],
+ ["Edit",[["Undo","undo","Ctrl+Z"],["Redo","redo","Ctrl+Y"],"-",["Cut","c:cut","Ctrl+X"],["Copy","c:copy","Ctrl+C"],["Paste","paste","Ctrl+V"],["Select all","c:selectAll","Ctrl+A"],["Paste without formatting","pastetxt","Ctrl+Shift+V"],"-",["Find and replace","find","Ctrl+F"],"-",["Format painter","painter"],["Document defaults (font, size, spacing)","defaults"],["h","Change case"],["UPPERCASE","case:up"],["lowercase","case:low"],["Capitalize Each Word","case:title"],["Sentence case","case:sentence"],["tOGGLE cASE","case:toggle"],"-",["Duplicate paragraph","dup","Ctrl+Shift+D"],["Move paragraph up","mv:-1","Alt+Up"],["Move paragraph down","mv:1","Alt+Down"]]],
+ ["View",[["Zoom 50%","z:.5"],["Zoom 75%","z:.75"],["Zoom 100%","z:1"],["Zoom 125%","z:1.25"],["Zoom 150%","z:1.5"],["Zoom 200%","z:2"],["Fit page width","zfit"],"-",["Show or hide the ruler","ruler"],["Navigation pane (headings)","nav"],["Full screen","full"],["Spell check on or off","spell"],["Smart quotes on or off","sq"],"-",["Word count and statistics","wc"]]],
+ ["Insert",[["Image from this computer","image"],["Table","tbldlg"],["Link","link","Ctrl+K"],["Horizontal line","c:insertHorizontalRule"],["Page break","pbrk","Ctrl+Enter"],["Special characters","sym"],["Today's date","date"],["Date and time options","datedlg"],"-",["Picture from a web address","imgurl"],["Cover page","cover"],["Table of contents","toc"],["Update table of contents","tocup"],["Signature line","sign"],["h","Boxes"],["Note box","callout:note"],["Warning box","callout:warn"],["Tip box","callout:tip"],["Important box","callout:imp"],["h","Columns layout"],["Two columns","cols:2"],["Three columns","cols:3"]]],
+ ["Format",[["Bold","c:bold","Ctrl+B"],["Italic","c:italic","Ctrl+I"],["Underline","c:underline","Ctrl+U"],["Strikethrough","c:strikeThrough"],["Superscript","c:superscript"],["Subscript","c:subscript"],"-",["h","Line spacing"],["Single","ls:1"],["1.15","ls:1.15"],["1.5","ls:1.5"],["Double","ls:2"],["Paragraph options","para"],["Add space before paragraph","sp:b1"],["Remove space before","sp:b0"],["Add space after","sp:a1"],["Remove space after","sp:a0"],"-",["Clear formatting","clearfmt","Ctrl+\\"]]],
+ ["Table",[["Insert table","tbldlg"],"-",["Row above","t:rowA"],["Row below","t:rowB"],["Column left","t:colL"],["Column right","t:colR"],"-",["Delete row","t:delRow"],["Delete column","t:delCol"],["Delete table","t:delTbl"],"-",["Merge with the cell on the right","t:mergeR"],["Merge with the cell below","t:mergeD"],["Split cell","t:split"],"-",["Header row on or off","t:head"],["Cell shading","t:shade"],["Borders","t:borders"],"-",["h","Table style"],["Grid","tstyle:grid"],["Plain, no borders","tstyle:plain"],["Banded blue","tstyle:band"],["Dark header","tstyle:dark"],["Lines only","tstyle:lines"],"-",["Distribute columns evenly","t:dist"],["Align text to top","t:vt"],["Align text to middle","t:vm"],["Align text to bottom","t:vb"],["Sort by this column, A to Z","t:sortaz"],["Sort by this column, Z to A","t:sortza"]]],
+ ["Page",[["Page setup","pgset"],["Header and footer","hfdlg"],["Insert page number in footer","pgnum"],["h","Margins"],["Normal (1 inch)","mg:1"],["Narrow (0.5 inch)","mg:0.5"],["Moderate (0.75 inch)","mg:0.75"],["Wide sides (2 inch)","mg:wide"],["h","Orientation"],["Portrait","orient:p"],["Landscape","orient:l"],["h","Paper size"],["Letter","psz:letter"],["A4","psz:a4"],["Legal","psz:legal"],["A5","psz:a5"]]]];
 function dBuildUI(){
  $("dmenus").innerHTML=D_MENUS.map((m,i)=>`<div data-m="${i}"><button>${m[0]}</button><div class="dd">${m[1].map(x=>x==="-"?"<hr>":x[0]==="h"?`<h6>${x[1]}</h6>`:`<button data-da="${x[1]}">${x[0]}${x[2]?`<small>${x[2]}</small>`:""}</button>`).join("")}</div></div>`).join("");
  const b=(a,t,ti)=>`<button data-da="${a}" title="${ti||""}" aria-label="${ti||""}">${t}</button>`,sp='<span class="sp"></span>';
@@ -2105,13 +2217,13 @@ function dBuildUI(){
   `<select id="dfont" title="Font">${D_FONTS.map(f=>`<option>${f}</option>`).join("")}</select>`+
   `<button data-da="szm" title="Smaller">-</button><input class="sz" id="dsz" title="Font size in points" value="11" inputmode="decimal"><button data-da="szp" title="Larger">+</button>`+sp+
   b("c:bold","<b>B</b>","Bold (Ctrl+B)")+b("c:italic","<i>I</i>","Italic (Ctrl+I)")+b("c:underline","<u>U</u>","Underline (Ctrl+U)")+b("c:strikeThrough","<s>S</s>","Strikethrough")+b("c:superscript","x&sup2;","Superscript")+b("c:subscript","x&#8322;","Subscript")+
-  `<button class="cb" id="dcf" data-da="pal:fore" title="Text color"><b>A</b><i style="--c:#000"></i></button><button class="cb" id="dcb" data-da="pal:back" title="Highlight color"><b style="background:#ffe599;padding:0 3px">ab</b><i style="--c:#ffe599"></i></button>`+b("clearfmt",dI("clear"),"Clear formatting")+sp+
+  `<button class="cb" id="dcf" data-da="pal:fore" title="Text color"><b>A</b><i style="--c:#000"></i></button><button class="cb" id="dcb" data-da="pal:back" title="Highlight color"><b style="background:#ffe599;padding:0 3px">ab</b><i style="--c:#ffe599"></i></button>`+b("clearfmt",dI("clear"),"Clear formatting")+b("painter",dI("pnt"),"Format painter: copy the look of text, then select other text")+`<select id="dcase" title="Change case"><option value="">Aa</option><option value="up">UPPERCASE</option><option value="low">lowercase</option><option value="title">Capitalize Each Word</option><option value="sentence">Sentence case</option><option value="toggle">tOGGLE cASE</option></select>`+sp+
   b("c:justifyLeft",dI("alignL"),"Align left")+b("c:justifyCenter",dI("alignC"),"Center")+b("c:justifyRight",dI("alignR"),"Align right")+b("c:justifyFull",dI("alignJ"),"Justify")+
   `<select id="dls" title="Line spacing"><option value="">Spacing</option><option value="1">1.0</option><option value="1.15">1.15</option><option value="1.5">1.5</option><option value="2">2.0</option><option value="2.5">2.5</option><option value="3">3.0</option></select>`+sp+
   b("c:insertUnorderedList",dI("ul"),"Bulleted list")+b("c:insertOrderedList",dI("ol"),"Numbered list")+
   `<select id="dlt" title="List style"><option value="">List</option><option value="disc">Disc</option><option value="circle">Circle</option><option value="square">Square</option><option value="decimal">1. 2. 3.</option><option value="lower-alpha">a. b. c.</option><option value="upper-alpha">A. B. C.</option><option value="lower-roman">i. ii. iii.</option><option value="upper-roman">I. II. III.</option></select>`+
   b("outdent",dI("outdent"),"Decrease indent")+b("indent",dI("indent"),"Increase indent")+sp+
-  b("link",dI("link"),"Link (Ctrl+K)")+b("image",dI("image"),"Insert image")+b("pop:tbl",dI("table"),"Insert table")+b("c:insertHorizontalRule",dI("hr"),"Horizontal line")+b("pbrk",dI("pb"),"Page break")+b("sym",dI("sym"),"Special characters")+b("find",dI("find"),"Find and replace");
+  b("link",dI("link"),"Link (Ctrl+K)")+b("image",dI("image"),"Insert image")+b("pop:tbl",dI("table"),"Insert table")+b("c:insertHorizontalRule",dI("hr"),"Horizontal line")+b("pbrk",dI("pb"),"Page break")+b("sym",dI("sym"),"Special characters")+b("find",dI("find"),"Find and replace")+`<select id="dins" title="Insert more"><option value="">Insert...</option><option value="imgurl">Picture from web address</option><option value="cover">Cover page</option><option value="toc">Table of contents</option><option value="datedlg">Date and time</option><option value="sign">Signature line</option><option value="callout:note">Note box</option><option value="callout:warn">Warning box</option><option value="callout:tip">Tip box</option><option value="callout:imp">Important box</option><option value="cols:2">Two columns</option><option value="cols:3">Three columns</option><option value="nav">Navigation pane</option><option value="wc">Word count</option></select>`+b("lockdlg","Lock","Protect this document with a PIN");
  const t=(a,x)=>`<button data-da="t:${a}">${x}</button>`;
  $("dttbl").innerHTML='<span class="mu" style="padding:0 8px;font:600 11px Chakra Petch;letter-spacing:.14em;text-transform:uppercase">Table</span>'+t("rowA","Row above")+t("rowB","Row below")+t("delRow","Delete row")+sp+t("colL","Column left")+t("colR","Column right")+t("delCol","Delete column")+sp+t("mergeR","Merge right")+t("mergeD","Merge down")+t("split","Split cell")+sp+t("head","Header row")+t("shade","Shading")+t("borders","Borders")+t("align","Align table")+t("delTbl","Delete table");
  const st=$("dstat");st.innerHTML='<span id="dpgn">Page 1 of 1</span><span id="dwc">0 words</span><span id="dcc">0 characters</span><span style="flex:1"></span><button data-da="zm">-</button><input type="range" id="dzr" min="50" max="200" step="5" value="100"><button data-da="zp">+</button><span id="dzp" style="width:44px">100%</span><button data-da="zfit" style="padding:0 8px">Fit</button>';
@@ -2568,14 +2680,17 @@ function dUpdUI(){
  const cs=dCount();
 }
 /* ===== actions ===== */
+const D_RO_OK=/^(x:|back$|print$|find$|fprev$|fnext$|fclose$|z:|zm$|zp$|zfit$|ruler$|unlockedit$|nav$|wc$|full$|copy$|new$|import$|c:copy$|c:selectAll$|lockdlg$|share$|delete$|props$|vers$|spell$)/;
 function dAct(a,btn){
  const n=a.split(":")[0],arg=a.includes(":")?a.slice(a.indexOf(":")+1):"";
+ if(DS.ro&&!D_RO_OK.test(a))return toast("This document is locked. Choose Unlock to edit first.");
+ if(dMoreAct(n,arg,btn))return;
  if(n==="c"){
   if(arg==="paste"){return dAct("paste")}
   if(arg==="cut"||arg==="copy"){dFocus();document.execCommand(arg);if(arg==="cut")dChanged();return}
   if(arg==="selectAll"){dFocus();document.execCommand("selectAll");return}
   return dCmd(arg)}
- if(n==="x")return dExport(arg);
+ if(n==="x")return arg==="usafdoc"?dExportEnc():dExport(arg);
  if(n==="t")return dTblOp(arg);
  if(n==="z")return dZoom(+arg);
  if(n==="ls")return dLineSp(arg);
@@ -2584,7 +2699,7 @@ function dAct(a,btn){
  const A={
   new:async()=>{await dLeave();const d=await dCreate(D_TPLS[0].h,"Untitled document");dEnter(d)},
   copy:async()=>{await dSave();await dCopy(DS.cur.id)},rename:()=>{$("dtitle").focus();$("dtitle").select()},
-  back:()=>dLeave(),delete:async()=>{if(!confirm(`Delete "${DS.cur.title}"? This cannot be undone.`))return;const id=DS.cur.id;DS.cur=null;DS.dirty=false;await soft(api("/api/docs/"+id,"DELETE"),null);await dLocalDel(id);await dLoadList();dShowList()},
+  back:()=>dLeave(),savetpl:()=>dSaveTpl(),share:()=>dShareDlg(),delete:async()=>{if(!confirm(`Delete "${DS.cur.title}"? This cannot be undone.`))return;const id=DS.cur.id,auth=await dAuthFor(id);if(auth===null)return;try{await api("/api/docs/"+id,"DELETE",auth?{auth}:undefined)}catch(e){return toast(e.message)}DS.cur=null;DS.dirty=false;DS.unl=null;DS.ro=false;await dLocalDel(id);await dLoadList();dShowList()},
   print:()=>dPrint(),import:()=>{$("dfile").click()},
   undo:()=>dUndo(),redo:()=>dRedo(),
   paste:async()=>{try{const t=await navigator.clipboard.readText();dFocus();document.execCommand("insertText",false,t);dChanged()}catch(e){toast("Press Ctrl+V to paste")}},
@@ -2606,31 +2721,41 @@ async function dExport(fmt){
 /* ===== enter, leave, save ===== */
 function dDirty(){DS.dirty=true;dStatus("Saving...");clearTimeout(DS.sT);DS.sT=setTimeout(dSave,900)}
 async function dSave(){
- if(!DS.cur||!DS.dirty)return;clearTimeout(DS.sT);const d=DS.cur;
+ if(!DS.cur||!DS.dirty||DS.ro||DS.view)return;
+ const d=DS.cur,lk=d.lock,u=DS.unl&&DS.unl.id===d.id?DS.unl:null;
+ if(lk&&lk.mode==="open"&&!u)return;
+ clearTimeout(DS.sT);
  d.html=dGetHTML();d.title=($("dtitle").value||"").trim()||"Untitled document";d.updated=Date.now();d.words=dCount().words;DS.dirty=false;
- await dLocalPut(d);const r=await soft(api("/api/docs/"+d.id,"PUT",d),null);
- dStatus(r?"Saved":"Saved in this browser only (the bot is not reachable)");
- const m=DS.list.find(x=>x.id===d.id);if(m)Object.assign(m,dMeta(d))}
+ const out=Object.assign({},d);
+ if(lk&&lk.mode==="open"){out.enc=await dEncrypt(u.pin,lk,d.html);out.html="";out.words=0;d.enc=out.enc}
+ await dLocalPut(out);
+ try{await dVerPush(d,d.html)}catch(e){}
+ const auth=DS.oldAuth||(lk&&u?u.auth:undefined);let ok=false,msg="";
+ try{await api("/api/docs/"+d.id,"PUT",Object.assign({},out,auth?{auth}:{}));ok=true}catch(e){msg=e.message||""}
+ DS.oldAuth=null;
+ dStatus(ok?"Saved":/PIN|Too many/.test(msg)?msg:"Saved in this browser only (the bot is not reachable)");
+ const m=DS.list.find(x=>x.id===d.id);if(m)Object.assign(m,dMeta(out))}
 function dClean(h){const t=document.createElement("div");t.innerHTML=h;t.querySelectorAll(".pgsp").forEach(x=>x.remove());t.querySelectorAll(".pgb").forEach(x=>x.contentEditable="false");t.querySelectorAll("script,iframe,object,embed,style,link").forEach(x=>x.remove());t.querySelectorAll("*").forEach(x=>{[...x.attributes].forEach(a=>{if(/^on/i.test(a.name))x.removeAttribute(a.name);if(/^(href|src)$/i.test(a.name)&&/^\s*javascript:/i.test(a.value))x.removeAttribute(a.name)})});return t.innerHTML}
 function dEnter(d){
+ if(DS.unl&&DS.unl.id!==d.id)DS.unl=null;DS.oldAuth=null;
  DS.cur=d;d.page=Object.assign(dDefault().page,d.page||{});d.hf=Object.assign(dDefault().hf,d.hf||{});d.hf.h=Object.assign({l:"",c:"",r:""},d.hf.h);d.hf.f=Object.assign({l:"",c:"",r:""},d.hf.f);
  $("dlist").classList.add("hidden");$("dedv").classList.remove("hidden");document.body.classList.add("dediting");
- $("dtitle").value=d.title;dStatus("");dEd().innerHTML=dClean(d.html||"<p><br></p>");dNormalize();
+ $("dtitle").value=d.title;dStatus("");dEd().innerHTML=dClean(d.html||"<p><br></p>");dNormalize();dApplyBase();dApplyRO();
  DS.hist=[];DS.hi=-1;DS.dirty=false;DS.img=null;dImgSelect(null);DS.zoom=Math.min(1,Math.max(.5,($("dscroll").clientWidth-30)/dPg().w));
  try{document.execCommand("defaultParagraphSeparator",false,"p")}catch(e){}
  dLayout();dSnap(true);dCount();
  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>dPaginate());
  $("dscroll").scrollTop=0;dEd().focus({preventScroll:true});scrollTo(0,0);
 }
-async function dLeave(){await dSave();DS.cur=null;await dLoadList();dShowList()}
+async function dLeave(){await dSave();DS.cur=null;DS.unl=null;DS.ro=false;await dLoadList();dShowList()}
 /* ===== wiring ===== */
 function dBind(){
- dBuildUI();
+ dBuildUI();dMoreInit();
  $("dnew").onclick=async()=>{const d=await dCreate(D_TPLS[0].h,"Untitled document");dEnter(d)};
  $("dimp").onclick=()=>$("dfile").click();
  $("dfile").onchange=async e=>{const f=e.target.files[0];e.target.value="";if(f)dImportFile(f)};
  $("dimgf").onchange=e=>{const f=e.target.files[0];e.target.value="";if(f){dFocus();dImgFile(f)}};
- $("dtpl").onclick=async e=>{const b=e.target.closest("[data-tpl]");if(!b)return;const t=D_TPLS[+b.dataset.tpl],d=await dCreate(t.h,t.t);dEnter(d)};
+ $("dtpl").onclick=async e=>{const x=e.target.closest("[data-deltpl]");if(x){e.stopPropagation();return dDelTpl(x.dataset.deltpl)}const u=e.target.closest("[data-utpl]");if(u)return dFromTpl(u.dataset.utpl);const b=e.target.closest("[data-tpl]");if(!b)return;const t=D_TPLS[+b.dataset.tpl],d=await dCreate(t.h,t.t);dEnter(d)};
  $("dgrid").onclick=e=>{const o=e.target.closest("[data-open]"),c=e.target.closest("[data-copy]"),x=e.target.closest("[data-del]");if(x)return dDelete(x.dataset.del);if(c)return dCopy(c.dataset.copy);if(o)dOpenDoc(o.dataset.open)};
  $("dback").onclick=()=>dLeave();
  $("dtitle").oninput=()=>{DS.cur.title=$("dtitle").value;dDirty()};
@@ -2702,8 +2827,8 @@ function dPaste(e){
  const cd=e.clipboardData;if(!cd)return;
  const f=[...(cd.files||[])].find(x=>/^image\//.test(x.type));
  if(f){e.preventDefault();dImgFile(f);return}
- e.preventDefault();const h=cd.getData("text/html"),t=cd.getData("text/plain");
- if(h){document.execCommand("insertHTML",false,dSanitize(h));dChanged();return}
+ e.preventDefault();const h=cd.getData("text/html"),t=cd.getData("text/plain"),plain=DS.plain;DS.plain=false;
+ if(h&&!plain){document.execCommand("insertHTML",false,dSanitize(h));dChanged();return}
  const lines=t.replace(/\r/g,"").split("\n");
  if(lines.length===1)document.execCommand("insertText",false,t);else document.execCommand("insertHTML",false,lines.map(l=>`<p>${esc(l)||"<br>"}</p>`).join(""));
  dChanged()}
@@ -2841,6 +2966,7 @@ async function dUnzip(buf){
  return out}
 async function dDeflate(u8){if(typeof CompressionStream==="undefined")return null;try{const cs=new CompressionStream("deflate"),w=cs.writable.getWriter();w.write(u8);w.close();return new Uint8Array(await new Response(cs.readable).arrayBuffer())}catch(e){return null}}
 
+const dProps=()=>Object.assign({author:"",subject:"",keywords:""},(typeof DS!=="undefined"&&DS.cur&&DS.cur.props)||{});
 /* ===== PDF writer: own layout engine, built-in PDF fonts (Helvetica, Times, Courier) ===== */
 const D_PDFN={sans:["Helvetica","Helvetica-Bold","Helvetica-Oblique","Helvetica-BoldOblique"],serif:["Times-Roman","Times-Bold","Times-Italic","Times-BoldItalic"],mono:["Courier","Courier-Bold","Courier-Oblique","Courier-BoldOblique"]};
 const D_WTAB={"Helvetica":"H","Helvetica-Oblique":"H","Helvetica-Bold":"HB","Helvetica-BoldOblique":"HB","Times-Roman":"T","Times-Bold":"TB","Times-Italic":"TI","Times-BoldItalic":"TBI"};
@@ -2994,7 +3120,7 @@ async function dMakePDF(m){
  const dnow=new Date(),pd=n=>String(n).padStart(2,"0"),dstr=`D:${dnow.getFullYear()}${pd(dnow.getMonth()+1)}${pd(dnow.getDate())}${pd(dnow.getHours())}${pd(dnow.getMinutes())}${pd(dnow.getSeconds())}`;
  objs[catId-1]=enc(`<< /Type /Catalog /Pages ${pagesId} 0 R /PageMode /UseNone >>`);
  objs[pagesId-1]=enc(`<< /Type /Pages /Kids [${pageIds.map(i=>i+" 0 R").join(" ")}] /Count ${pageIds.length} >>`);
- objs[infoId-1]=enc(`<< /Title ${pdfHex16(m.title)} /Producer ${pdfStr("USAF Server Management document editor")} /Creator ${pdfStr("USAF Server Management")} /CreationDate (${dstr}) >>`);
+ objs[infoId-1]=enc(`<< /Title ${pdfHex16(m.title)} /Producer ${pdfStr("USAF Server Management document editor")} /Creator ${pdfStr("USAF Server Management")}${dProps().author?` /Author ${pdfStr(dProps().author)}`:""}${dProps().subject?` /Subject ${pdfStr(dProps().subject)}`:""}${dProps().keywords?` /Keywords ${pdfStr(dProps().keywords)}`:""} /CreationDate (${dstr}) >>`);
  const out=[enc("%PDF-1.4\n%\xE2\xE3\xCF\xD3\n")],offs=[];let pos=out[0].length;
  objs.forEach((o,i)=>{offs.push(pos);const h=enc(`${i+1} 0 obj\n`),t=enc("\nendobj\n");out.push(h,o,t);pos+=h.length+o.length+t.length});
  let xr=`xref\n0 ${objs.length+1}\n0000000000 65535 f \n`;offs.forEach(o=>xr+=String(o).padStart(10,"0")+" 00000 n \n");
@@ -3079,7 +3205,7 @@ async function dMakeDOCX(m){
   {name:"word/styles.xml",data:styles},{name:"word/numbering.xml",data:numbering},
   {name:"word/settings.xml",data:`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:settings xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:defaultTabStop w:val="720"/><w:compat><w:compatSetting w:name="compatibilityMode" w:uri="http://schemas.microsoft.com/office/word" w:val="15"/></w:compat></w:settings>`}];
  if(hf.on){files.push({name:"word/header1.xml",data:hfPart("hdr",hf.h)},{name:"word/footer1.xml",data:hfPart("ftr",hf.f)});if(hf.first)files.push({name:"word/header2.xml",data:hfPart("hdr",null)},{name:"word/footer2.xml",data:hfPart("ftr",null)})}
- files.push({name:"docProps/core.xml",data:`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><cp:coreProperties xmlns:cp="http://schemas.openxmlformats.org/package/2006/metadata/core-properties" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><dc:title>${dX(m.title)}</dc:title><dc:creator>USAF Server Management</dc:creator><dcterms:created xsi:type="dcterms:W3CDTF">${iso}</dcterms:created><dcterms:modified xsi:type="dcterms:W3CDTF">${iso}</dcterms:modified></cp:coreProperties>`},
+ files.push({name:"docProps/core.xml",data:`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><cp:coreProperties xmlns:cp="http://schemas.openxmlformats.org/package/2006/metadata/core-properties" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><dc:title>${dX(m.title)}</dc:title><dc:creator>${dX(dProps().author||"USAF Server Management")}</dc:creator>${dProps().subject?`<dc:subject>${dX(dProps().subject)}</dc:subject>`:""}${dProps().keywords?`<cp:keywords>${dX(dProps().keywords)}</cp:keywords>`:""}<dcterms:created xsi:type="dcterms:W3CDTF">${iso}</dcterms:created><dcterms:modified xsi:type="dcterms:W3CDTF">${iso}</dcterms:modified></cp:coreProperties>`},
   {name:"docProps/app.xml",data:`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Properties xmlns="http://schemas.openxmlformats.org/officeDocument/2006/extended-properties"><Application>USAF Server Management</Application></Properties>`});
  media.forEach(x=>files.push(x));
  return new Blob([dZip(files)],{type:"application/vnd.openxmlformats-officedocument.wordprocessingml.document"})}
@@ -3122,7 +3248,7 @@ async function dMakeRTF(m){
  const hfBlock=(k,z)=>`{\\${k}\\pard\\plain\\tqc\\tx${Math.round(cw*10)}\\tqr\\tx${Math.round(cw*20)}\\f0\\fs18\\cf${ci("#555555")} ${hfT(z.l)}\\tab ${hfT(z.c)}\\tab ${hfT(z.r)}\\par}`;
  const hdr=hf.on?hfBlock("header",hf.h)+hfBlock("footer",hf.f)+(hf.first?"{\\headerf\\pard\\par}{\\footerf\\pard\\par}":""):"";
  const land=P.w>P.h,head=`{\\rtf1\\ansi\\ansicpg1252\\deff0\\uc1{\\fonttbl${fonts.map((f,i)=>`{\\f${i}\\${f.k==="serif"?"froman":f.k==="mono"?"fmodern":"fswiss"} ${f.n};}`).join("")}}{\\colortbl;${cols.map(c=>`\\red${parseInt(c.substr(1,2),16)}\\green${parseInt(c.substr(3,2),16)}\\blue${parseInt(c.substr(5,2),16)};`).join("")}}`;
- const info=`{\\info{\\title ${dRtfT(m.title)}}{\\author USAF Server Management}}`;
+ const info=`{\\info{\\title ${dRtfT(m.title)}}{\\author ${dRtfT(dProps().author||"USAF Server Management")}}${dProps().subject?`{\\subject ${dRtfT(dProps().subject)}}`:""}${dProps().keywords?`{\\keywords ${dRtfT(dProps().keywords)}}`:""}}`;
  const pg=`\\paperw${Math.round(P.w*20)}\\paperh${Math.round(P.h*20)}\\margl${Math.round(P.ml*20)}\\margr${Math.round(P.mr*20)}\\margt${Math.round(P.mt*20)}\\margb${Math.round(P.mb*20)}${land?"\\landscape":""}${hf.on&&hf.first?"\\titlepg":""}\n`;
  // the colour table is complete only after the body was built
  const out=head+info+pg+hdr+body+"}";
@@ -3230,7 +3356,7 @@ async function dMakeODT(m){
  const land=P.w>P.h;
  const styles=`<?xml version="1.0" encoding="UTF-8"?><office:document-styles ${NS} office:version="1.2"><office:font-face-decls>${[...fontsUsed].map(f=>`<style:font-face style:name="${dX(f)}" svg:font-family="'${dX(f)}'"/>`).join("")}</office:font-face-decls><office:styles><style:default-style style:family="paragraph"><style:paragraph-properties fo:orphans="2" fo:widows="2"/><style:text-properties style:font-name="Arial" fo:font-size="11pt"/></style:default-style><style:style style:name="Standard" style:family="paragraph" style:class="text"/><style:style style:name="HF" style:family="paragraph" style:parent-style-name="Standard"><style:paragraph-properties fo:margin="0pt"><style:tab-stops><style:tab-stop style:position="${in_(cw/2)}" style:type="center"/><style:tab-stop style:position="${in_(cw)}" style:type="right"/></style:tab-stops></style:paragraph-properties><style:text-properties fo:font-size="9pt" fo:color="#555555"/></style:style></office:styles><office:automatic-styles><style:page-layout style:name="pm1"><style:page-layout-properties fo:page-width="${in_(land?P.h:P.w)}" fo:page-height="${in_(land?P.w:P.h)}" style:print-orientation="${land?"landscape":"portrait"}" fo:margin-top="${in_(P.mt)}" fo:margin-bottom="${in_(P.mb)}" fo:margin-left="${in_(P.ml)}" fo:margin-right="${in_(P.mr)}"/>${hf.on?`<style:header-style><style:header-footer-properties fo:min-height="0in" fo:margin-bottom="0.1in"/></style:header-style><style:footer-style><style:header-footer-properties fo:min-height="0in" fo:margin-top="0.1in"/></style:footer-style>`:""}</style:page-layout></office:automatic-styles><office:master-styles>${hf.on&&hf.first?`<style:master-page style:name="First" style:page-layout-name="pm1" style:next-style-name="Standard"/>`:""}<style:master-page style:name="Standard" style:page-layout-name="pm1">${hf.on?hfX("header",hf.h)+hfX("footer",hf.f):""}</style:master-page></office:master-styles></office:document-styles>`;
  const iso=new Date().toISOString();
- const meta=`<?xml version="1.0" encoding="UTF-8"?><office:document-meta ${NS} office:version="1.2"><office:meta><dc:title>${dX(m.title)}</dc:title><meta:generator>USAF Server Management</meta:generator><meta:creation-date>${iso}</meta:creation-date></office:meta></office:document-meta>`;
+ const meta=`<?xml version="1.0" encoding="UTF-8"?><office:document-meta ${NS} office:version="1.2"><office:meta><dc:title>${dX(m.title)}</dc:title>${dProps().author?`<dc:creator>${dX(dProps().author)}</dc:creator>`:""}${dProps().subject?`<dc:subject>${dX(dProps().subject)}</dc:subject>`:""}${dProps().keywords?`<meta:keyword>${dX(dProps().keywords)}</meta:keyword>`:""}<meta:generator>USAF Server Management</meta:generator><meta:creation-date>${iso}</meta:creation-date></office:meta></office:document-meta>`;
  const manifest=`<?xml version="1.0" encoding="UTF-8"?><manifest:manifest xmlns:manifest="urn:oasis:names:tc:opendocument:xmlns:manifest:1.0" manifest:version="1.2"><manifest:file-entry manifest:full-path="/" manifest:media-type="application/vnd.oasis.opendocument.text"/><manifest:file-entry manifest:full-path="content.xml" manifest:media-type="text/xml"/><manifest:file-entry manifest:full-path="styles.xml" manifest:media-type="text/xml"/><manifest:file-entry manifest:full-path="meta.xml" manifest:media-type="text/xml"/>${pics.map(p=>`<manifest:file-entry manifest:full-path="${p.name}" manifest:media-type="${p.mime}"/>`).join("")}</manifest:manifest>`;
  const files=[{name:"mimetype",data:"application/vnd.oasis.opendocument.text"},{name:"META-INF/manifest.xml",data:manifest},{name:"content.xml",data:content},{name:"styles.xml",data:styles},{name:"meta.xml",data:meta}];pics.forEach(p=>files.push({name:p.name,data:p.data}));
  return new Blob([dZip(files)],{type:"application/vnd.oasis.opendocument.text"})}
@@ -3241,6 +3367,7 @@ async function dImportFile(f){
  try{
   toast("Opening "+f.name+"...");
   const ext=(f.name.split(".").pop()||"").toLowerCase(),title=f.name.replace(/\.[^.]+$/,"")||"Imported document";let html="",extra={};
+  if(ext==="usafdoc")return dImportEnc(f);
   if(ext==="docx"){const r=await dImportDocx(await f.arrayBuffer());html=r.html;extra=r.extra}
   else if(ext==="html"||ext==="htm"){html=dSanitize(await f.text())}
   else if(ext==="md"||ext==="markdown"){html=dMdToHtml(await f.text())}
@@ -3467,8 +3594,353 @@ async function dImportDocx(buf){
   if(hdr||ftr)extra.hf={on:true,first:false,h:{l:"",c:hdr,r:""},f:{l:"",c:ftr,r:""}}}
  return{html,extra}}
 
+/* ===== share by link, and the read-only viewer ===== */
+const dShareUrl=t=>location.href.split("#")[0]+"#/doc/"+t;
+async function dShareDlg(){
+ if(!DS.cur)return;
+ if(DS.cur.lock&&!(DS.unl&&DS.unl.id===DS.cur.id)){await dUnlockEdit();if(!(DS.unl&&DS.unl.id===DS.cur.id))return}
+ DS.dirty=true;await dSave();
+ const id=DS.cur.id,auth=DS.cur.lock&&DS.unl?DS.unl.auth:undefined,lockNote=DS.cur.lock&&DS.cur.lock.mode==="open"?'<p class="mu" style="margin-top:8px"><b>This document is locked with a PIN.</b> People who open the link must type the PIN before they can read it. Send them the PIN in a different message than the link.</p>':"";let tok=null;
+ const cur=await soft(api("/api/docs/"+id),null);
+ if(!cur)return toast("The bot could not be reached, so a link cannot be made right now");
+ tok=cur.shared?(cur.share||true):null;
+ const draw=()=>{
+  const box=$("ddbox");
+  box.querySelector("#dsh").innerHTML=tok&&tok!==true?`<p class="mu">Anyone who has this link can read this document and download it. They cannot change it, and they do not need to log in. The link always shows the latest saved version.</p>${lockNote}<div class="w"><label>Link</label><input id="dsh_u" readonly value="${esc(dShareUrl(tok))}"></div><div class="row" style="margin-bottom:6px"><button class="nb s" id="dsh_c">Copy link</button><button class="nb s d" id="dsh_x">Stop sharing</button></div>`:tok===true?`<p class="mu">This document is shared. Press the button to show the link.</p><div class="row"><button class="nb s" id="dsh_n">Show link</button><button class="nb s d" id="dsh_x">Stop sharing</button></div>`:`<p class="mu">This document is private. Make a link to let people read it without logging in. They cannot edit it.</p>${lockNote}<div class="row" style="margin-top:10px"><button class="nb" id="dsh_n">Make a link</button></div>`;
+  const n=box.querySelector("#dsh_n"),x=box.querySelector("#dsh_x"),c=box.querySelector("#dsh_c");
+  if(n)n.onclick=async()=>{const r=await await api("/api/docs/"+id+"/share","POST",{on:true,auth}).catch(e=>{toast(e.message);return null});if(!r)return;tok=r.token;draw()};
+  if(x)x.onclick=async()=>{const r=await api("/api/docs/"+id+"/share","POST",{on:false,auth}).catch(e=>{toast(e.message);return null});if(!r)return;tok=null;draw();const m=DS.list.find(d=>d.id===id);if(m)m.shared=false};
+  if(c)c.onclick=async()=>{const u=box.querySelector("#dsh_u");u.select();try{await navigator.clipboard.writeText(u.value);toast("Link copied")}catch(e){document.execCommand("copy");toast("Link copied")}}};
+ dDlg("Share this document",'<div id="dsh"></div>',"Close",null,true);draw();
+}
+/* viewer: opened when the address ends in #/doc/<token> */
+async function dShareView(tok){
+ document.body.classList.add("dshare");
+ $("login").classList.add("hidden");$("app").classList.remove("hidden");
+ document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("on",x.id==="t-docs"));
+ $("dlist").classList.add("hidden");$("dedv").classList.remove("hidden");
+ let d=null;
+ try{const base=(typeof BACKEND==="string"?BACKEND:"").replace(/\/$/,"");
+  if(base){const r=await fetch(base+"/public/doc/"+encodeURIComponent(tok));if(r.ok)d=await r.json()}
+  else if(window.DOCSM){d=Object.values(window.DOCSM).find(x=>x.share===tok)||null}}catch(e){}
+ if(!d){$("dedv").innerHTML='<div style="padding:60px 20px;text-align:center"><h2 class="sh">This link does not work</h2><p class="mu">The document is no longer shared, or the link is wrong. Ask the person who sent it for a new link.</p></div>';return}
+ dBindOnce();
+ if(d.lock&&d.enc){
+  const lk=d.lock,en=d.enc;let html=null;
+  while(html===null){
+   const r=await dAskPin("This document needs a PIN","The person who shared it protected it with a PIN. Type it to read the document.",async pin=>{try{return await dDecrypt(pin,lk,en)}catch(e){throw new Error("That PIN is not right.")}},"Open");
+   if(!r){$("dedv").innerHTML='<div style="padding:60px 20px;text-align:center"><h2 class="sh">This document is protected</h2><p class="mu">You need the PIN to read it.</p><button class="nb" onclick="location.reload()">Try again</button></div>';return}
+   html=r.v}
+  d.html=html;delete d.lock;delete d.enc}
+ d.id="shared";d.page=d.page||undefined;d.created=d.created||Date.now();
+ dEnter(d);
+ $("dtitle").readOnly=true;dEd().contentEditable="false";dEd().spellcheck=false;DS.dirty=false;DS.view=true;
+ document.title=(d.title||"Document");
+}
+function dBindOnce(){if(!DS.bound){DS.bound=true;dBind()}}
 
-window.docsOpen=docsOpen;window.dBind=dBind;window.__D={dPaginate,DS,dMake,dImportFile,dEnter,dCreate,dModel,dMdToHtml};
+/* ===== PIN locks =====
+   "open": the text is encrypted in this browser (AES-GCM, key from the PIN). The bot only stores scrambled text.
+   "edit": anyone can read the document; changing, deleting or sharing it needs the PIN (the bot checks it too). */
+const dB64=u=>{let s="";for(let i=0;i<u.length;i+=8192)s+=String.fromCharCode.apply(null,u.subarray(i,i+8192));return btoa(s)};
+const dUnB64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+async function dKdf(pin,lock,tag){
+ const k=await crypto.subtle.importKey("raw",new TextEncoder().encode(String(pin)),"PBKDF2",false,["deriveBits"]);
+ return new Uint8Array(await crypto.subtle.deriveBits({name:"PBKDF2",hash:"SHA-256",salt:dCat([dUnB64(lock.salt),new TextEncoder().encode(tag)]),iterations:lock.iter},k,256))}
+const dAuthOf=async(pin,lock)=>dB64(await dKdf(pin,lock,"auth"));
+const dHashOf=async auth=>dB64(new Uint8Array(await crypto.subtle.digest("SHA-256",dUnB64(auth))));
+const dAesKey=async(pin,lock)=>crypto.subtle.importKey("raw",await dKdf(pin,lock,"enc"),"AES-GCM",false,["encrypt","decrypt"]);
+async function dEncrypt(pin,lock,text){const iv=crypto.getRandomValues(new Uint8Array(12)),ct=new Uint8Array(await crypto.subtle.encrypt({name:"AES-GCM",iv},await dAesKey(pin,lock),new TextEncoder().encode(text)));return{iv:dB64(iv),ct:dB64(ct)}}
+async function dDecrypt(pin,lock,enc){const pt=await crypto.subtle.decrypt({name:"AES-GCM",iv:dUnB64(enc.iv)},await dAesKey(pin,lock),dUnB64(enc.ct));return new TextDecoder().decode(pt)}
+async function dNewLock(mode,pin){const lock={mode,salt:dB64(crypto.getRandomValues(new Uint8Array(16))),iter:250000};const auth=await dAuthOf(pin,lock);lock.hash=await dHashOf(auth);return{lock,auth}}
+/* the PIN of the document that is open (kept only in memory) */
+DS.unl=null;
+const dIsRO=d=>!!(d&&d.lock&&d.lock.mode==="edit"&&!(DS.unl&&DS.unl.id===d.id));
+/* ask for a PIN; check(pin) must return a value or throw. Resolves with that value, or null when cancelled. */
+function dAskPin(title,msg,check,okLabel){
+ return new Promise(res=>{let done=false;
+  dDlg(title,`<p class="mu" style="margin-bottom:12px">${msg}</p><div class="form"><div class="w"><label>PIN or code</label><input type="password" id="dpin" autocomplete="off" maxlength="64"></div></div><div id="dpine" style="color:#ff7b7b;min-height:18px;font-size:13px"></div>`,okLabel||"Unlock",async b=>{
+   const pin=b.querySelector("#dpin").value;if(!pin){b.querySelector("#dpine").textContent="Type the PIN.";return false}
+   try{const v=await check(pin);done=true;res({pin,v})}catch(e){b.querySelector("#dpine").textContent=e.message||"That PIN is not right.";b.querySelector("#dpin").select();return false}});
+  const cn=$("ddcn");if(cn){const old=cn.onclick;cn.onclick=()=>{if(!done){done=true;res(null)}old&&old()}}
+  const lg=$("ddlg");const obs=new MutationObserver(()=>{if(lg.classList.contains("hidden")){obs.disconnect();if(!done){done=true;res(null)}}});obs.observe(lg,{attributes:true,attributeFilter:["class"]})})}
+/* open a locked document from the list. Returns the document ready to show, or null. */
+async function dUnlockOpen(d){
+ if(!d.lock)return d;
+ if(d.lock.mode==="open"){
+  const r=await dAskPin("This document is locked","Type the PIN to open it.",async pin=>{
+   const auth=await dAuthOf(pin,d.lock);if(d.lock.hash&&await dHashOf(auth)!==d.lock.hash)throw new Error("That PIN is not right.");
+   try{return{auth,html:await dDecrypt(pin,d.lock,d.enc)}}catch(e){throw new Error("That PIN is not right.")}},"Open");
+  if(!r)return null;DS.unl={id:d.id,pin:r.pin,auth:r.v.auth};d.html=r.v.html;return d}
+ return d}
+async function dUnlockEdit(){
+ const d=DS.cur;if(!d||!d.lock)return;
+ const r=await dAskPin("Unlock for editing","This document is protected. Type the PIN to edit it.",async pin=>{const auth=await dAuthOf(pin,d.lock);if(await dHashOf(auth)!==d.lock.hash)throw new Error("That PIN is not right.");return auth});
+ if(!r)return;DS.unl={id:d.id,pin:r.pin,auth:r.v};dApplyRO();toast("Unlocked. You can edit now.")}
+/* read-only look for documents locked against editing */
+function dApplyRO(){
+ const d=DS.cur,ro=dIsRO(d);DS.ro=ro;
+ $("dedv").classList.toggle("dro",ro);dEd().contentEditable=ro?"false":"true";$("dtitle").readOnly=ro||DS.view===true;
+ let bar=$("dlockbar");if(!bar){bar=document.createElement("div");bar.id="dlockbar";$("dedv").insertBefore(bar,$("dedv").querySelector(".dmenus"))}
+ if(d&&d.lock){bar.className="dlockbar";bar.innerHTML=ro?`<b>Locked.</b> You can read this document but not change it.<span style="flex:1"></span><button class="nb s" data-da="unlockedit">Unlock to edit</button>`:`<b>PIN lock is on</b> (${d.lock.mode==="open"?"the PIN is needed to open it":"the PIN is needed to edit it"}).<span style="flex:1"></span><button class="nb s" data-da="lockdlg">Lock settings</button>`}
+ else{bar.className="hidden";bar.innerHTML=""}}
+async function dLockDlg(){
+ const d=DS.cur;if(!d||DS.view)return;
+ if(dIsRO(d))return dUnlockEdit();
+ const has=!!d.lock;
+ dDlg(has?"PIN lock settings":"Lock this document",`<div class="form">
+  <div class="w"><label>What the PIN does</label><select id="dk_m"><option value="open" ${has&&d.lock.mode==="open"?"selected":""}>Needed to open it. The text is scrambled (encrypted).</option><option value="edit" ${has&&d.lock.mode==="edit"?"selected":""}>Needed to change, delete or share it. Anyone can read it.</option></select></div>
+  <div><label>${has?"New PIN":"PIN"} (4 to 64 characters)</label><input type="password" id="dk_p" autocomplete="off" maxlength="64"></div><div><label>Type it again</label><input type="password" id="dk_q" autocomplete="off" maxlength="64"></div>
+  <p class="mu w" style="font-size:13px">Use at least 6 characters. If you lose the PIN of a document that is locked to open, <b>nobody can recover its text</b>, not even the bot owner. Locked-to-open documents cannot be shared by link. The document name stays visible in the list.</p>
+  ${has?'<div class="w"><button class="nb s d" id="dk_rm">Remove the lock</button></div>':""}</div>`,has?"Change the lock":"Lock it",async b=>{
+  const pin=b.querySelector("#dk_p").value,q=b.querySelector("#dk_q").value,mode=b.querySelector("#dk_m").value;
+  if(pin.length<4){toast("The PIN needs at least 4 characters");return false}
+  if(pin!==q){toast("The two PINs are different");return false}
+  if(mode==="open"&&DS.cur.shared){toast("Stop sharing the link first, then lock it");return false}
+  await dApplyLock(mode,pin)});
+ const rm=$("dk_rm");if(rm)rm.onclick=async()=>{if(!confirm("Remove the PIN lock? Anyone who can open the dashboard will be able to read and edit this document."))return;$("ddlg").classList.add("hidden");await dApplyLock(null)};
+}
+async function dApplyLock(mode,pin){
+ const d=DS.cur;DS.dirty=true;
+ DS.oldAuth=DS.unl&&DS.unl.id===d.id?DS.unl.auth:null;
+ if(!mode){d.lock=null;delete d.enc;DS.unl=null}
+ else{const n=await dNewLock(mode,pin);d.lock=n.lock;DS.unl={id:d.id,pin,auth:n.auth};if(mode==="edit")delete d.enc}
+ await dSave();dApplyRO();toast(mode?"Locked":"Lock removed")}
+
+/* a locked copy to send to someone: a .usafdoc file only opens on this dashboard, with the PIN */
+async function dExportEnc(){
+ const d=DS.cur;
+ if(!d.lock||d.lock.mode!=="open"){toast("Lock this document with a PIN that is needed to open it first. Then download the encrypted copy.");return dLockDlg()}
+ DS.dirty=true;await dSave();
+ const f={usafdoc:1,title:d.title,lock:d.lock,enc:d.enc,page:d.page,hf:d.hf,base:d.base};
+ dDownload(new Blob([JSON.stringify(f)],{type:"application/json"}),(d.title||"document").replace(/[^\w .-]+/g,"_")+".usafdoc");toast("Encrypted copy downloaded. It only opens with the PIN.")}
+async function dImportEnc(f){
+ let j;try{j=JSON.parse(await f.text())}catch(e){}
+ if(!j||!j.usafdoc||!j.lock||!j.enc)return toast("That is not a valid locked document file");
+ const r=await dAskPin("This document needs a PIN","Type the PIN for "+(j.title||"this document")+".",async pin=>{
+  const auth=await dAuthOf(pin,j.lock);if(j.lock.hash&&await dHashOf(auth)!==j.lock.hash)throw new Error("That PIN is not right.");
+  try{return{auth,html:await dDecrypt(pin,j.lock,j.enc)}}catch(e){throw new Error("That PIN is not right.")}},"Open");
+ if(!r)return;
+ if(DS.cur)await dSave();
+ const d=await dCreate("",j.title||"Locked document",{page:j.page,hf:j.hf,base:j.base,lock:j.lock,enc:j.enc});
+ d.html=dClean(r.v.html);DS.unl={id:d.id,pin:r.pin,auth:r.v.auth};dEnter(d);toast("Opened")}
+
+/* ===== more word-processor features ===== */
+const dLS=(k,v)=>{try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}};
+DS.sq=dLS("usaf-docs-sq")!=="0";DS.spell=dLS("usaf-docs-spell")!=="0";
+
+/* ----- text case ----- */
+function dCase(kind){
+ const r=dSelRange();if(!r||r.collapsed||!dIn(r.commonAncestorContainer))return toast("Select some text first");
+ const sv=dSelSave(),root=r.commonAncestorContainer.nodeType===3?r.commonAncestorContainer.parentNode:r.commonAncestorContainer;
+ const tw=document.createTreeWalker(root,NodeFilter.SHOW_TEXT),nodes=[];
+ while(tw.nextNode()){const n=tw.currentNode;if(r.intersectsNode(n)&&!(n.parentNode.closest&&n.parentNode.closest(".pgsp")))nodes.push(n)}
+ const F={up:s=>s.toUpperCase(),low:s=>s.toLowerCase(),
+  title:s=>s.toLowerCase().replace(/(^|[\s(\["'\u2018\u201c-])([a-z\u00e0-\u00ff])/g,(m,a,b)=>a+b.toUpperCase()),
+  sentence:s=>s.toLowerCase().replace(/(^\s*|[.!?]\s+)([a-z\u00e0-\u00ff])/g,(m,a,b)=>a+b.toUpperCase()),
+  toggle:s=>[...s].map(c=>c===c.toUpperCase()?c.toLowerCase():c.toUpperCase()).join("")}[kind];
+ if(!F)return;
+ nodes.forEach(n=>{const s=n===r.startContainer?r.startOffset:0,e=n===r.endContainer?r.endOffset:n.data.length;const o=n.data.slice(s,e),t=F(o);if(t.length===o.length)n.replaceData(s,e-s,t)});
+ dSelLoad(sv);dChanged()}
+
+/* ----- format painter ----- */
+function dPainter(){
+ const r=dSelRange();if(!r||!dIn(r.startContainer))return toast("Click in the text whose look you want to copy first");
+ const cs=getComputedStyle(dElOf(r.startContainer));
+ DS.paint={font:cs.fontFamily.split(",")[0].replace(/["']/g,"").trim(),size:Math.round(parseFloat(cs.fontSize)*75)/100,color:cs.color,bg:cs.backgroundColor,b:+cs.fontWeight>=600,i:cs.fontStyle==="italic",u:/underline/.test(cs.textDecorationLine),s:/line-through/.test(cs.textDecorationLine)};
+ dEd().classList.add("painting");toast("Look copied. Now select the text to give it the same look.")}
+function dPaintApply(){
+ const p=DS.paint,r=dSelRange();if(!p||!r||r.collapsed||!dIn(r.commonAncestorContainer))return;
+ DS.paint=null;dEd().classList.remove("painting");dFocus();
+ document.execCommand("styleWithCSS",false,true);
+ const st=c=>document.queryCommandState(c);
+ document.execCommand("fontName",false,p.font);dSetSize(p.size);document.execCommand("foreColor",false,p.color);
+ if(p.bg&&!/rgba\(0, 0, 0, 0\)|transparent/.test(p.bg))document.execCommand("backColor",false,p.bg);else document.execCommand("backColor",false,"transparent");
+ if(st("bold")!==p.b)document.execCommand("bold");if(st("italic")!==p.i)document.execCommand("italic");if(st("underline")!==p.u)document.execCommand("underline");if(st("strikeThrough")!==p.s)document.execCommand("strikeThrough");
+ dChanged()}
+
+/* ----- spacing ----- */
+function dSpace(side,on){dBlocks().forEach(b=>{if(/^(TD|TH)$/.test(b.nodeName))return;b.style[side==="b"?"marginTop":"marginBottom"]=on?"12pt":"0"});dChanged()}
+
+/* ----- document defaults (font, size, spacing for the whole document) ----- */
+function dApplyBase(){
+ const ed=dEd(),b=DS.cur&&DS.cur.base||{};
+ ed.style.fontFamily=b.font?`"${b.font}",Arial,sans-serif`:"";ed.style.fontSize=b.size?b.size+"pt":"";ed.style.lineHeight=b.lh||"";ed.style.setProperty("--pa",b.after!=null&&b.after!==""?b.after+"pt":"8pt");
+ dPagSoon()}
+function dDefaultsDlg(){
+ const b=DS.cur.base||{},sel=(id,l,v)=>`<select id="${id}">${l.map(o=>`<option value="${o[0]}" ${String(o[0])===String(v)?"selected":""}>${o[1]}</option>`).join("")}</select>`;
+ dDlg("Document defaults",`<div class="form"><div><label>Font</label>${sel("dd_f",[["","Arial (standard)"]].concat(D_FONTS.map(f=>[f,f])),b.font||"")}</div><div><label>Size in points</label><input type="number" id="dd_s" min="6" max="48" step="0.5" value="${b.size||11}"></div>
+ <div><label>Line spacing</label>${sel("dd_l",[["","1.15 (standard)"],["1","Single"],["1.15","1.15"],["1.5","1.5"],["2","Double"]],b.lh||"")}</div><div><label>Space after each paragraph (points)</label>${sel("dd_a",[[0,"None"],[4,"4"],[6,"6"],[8,"8 (standard)"],[10,"10"],[12,"12"],[18,"18"]],b.after==null?8:b.after)}</div>
+ <p class="mu w" style="font-size:13px">This sets the starting look of normal text. Text you already formatted by hand keeps its own look.</p></div>`,"Apply",bx=>{
+  DS.cur.base={font:bx.querySelector("#dd_f").value,size:Math.min(48,Math.max(6,+bx.querySelector("#dd_s").value||11)),lh:bx.querySelector("#dd_l").value,after:+bx.querySelector("#dd_a").value};
+  dApplyBase();dSnap(true);dDirty()})}
+
+/* ----- insert ----- */
+async function dImgUrl(){
+ dSelSave();
+ dDlg("Picture from a web address",`<div class="form"><div class="w"><label>Address of the picture</label><input id="du_u" placeholder="https://..."></div><div class="w"><label>Describe it (for people who cannot see it)</label><input id="du_a"></div></div>`,"Insert",async b=>{
+  const u=b.querySelector("#du_u").value.trim(),a=b.querySelector("#du_a").value.trim();if(!/^https?:\/\//i.test(u)){toast("Type a full address that starts with https://");return false}
+  let src=u;try{const r=await fetch(u);const bl=await r.blob();if(!/^image\//.test(bl.type))throw 0;src=await new Promise(res=>{const f=new FileReader();f.onload=()=>res(f.result);f.readAsDataURL(bl)})}catch(e){toast("That site does not let the picture be copied here. It shows on screen, but may be missing from downloads.")}
+  dRestoreSel();dFocus();document.execCommand("insertHTML",false,`<img src="${esc(src)}" alt="${esc(a)}" width="320">`);dChanged()})}
+function dCoverDlg(){
+ dDlg("Cover page",`<div class="form"><div class="w"><label>Title</label><input id="dc_t" value="${esc(DS.cur.title)}"></div><div class="w"><label>Subtitle</label><input id="dc_s"></div><div><label>Prepared by</label><input id="dc_a" value="${esc((DS.cur.props||{}).author||"")}"></div><div><label>Date</label><input id="dc_d" value="${esc(new Date().toLocaleDateString(undefined,{year:"numeric",month:"long",day:"numeric"}))}"></div></div>`,"Insert",b=>{
+  const v=i=>esc(b.querySelector("#"+i).value.trim());
+  const h=`<p class="t-title" style="text-align:center;margin-top:170pt;font-size:34pt">${v("dc_t")||"Title"}</p>${v("dc_s")?`<p class="t-sub" style="text-align:center;font-size:18pt">${v("dc_s")}</p>`:""}<p style="text-align:center;margin-top:60pt">${v("dc_a")?v("dc_a")+"<br>":""}${v("dc_d")}</p><div class="pgb" contenteditable="false"></div>`;
+  dEd().insertAdjacentHTML("afterbegin",h);dChanged()})}
+function dTocHTML(){
+ const ed=dEd(),z=DS.zoom,base=ed.getBoundingClientRect().top,PGH=dPg().h+D_GAP;
+ const hs=[...ed.querySelectorAll("h1,h2,h3")].filter(h=>!h.closest("table.toc"));
+ const rows=hs.map(h=>{const c=h.cloneNode(true);c.querySelectorAll(".pgsp").forEach(x=>x.remove());const t=c.textContent.replace(/​/g,"").trim();if(!t)return"";
+  const lv=+h.nodeName[1],pg=Math.floor(((h.getBoundingClientRect().top-base)/z+8)/PGH)+1;
+  return `<tr><td style="border:none;padding:1pt 0 1pt ${(lv-1)*18}pt;${lv===1?"font-weight:700":""}">${esc(t)}</td><td style="border:none;text-align:right;width:40pt;padding:1pt 0">${pg}</td></tr>`}).join("");
+ return `<table class="toc" style="border:none"><tbody><tr><td colspan="2" style="border:none;font-size:16pt;font-weight:700;padding:0 0 6pt">Table of contents</td></tr>${rows||'<tr><td colspan="2" style="border:none">There are no headings yet. Use Heading 1, 2 or 3, then choose Update table of contents.</td></tr>'}</tbody></table>`}
+function dToc(){dFocus();document.execCommand("insertHTML",false,dTocHTML()+"<p><br></p>");dChanged();setTimeout(dTocUpdate,300)}
+function dTocUpdate(quiet){
+ const t=dEd().querySelector("table.toc");if(!t){if(!quiet)toast("There is no table of contents in this document yet");return}
+ for(let k=0;k<2;k++){const cur=dEd().querySelector("table.toc");if(!cur)break;const n=document.createElement("div");n.innerHTML=dTocHTML();cur.replaceWith(n.firstChild);dPaginate()}
+ dChanged({quiet:true});if(!quiet)toast("Table of contents updated")}
+const D_CALL={note:["Note","#e8f0fe","#9bb7f0"],warn:["Warning","#fff4e5","#f0b86e"],tip:["Tip","#e7f6ec","#7cc79b"],imp:["Important","#fdeaea","#e08a8a"]};
+function dCallout(k){const c=D_CALL[k]||D_CALL.note;dFocus();document.execCommand("insertHTML",false,`<table style="width:100%"><tbody><tr><td style="background-color:${c[1]};border:1px solid ${c[2]};padding:8pt 10pt"><p style="margin:0"><b>${c[0]}: </b>Type your text here.</p></td></tr></tbody></table><p><br></p>`);dChanged()}
+function dSign(){dFocus();document.execCommand("insertHTML",false,'<p><br></p><p style="margin-bottom:0">______________________________</p><p style="margin:0">Name</p><p>Title and date</p>');dChanged()}
+function dCols(n){const w=Math.floor(100/n);let c="";for(let i=0;i<n;i++)c+=`<td style="border:none;width:${w}%;padding:0 8pt"><p><br></p></td>`;dFocus();document.execCommand("insertHTML",false,`<table class="lay" style="border:none;width:100%"><tbody><tr>${c}</tr></tbody></table><p><br></p>`);dChanged()}
+function dDateDlg(){
+ const d=new Date(),o=(x,y)=>d.toLocaleDateString(undefined,x),F=[o({year:"numeric",month:"long",day:"numeric"}),o({weekday:"long",year:"numeric",month:"long",day:"numeric"}),o({year:"numeric",month:"2-digit",day:"2-digit"}),d.toISOString().slice(0,10),o({month:"short",day:"numeric",year:"numeric"}),d.toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"}),d.toLocaleString([],{dateStyle:"medium",timeStyle:"short"}),d.toUTCString().replace("GMT","UTC"),String(d.getUTCDate()).padStart(2,"0")+" "+["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"][d.getUTCMonth()]+" "+String(d.getUTCFullYear()).slice(2)+" "+String(d.getUTCHours()).padStart(2,"0")+String(d.getUTCMinutes()).padStart(2,"0")+"Z"];
+ dSelSave();dDlg("Date and time",`<div class="form"><div class="w"><label>Pick a format</label><select id="dt_f" size="9" style="height:auto">${F.map((f,i)=>`<option value="${i}" ${i===0?"selected":""}>${esc(f)}</option>`).join("")}</select></div></div>`,"Insert",b=>{dRestoreSel();dFocus();document.execCommand("insertText",false,F[+b.querySelector("#dt_f").value]);dChanged()})}
+
+/* ----- tables ----- */
+const D_TS={
+ grid:{b:"1px solid #000",h:["#f2f2f2","#000"],band:null},
+ plain:{b:"none",h:null,band:null},
+ band:{b:"1px solid #c8c8c8",h:["#1f3864","#fff"],band:"#f4f6fa"},
+ dark:{b:"1px solid #404040",h:["#404040","#fff"],band:null},
+ lines:{b:"none",bb:"1px solid #999",h:["#fff","#000"],band:null}};
+function dTblStyle(k){
+ const cell=dCell();if(!cell)return toast("Click inside a table first");
+ const t=cell.closest("table"),s=D_TS[k];if(!s)return;
+ [...t.rows].forEach((tr,ri)=>{[...tr.cells].forEach(c=>{
+  c.style.border=s.bb?"none":s.b;if(s.bb)c.style.borderBottom=s.bb;
+  const head=ri===0&&c.nodeName==="TH";
+  c.style.backgroundColor=head&&s.h?s.h[0]:s.band&&ri%2===0?s.band:"";c.style.color=head&&s.h&&s.h[1]!=="#000"?s.h[1]:"";c.style.fontWeight=head?"700":""})});
+ dChanged()}
+function dTblDist(){
+ const cell=dCell();if(!cell)return toast("Click inside a table first");
+ const t=cell.closest("table"),n=Math.max(...[...t.rows].map(r=>[...r.cells].reduce((a,c)=>a+(c.colSpan||1),0))),w=t.getBoundingClientRect().width/DS.zoom/n;
+ [...t.rows].forEach(r=>[...r.cells].forEach(c=>{c.style.width=((c.colSpan||1)*w).toFixed(0)+"px"}));dChanged()}
+function dTblVA(v){const cell=dCell();if(!cell)return toast("Click inside a table first");const t=cell.closest("table"),sel=dSelRange();let cs=[cell];if(sel&&!sel.collapsed)cs=[...t.querySelectorAll("td,th")].filter(x=>sel.intersectsNode(x));cs.forEach(c=>c.style.verticalAlign=v);dChanged()}
+function dTblSort(dir){
+ const cell=dCell();if(!cell)return toast("Click inside a table first");
+ const t=cell.closest("table");if(t.querySelector("[colspan],[rowspan]"))return toast("A table with merged cells cannot be sorted");
+ const ci=[...cell.parentNode.cells].indexOf(cell),rows=[...t.rows],hasHead=rows[0]&&rows[0].cells[0]&&rows[0].cells[0].nodeName==="TH",body=hasHead?rows.slice(1):rows;
+ const key=r=>(r.cells[ci]?r.cells[ci].textContent:"").trim().toLowerCase(),num=s=>s!==""&&!isNaN(+s.replace(/,/g,""))?+s.replace(/,/g,""):null;
+ body.sort((a,b)=>{const x=key(a),y=key(b),nx=num(x),ny=num(y);const c=nx!=null&&ny!=null?nx-ny:x.localeCompare(y);return dir*c});
+ const tb=t.tBodies[0];body.forEach(r=>tb.appendChild(r));dChanged()}
+
+/* ----- page ----- */
+function dMargins(v){const m=v==="wide"?[1,1,2,2]:[+v,+v,+v,+v];Object.assign(DS.cur.page,{mt:m[0],mb:m[1],ml:m[2],mr:m[3]});dSnap(true);dLayout();dDirty()}
+
+/* ----- edit ----- */
+function dMove(dir){
+ const b=dBlocks()[0];if(!b)return;let el=b;while(el.parentNode&&el.parentNode!==dEd()&&!/^(UL|OL|TD|TH|BLOCKQUOTE)$/.test(el.parentNode.nodeName))el=el.parentNode;
+ if(/^(TD|TH)$/.test(el.nodeName))return;
+ let sib=dir<0?el.previousElementSibling:el.nextElementSibling;while(sib&&sib.classList.contains("pgsp"))sib=dir<0?sib.previousElementSibling:sib.nextElementSibling;
+ if(!sib)return;if(dir<0)el.parentNode.insertBefore(el,sib);else el.parentNode.insertBefore(sib,el);
+ const g=getSelection(),r=document.createRange();r.selectNodeContents(b);r.collapse(false);g.removeAllRanges();g.addRange(r);dChanged()}
+function dDup(){const b=dBlocks()[0];if(!b)return;let el=b;while(el.parentNode&&el.parentNode!==dEd()&&el.nodeName!=="LI")el=el.parentNode;const c=el.cloneNode(true);c.querySelectorAll(".pgsp").forEach(x=>x.remove());el.after(c);dChanged()}
+async function dPastePlain(){try{const t=await navigator.clipboard.readText();dFocus();document.execCommand("insertText",false,t);dChanged()}catch(e){DS.plain=true;toast("Press Ctrl+Shift+V to paste without formatting")}}
+
+/* ----- view ----- */
+function dNavPane(){
+ const p=$("dnavp");if(!p.classList.contains("hidden")){p.classList.add("hidden");return}
+ p.classList.remove("hidden");dNavFill()}
+function dNavFill(){
+ const p=$("dnavp");if(p.classList.contains("hidden"))return;
+ const hs=[...dEd().querySelectorAll("h1,h2,h3,h4")].filter(h=>!h.closest("table.toc"));
+ p.innerHTML=`<div class="nh"><b>Navigation</b><button data-da="nav" title="Close">&times;</button></div>`+(hs.length?hs.map((h,i)=>{const c=h.cloneNode(true);c.querySelectorAll(".pgsp").forEach(x=>x.remove());return `<a data-nv="${i}" style="padding-left:${10+(+h.nodeName[1]-1)*14}px">${esc(c.textContent.replace(/​/g,"").trim()||"(empty heading)")}</a>`}).join(""):'<p class="mu" style="padding:10px">Headings you add show up here. Click one to jump to it.</p>');
+ p.onclick=e=>{const a=e.target.closest("[data-nv]");if(!a)return;const h=hs[+a.dataset.nv];if(h){h.scrollIntoView({block:"start",behavior:"smooth"});const g=getSelection(),r=document.createRange();r.selectNodeContents(h);r.collapse(true);g.removeAllRanges();g.addRange(r)}}}
+function dFull(){const e=$("dedv");if(document.fullscreenElement)document.exitFullscreen();else if(e.requestFullscreen)e.requestFullscreen().then(()=>setTimeout(dFit,200)).catch(()=>toast("This browser did not allow full screen"))}
+function dSpellToggle(){DS.spell=!DS.spell;dLS("usaf-docs-spell",DS.spell?"1":"0");dEd().spellcheck=DS.spell;toast("Spell check "+(DS.spell?"on":"off"))}
+function dSmartToggle(){DS.sq=!DS.sq;dLS("usaf-docs-sq",DS.sq?"1":"0");toast("Smart quotes "+(DS.sq?"on":"off"))}
+function dWcDlg(){
+ const ed=dEd(),c=ed.cloneNode(true);c.querySelectorAll(".pgsp,.pgb").forEach(x=>x.remove());
+ const t=(c.innerText||ed.innerText||"").replace(/​/g,""),tt=t.trim(),w=tt?tt.split(/\s+/).length:0,paras=[...ed.querySelectorAll("p,h1,h2,h3,h4,li,pre")].filter(x=>x.textContent.replace(/​/g,"").trim()&&!x.closest("td,th")||x.closest("td,th")&&x.textContent.trim()).length,sent=(tt.match(/[^.!?]+[.!?]+(\s|$)/g)||[]).length||(w?1:0);
+ const R=[["Pages",DS.pages],["Words",w],["Characters (with spaces)",t.replace(/\n/g,"").length],["Characters (no spaces)",t.replace(/\s/g,"").length],["Paragraphs",paras],["Sentences",sent],["Reading time",Math.max(1,Math.round(w/200))+" min"],["Speaking time",Math.max(1,Math.round(w/130))+" min"],["Tables",ed.querySelectorAll("table").length],["Pictures",ed.querySelectorAll("img").length]];
+ dDlg("Word count",`<table class="tb" style="margin-bottom:6px"><tbody>${R.map(r=>`<tr><td>${r[0]}</td><td class="r"><b>${r[1]}</b></td></tr>`).join("")}</tbody></table>`,"Close",null,true)}
+
+/* ----- properties and versions ----- */
+function dPropsDlg(){
+ const p=DS.cur.props||{};
+ dDlg("Document properties",`<div class="form"><div><label>Author</label><input id="dp_a" maxlength="100" value="${esc(p.author||"")}"></div><div><label>Subject</label><input id="dp_s" maxlength="150" value="${esc(p.subject||"")}"></div><div class="w"><label>Keywords (separate with commas)</label><input id="dp_k" maxlength="200" value="${esc(p.keywords||"")}"></div><p class="mu w" style="font-size:13px">These are saved inside the PDF, Word and OpenDocument files you download.</p></div>`,"Save",b=>{DS.cur.props={author:b.querySelector("#dp_a").value.trim(),subject:b.querySelector("#dp_s").value.trim(),keywords:b.querySelector("#dp_k").value.trim()};DS.dirty=true;dSave()})}
+const dVerGet=async id=>{const r=await dIdbOp("readonly",s=>s.get("v:"+id));return r&&r.list||[]};
+async function dVerPush(d,html){
+ if(d.lock&&d.lock.mode==="open")return;
+ const list=await dVerGet(d.id),last=list[0];if(last&&Date.now()-last.at<3*60000)return;if(last&&last.html===html)return;
+ list.unshift({at:Date.now(),title:d.title,html});list.length=Math.min(list.length,12);
+ await dIdbOp("readwrite",s=>s.put({id:"v:"+d.id,list}))}
+async function dVersions(){
+ const list=await dVerGet(DS.cur.id);
+ dDlg("Version history",list.length?`<p class="mu" style="margin-bottom:10px">Earlier copies kept in this browser (up to 12, one every few minutes while you work). Restoring one replaces what is on the page, and you can still undo it.</p><div style="max-height:320px;overflow:auto">${list.map((v,i)=>`<div class="row" style="margin-bottom:6px;flex-wrap:nowrap"><span class="mono" style="flex:1">${new Date(v.at).toLocaleString()}</span><span class="mu">${dWords(v.html)} words</span><button class="nb s" data-ver="${i}">Restore</button></div>`).join("")}</div>`:'<p class="mu">No earlier versions yet. They are kept while you work.</p>',"Close",null,true);
+ $("ddbox").onclick=e=>{const b=e.target.closest("[data-ver]");if(!b)return;const v=list[+b.dataset.ver];if(!v||dIsRO(DS.cur))return;if(!confirm("Replace the page with the copy from "+new Date(v.at).toLocaleString()+"?"))return;dEd().innerHTML=dClean(v.html);dNormalize();dSnap(true);dDirty();dPaginate();$("ddlg").classList.add("hidden");toast("Version restored. Undo brings the other one back.")}}
+
+/* ----- typing aids: smart quotes and markdown shortcuts ----- */
+function dTypeAids(){
+ const ed=dEd();
+ ed.addEventListener("beforeinput",e=>{
+  if(e.inputType!=="insertText"||!DS.sq||(e.data!=='"'&&e.data!=="'"))return;
+  const r=dSelRange();if(!r||!r.collapsed)return;
+  const n=r.startContainer;let prev="";
+  if(n.nodeType===3)prev=n.data.slice(Math.max(0,r.startOffset-1),r.startOffset);
+  const open=prev===""||/[\s(\[{\u2014\u2013\u00a0\u200b]/.test(prev)||r.startOffset===0;
+  if(dElOf(n).closest("pre"))return;
+  e.preventDefault();document.execCommand("insertText",false,e.data==='"'?(open?"\u201c":"\u201d"):(open?"\u2018":"\u2019"))});
+ ed.addEventListener("keydown",e=>{
+  if(e.key!==" "||e.ctrlKey||e.metaKey||e.altKey||e.shiftKey)return;
+  const r=dSelRange();if(!r||!r.collapsed)return;
+  const el=dElOf(r.startContainer),b=el&&el.closest&&el.closest("p");if(!b||!ed.contains(b)||b.parentNode!==ed||b.querySelector(".pgsp,img"))return;
+  const pre=document.createRange();pre.selectNodeContents(b);pre.setEnd(r.startContainer,r.startOffset);const t=pre.toString().replace(/\u200b/g,"");
+  if(b.textContent.replace(/\u200b/g,"")!==t)return;
+  let m;
+  const clear=()=>{b.innerHTML="<br>";const g=getSelection(),q=document.createRange();q.setStart(b,0);q.collapse(true);g.removeAllRanges();g.addRange(q)};
+  if(m=/^(#{1,4})$/.exec(t)){e.preventDefault();clear();dStyle("h"+m[1].length);return}
+  const mkList=tag=>{e.preventDefault();const l=document.createElement(tag),li=document.createElement("li");li.innerHTML="<br>";l.appendChild(li);b.replaceWith(l);const g=getSelection(),q=document.createRange();q.setStart(li,0);q.collapse(true);g.removeAllRanges();g.addRange(q);dChanged()};
+  if(t==="-"||t==="*"||t==="•"){mkList("ul");return}
+  if(/^\d{1,3}[.)]$/.test(t)){mkList("ol");return}
+  if(t===">"){e.preventDefault();clear();dStyle("quote");return}
+  if(t==="---"||t==="***"){e.preventDefault();clear();document.execCommand("insertHorizontalRule");dChanged();return}
+ });
+}
+function dMoreInit(){
+ const ed=dEd();dTypeAids();
+ ed.addEventListener("mouseup",()=>{if(DS.paint)setTimeout(dPaintApply,0)});
+ ed.addEventListener("input",()=>{clearTimeout(DS.nvT);DS.nvT=setTimeout(dNavFill,500)});
+ ed.addEventListener("keydown",e=>{if(e.altKey&&!e.ctrlKey&&(e.key==="ArrowUp"||e.key==="ArrowDown")){e.preventDefault();dMove(e.key==="ArrowUp"?-1:1)}
+  if((e.ctrlKey||e.metaKey)&&e.shiftKey&&(e.key==="v"||e.key==="V"))DS.plain=true;
+  if((e.ctrlKey||e.metaKey)&&e.shiftKey&&(e.key==="d"||e.key==="D")){e.preventDefault();dDup()}});
+ $("dedv").addEventListener("click",e=>{const x=e.target.closest("#dlockbar [data-da]");if(x)dAct(x.dataset.da,x)});
+ $("dcase").onchange=e=>{const v=e.target.value;e.target.value="";if(v)dCase(v)};
+ $("dins").onchange=e=>{const v=e.target.value;e.target.value="";if(v)dAct(v)};
+ document.addEventListener("fullscreenchange",()=>setTimeout(()=>{if(DS.cur)dFit()},200));
+}
+/* actions that start with a word and a colon, or that belong to this file */
+function dMoreAct(n,arg,btn){
+ if(n==="case"){dCase(arg);return true}
+ if(n==="sp"){dSpace(arg[0],arg[1]==="1");return true}
+ if(n==="mv"){dMove(+arg);return true}
+ if(n==="mg"){dMargins(arg);return true}
+ if(n==="orient"){DS.cur.page.land=arg==="l";dSnap(true);dLayout();dDirty();return true}
+ if(n==="psz"){DS.cur.page.size=arg;dSnap(true);dLayout();dDirty();return true}
+ if(n==="callout"){dCallout(arg);return true}
+ if(n==="cols"){dCols(+arg);return true}
+ if(n==="tstyle"){dTblStyle(arg);return true}
+ if(n==="t"&&arg==="dist"){dTblDist();return true}
+ if(n==="t"&&/^v[tmb]$/.test(arg)){dTblVA({t:"top",m:"middle",b:"bottom"}[arg[1]]);return true}
+ if(n==="t"&&(arg==="sortaz"||arg==="sortza")){dTblSort(arg==="sortaz"?1:-1);return true}
+ const A={painter:dPainter,defaults:dDefaultsDlg,imgurl:dImgUrl,cover:dCoverDlg,toc:dToc,tocup:()=>dTocUpdate(),sign:dSign,datedlg:dDateDlg,dup:dDup,pastetxt:dPastePlain,nav:dNavPane,full:dFull,spell:dSpellToggle,sq:dSmartToggle,wc:dWcDlg,props:dPropsDlg,vers:dVersions,lockdlg:dLockDlg,unlockedit:dUnlockEdit};
+ if(A[n]&&!arg){A[n]();return true}
+ return false}
+
+
+window.docsOpen=docsOpen;window.dShareView=dShareView;window.dBind=dBind;window.__D={dPaginate,DS,dMake,dImportFile,dEnter,dCreate,dModel,dMdToHtml};
+if(/^#\/doc\/[\w-]+/.test(location.hash))dShareView(location.hash.slice(6));
 })();
 </script>
 </body></html>
