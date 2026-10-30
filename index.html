@@ -1479,59 +1479,66 @@ td.hl{font-weight:700;color:var(--act)}
 .ap2-b{display:flex;flex-wrap:wrap;gap:.5rem}
 @media(max-width:700px){.ap2-r{grid-template-columns:1fr;gap:.3rem}}
 
+/* ===== channel locks ===== */
+.lk2-g{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;align-items:start}
+.lk2-l{max-height:15rem;overflow:auto;border:var(--bw) solid var(--ln);padding:.3rem .6rem;margin-bottom:.4rem;background:var(--in,var(--p))}
+.lkcat{font:700 .72rem var(--f);letter-spacing:.05em;text-transform:uppercase;color:var(--mu);margin:.5rem 0 .1rem}
+.lkc{display:flex;align-items:center;gap:.5rem;padding:.2rem 0;cursor:pointer}
+@media(max-width:900px){.lk2-g{grid-template-columns:minmax(0,1fr)}}
+
 /* ===== USAF: plain official-form look. Banner, grey tab bar, link list, blue-titled panels ===== */
-:root{--nf:#00526f;--nf2:#003f56;--nfl:#d9e7ed;--nfr:#c00000;--nfb:#337ab7}
-html{font-size:14px;background:#e4e8eb}
-body{background:#e4e8eb;color:#333;font-family:Arial,Helvetica,"Liberation Sans",sans-serif;line-height:1.45}
-a{color:#337ab7}
+:root{--nf:var(--mk);--nf2:var(--mk);--nfl:var(--acs);--nfr:var(--rdt);--nfb:var(--ac)}
+html{font-size:14px;background:var(--bg)}
+body{background:var(--bg);color:var(--tx);font-family:var(--f);line-height:1.45}
+a{color:var(--ac)}
 
 /* ---------- sign in ---------- */
-#login{display:block;min-height:100vh;background:#fff;padding:0}
-.nfl{width:752px;max-width:100%;min-height:100vh;margin:0 auto;border:1px solid #8a8f94;border-top:0;background:#fff;display:flex;flex-direction:column}
+#login{display:block;min-height:100vh;background:var(--p);padding:0}
+.nfl{width:752px;max-width:100%;min-height:100vh;margin:0 auto;border:1px solid var(--ln2);border-top:0;background:var(--p);display:flex;flex-direction:column}
 .nfl-h{background:var(--nf);color:#fff;display:flex;align-items:center;gap:14px;padding:0 14px;height:94px}
 .nfl-h .nfh-emb{flex:none}
 .nfl-h .nfh-t{flex:1;text-align:center}
-.nfl-h .nfh-t b{display:block;font:400 40px/1 Arial,sans-serif;letter-spacing:.5em;text-indent:.5em;text-shadow:2px 2px 4px rgba(0,0,0,.45)}
-.nfl-h .nfh-t span{display:block;margin-top:8px;font:700 11px Arial,sans-serif;color:#8fd0ea}
+.nfl-h .nfh-t b{display:block;font:400 40px/1 var(--f);letter-spacing:.5em;text-indent:.5em;text-shadow:2px 2px 4px rgba(0,0,0,.45)}
+.nfl-h .nfh-t span{display:block;margin-top:8px;font:700 11px var(--f);color:#8fd0ea}
 .nfl-b{flex:1;padding:38px 20px 30px;max-width:700px}
-.nfl-b h2{margin:0 0 6px;padding:0 0 2px;font:400 24px Arial,sans-serif;color:#333;border-bottom:1px solid #bbb}
+.nfl-b h2{margin:0 0 6px;padding:0 0 2px;font:400 24px var(--f);color:var(--tx);border-bottom:1px solid var(--ln2)}
 .nfl-b p{margin:6px 0;font-size:13px}
-.nfl-b p.big{font-size:18px;line-height:1.25;padding:6px 0 10px;border-bottom:1px solid #bbb;margin:12px 0 0}
+.nfl-b p.big{font-size:18px;line-height:1.25;padding:6px 0 10px;border-bottom:1px solid var(--ln2);margin:12px 0 0}
 .nfl-p{display:flex;gap:20px;margin-top:40px;flex-wrap:wrap}
-.nfl-p>div{border:1px solid #aaa;background:#fff;width:270px;min-height:200px}
+.nfl-p>div{border:1px solid var(--ln2);background:var(--p);width:270px;min-height:200px}
 .nfl-p>div:last-child{width:262px}
-.nfl-p h3{margin:0;background:var(--nf);color:#fff;font:700 11px/16px Arial,sans-serif;padding:0 3px}
+.nfl-p h3{margin:0;background:var(--nf);color:var(--on-mk);font:700 11px/16px var(--f);padding:0 3px}
 .nfl-p .in{padding:14px 16px}
-.nfl-p .in b.t{display:block;text-align:center;font:700 14px Arial,sans-serif;margin:6px 0 14px}
+.nfl-p .in b.t{display:block;text-align:center;font:700 14px var(--f);margin:6px 0 14px}
 .nfl-p label{display:block;font-size:11px;margin:6px 0 2px}
-.nfl-p input[type=text],.nfl-p input[type=password],.nfl-p input:not([type]){width:150px;height:22px;border:1px solid #767676;border-radius:0;padding:0 3px;font:13px Arial}
+.nfl-p input[type=text],.nfl-p input[type=password],.nfl-p input:not([type]){width:150px;height:22px;border:1px solid var(--ln2);border-radius:0;padding:0 3px;font:13px var(--f)}
 .nfl-p .nfrow{display:flex;gap:14px;align-items:flex-end}
-#go{height:24px;padding:0 12px;border:1px solid #767676;border-radius:2px;background:#d4d4d4;color:#222;font:13px Arial;cursor:pointer}
-#go:hover{background:#c4c4c4}
+#go{height:24px;padding:0 12px;border:1px solid var(--ln2);border-radius:2px;background:var(--p2);color:var(--tx);font:13px var(--f);cursor:pointer}
+#go:hover{background:var(--ln)}
 .nfl-p .rem{display:flex;align-items:center;gap:6px;font-size:11px;margin-top:10px}
-.nfl-p .err{color:#c00000;font-size:12px;min-height:16px;margin-top:6px}
+.nfl-p .err{color:var(--rdt);font-size:12px;min-height:16px;margin-top:6px}
 .nfl-note{margin-top:14px;font-size:13px;max-width:560px}
 #lconn{margin-top:10px;font-size:12px}
-.nff{background:var(--nf);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 4px;height:30px;font:700 13px Arial,sans-serif;margin-top:auto}
+.nff{background:#000;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 4px;height:30px;font:700 13px var(--f);margin-top:auto}
 .nff b{flex:1;text-align:center}.nff span{width:100px;text-align:right}.nff span:first-child{text-align:left}
 
 /* ---------- application frame ---------- */
-#app:not(.hidden){display:flex;flex-direction:column;max-width:1220px;min-height:100vh;margin:0 auto;background:#fff;border:1px solid #8a8f94;border-top:0}
+#app:not(.hidden){display:flex;flex-direction:column;max-width:1220px;min-height:100vh;margin:0 auto;background:var(--p);border:1px solid var(--ln2);border-top:0}
 body #app .top.nfhead{position:static;width:auto;height:auto;background:#fff;border:0;display:block;box-shadow:none;padding:0;z-index:50}
 .nfh{background:var(--nf);color:#fff;display:flex;align-items:center;gap:14px;padding:8px 14px;border-bottom:1px solid var(--nf2)}
-.nfh-t b{display:block;font:700 36px/1.05 Arial,sans-serif;letter-spacing:.02em}
-.nfh-t span{display:block;font:15px Arial,sans-serif;color:#e6f2f7}
+.nfh-t b{display:block;font:700 36px/1.05 var(--f);letter-spacing:.02em}
+.nfh-t span{display:block;font:15px var(--f);color:#e6f2f7}
 .nfbar{display:flex;align-items:center;gap:12px;background:#ededed;border-bottom:1px solid #b3b3b3;padding:6px 8px}
 .nftabs{display:flex;gap:3px;flex-wrap:wrap;flex:1}
-.nftabs a{display:inline-block;padding:3px 13px;border:1px solid #9b9b9b;background:linear-gradient(#fefefe,#dedede);color:#222;font:12px/18px Arial,sans-serif;text-decoration:none;border-radius:1px}
+.nftabs a{display:inline-block;padding:3px 13px;border:1px solid #9b9b9b;background:linear-gradient(#fefefe,#dedede);color:#222;font:12px/18px var(--f);text-decoration:none;border-radius:1px}
 .nftabs a:hover{background:linear-gradient(#fff,#e8e8e8);border-color:#666}
 .nftabs a.on{background:#fff;border-color:#666;font-weight:700;box-shadow:inset 0 -2px 0 var(--nf)}
 .nfbar .srvc-w{position:relative;padding:0;flex:none}
-body #app .nfbar .srvc{display:flex;align-items:center;gap:6px;width:auto;padding:0;border:0;background:none;box-shadow:none;border-radius:0;font:700 12px Arial,sans-serif;text-transform:uppercase;color:#333;cursor:pointer}
+body #app .nfbar .srvc{display:flex;align-items:center;gap:6px;width:auto;padding:0;border:0;background:none;box-shadow:none;border-radius:0;font:700 12px var(--f);text-transform:uppercase;color:#333;cursor:pointer}
 .nfbar .srvc .mono-t,.nfbar .srvc>.ic{display:none}
 .nfbar .srvc-t{display:flex;gap:6px;align-items:baseline}
-.nfbar .srvc-t b{font:700 12px Arial,sans-serif;overflow:visible;white-space:nowrap}
-.nfbar .srvc-t small{font:11px Arial;color:#555;text-transform:none;display:inline}
+.nfbar .srvc-t b{font:700 12px var(--f);overflow:visible;white-space:nowrap}
+.nfbar .srvc-t small{font:11px var(--f);color:#555;text-transform:none;display:inline}
 .nfbar .srvc-t small .dot-s{display:none}
 .nfbar .srvc:hover b{text-decoration:underline}
 .nfbar .srvm{left:auto;right:0;top:calc(100% + 4px);min-width:260px;border-radius:0;border:1px solid #666;box-shadow:2px 2px 6px rgba(0,0,0,.25)}
@@ -1539,128 +1546,128 @@ body #app .nfbar .srvc{display:flex;align-items:center;gap:6px;width:auto;paddin
 .nfu .nfbot{margin-right:auto;color:#555;display:flex;align-items:center;gap:6px}
 .nfu .stt{display:inline-flex!important;align-items:center;gap:5px;font-weight:700;color:#333}
 .nfu .tr{display:flex;align-items:center;gap:12px;padding:0;border:0;margin:0}
-.nfu .who-r{padding:0;font:11px Arial;text-transform:uppercase;color:#333;display:block}
+.nfu .who-r{padding:0;font:11px var(--f);text-transform:uppercase;color:#333;display:block}
 .nfu .who-r b{font-weight:400;color:#333}
 .nfu .who-r svg{display:none}
-.nflo{border:0;background:none;color:#337ab7;font:11px Arial,sans-serif;cursor:pointer;padding:0;text-decoration:none}
+.nflo{border:0;background:none;color:#337ab7;font:11px var(--f);cursor:pointer;padding:0;text-decoration:none}
 .nflo:hover{text-decoration:underline}
 .nfu .adv-hb{display:flex!important;gap:4px;grid-template-columns:none}
-.nfu .adv-ib{height:22px;min-width:24px;padding:0 6px;border:1px solid #9b9b9b;border-radius:1px;background:linear-gradient(#fefefe,#dedede);color:#222;font:11px Arial;gap:5px}
+.nfu .adv-ib{height:22px;min-width:24px;padding:0 6px;border:1px solid #9b9b9b;border-radius:1px;background:linear-gradient(#fefefe,#dedede);color:#222;font:11px var(--f);gap:5px}
 .nfu .adv-search span{display:inline}.nfu .adv-search kbd{display:none}
 .nfu .adv-ib svg{width:13px;height:13px}
 .nfbody{display:flex;align-items:flex-start;flex:1;min-height:0}
 .nfside{width:196px;flex:none;padding:10px 0 20px 10px;position:sticky;top:0;align-self:flex-start}
 .nfnav{display:grid;gap:10px}
-.nfbox{border:1px solid #b5b5b5;background:#fff}
-.nfbox h4{margin:0;padding:3px 6px;font:700 12px Arial,sans-serif;color:#222;border-bottom:1px solid #e1e1e1}
-.nfbox a{display:flex;justify-content:space-between;gap:6px;padding:1px 6px;color:var(--nfr);font:12px/1.75 Arial,sans-serif;text-decoration:none}
-.nfbox a:hover{text-decoration:underline;background:#f4f8fa}
-.nfbox a.on{color:#111;font-weight:700;background:var(--nfl)}
+.nfbox{border:1px solid var(--ln2);background:var(--p)}
+.nfbox h4{margin:0;padding:3px 6px;font:700 12px var(--f);color:var(--tx);border-bottom:1px solid var(--ln)}
+.nfbox a{display:flex;justify-content:space-between;gap:6px;padding:1px 6px;color:var(--nfr);font:12px/1.75 var(--f);text-decoration:none}
+.nfbox a:hover{text-decoration:underline;background:var(--p2)}
+.nfbox a.on{color:var(--tx);font-weight:700;background:var(--nfl)}
 .nfbox .nl{min-width:0}
-body #app .nbg{min-width:0;height:auto;padding:0;border-radius:0;background:none;color:#333;font:11px Arial,sans-serif;font-weight:700;margin-left:auto}
+body #app .nbg{min-width:0;height:auto;padding:0;border-radius:0;background:none;color:var(--tx);font:11px var(--f);font-weight:700;margin-left:auto}
 body #app .nbg::before{content:"("}body #app .nbg::after{content:")"}
-body #app .nbg.am,body #app .nbg.rd,body #app .nbg.ac{background:none;color:#c00000}
+body #app .nbg.am,body #app .nbg.rd,body #app .nbg.ac{background:none;color:var(--rdt)}
 #docs,main#docs{flex:1;min-width:0;margin-left:0!important}
 .nff.app{margin-top:0}
 .abar{padding:6px 12px;border-radius:0}
 
 /* ---------- page header ---------- */
 body #app .banner{padding:10px 14px 0}
-.nfcr{font-size:12px;margin:0 0 4px;color:#555}
-.nfcr a{color:#337ab7;text-decoration:none}.nfcr a:hover{text-decoration:underline}
+.nfcr{font-size:12px;margin:0 0 4px;color:var(--mu)}
+.nfcr a{color:var(--ac);text-decoration:none}.nfcr a:hover{text-decoration:underline}
 .nfcr i{margin:0 5px;font-style:normal;color:#888}
-body #app .banner-in{border-bottom:1px solid #bdbdbd;padding-bottom:6px;gap:8px 16px;align-items:flex-end}
-body #app .banner h1{font:700 15px/1.3 Arial,sans-serif;text-transform:uppercase;color:#6e7378;letter-spacing:.01em;margin:0}
-body #app .banner p{font-size:12px;margin:1px 0 0;color:#555;max-width:90ch}
+body #app .banner-in{border-bottom:1px solid var(--ln2);padding-bottom:6px;gap:8px 16px;align-items:flex-end}
+body #app .banner h1{font:700 15px/1.3 var(--f);text-transform:uppercase;color:var(--mu);letter-spacing:.01em;margin:0}
+body #app .banner p{font-size:12px;margin:1px 0 0;color:var(--mu);max-width:90ch}
 body #app .sec{padding:10px 14px 28px}
 .in{max-width:none}
 .ph-a .adv-star{height:22px;border-radius:1px}
 
 /* ---------- buttons ---------- */
-body #app .nb{height:22px;min-height:0;padding:0 11px;border:1px solid #767676;border-radius:2px;background:linear-gradient(#f6f6f6,#d8d8d8);color:#222;font:12px/1 Arial,sans-serif;box-shadow:none;gap:5px;letter-spacing:0;text-transform:none;font-weight:400}
-body #app .nb:hover{background:linear-gradient(#fff,#e4e4e4);border-color:#444}
-body #app .nb:active{background:#cfcfcf}
-body #app .nb:not(.s):not(.gh):not(.d){background:#337ab7;border-color:#2e6da4;color:#fff;border-radius:3px}
-body #app .nb:not(.s):not(.gh):not(.d):hover{background:#286090;border-color:#204d74}
-body #app .nb.d{color:#c00000}
+body #app .nb{height:22px;min-height:0;padding:0 11px;border:1px solid var(--ln2);border-radius:2px;background:var(--p2);color:var(--tx);font:12px/1 var(--f);box-shadow:none;gap:5px;letter-spacing:0;text-transform:none;font-weight:400}
+body #app .nb:hover{background:var(--p2);border-color:var(--ln2)}
+body #app .nb:active{background:var(--ln)}
+body #app .nb:not(.s):not(.gh):not(.d){background:var(--ac);border-color:var(--ac2);color:var(--on-ac);border-radius:3px}
+body #app .nb:not(.s):not(.gh):not(.d):hover{background:var(--ac2);border-color:var(--ac2)}
+body #app .nb.d{color:var(--rdt)}
 body #app .nb.gh{background:none;border-color:transparent}
-body #app .nb.gh:hover{background:#eee;border-color:#aaa}
+body #app .nb.gh:hover{background:var(--p2);border-color:var(--ln2)}
 body #app .nb.big{height:26px;padding:0 18px;font-size:13px}
 body #app .nb svg,body #app .nb .ic{width:13px;height:13px}
 body #app .nb[disabled]{opacity:.5;cursor:not-allowed}
-body #app .ib{border-radius:1px;color:#333}
-body #app .ib:hover{background:#e6eef2}
-body #app .ib.on{background:var(--nf);color:#fff}
+body #app .ib{border-radius:1px;color:var(--tx)}
+body #app .ib:hover{background:var(--acs)}
+body #app .ib.on{background:var(--nf);color:var(--on-mk)}
 :focus-visible{outline:2px solid #000!important;outline-offset:1px}
 
 /* ---------- forms ---------- */
-body #app input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=file]):not([type=color]),body #app select,body #app textarea{border:1px solid #767676;border-radius:0;background:#fff;color:#222;font:13px Arial,sans-serif;min-height:24px}
+body #app input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=file]):not([type=color]),body #app select,body #app textarea{border:1px solid var(--ln2);border-radius:0;background:var(--p);color:var(--tx);font:13px var(--f);min-height:24px}
 body #app input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=file]):not([type=color]),body #app select{height:26px;padding:0 4px}
 body #app textarea{padding:3px 4px}
-body #app .fl,body #app label.fl{font:12px Arial,sans-serif;color:#222;font-weight:700}
-body #app .srch{border:1px solid #767676;border-radius:0;background:#fff;height:26px}
+body #app .fl,body #app label.fl{font:12px var(--f);color:var(--tx);font-weight:700}
+body #app .srch{border:1px solid var(--ln2);border-radius:0;background:var(--p);height:26px}
 body #app .srch input{border:0!important;height:24px!important}
 body #app .srch svg{width:14px;height:14px}
 body #app .tbar select{height:26px}
-body #app .seg{border:1px solid #767676;border-radius:0;background:#fff;gap:0;overflow:hidden}
-body #app .seg button{height:24px;padding:0 10px;font:12px Arial;border:0;border-right:1px solid #bbb;background:linear-gradient(#fefefe,#e2e2e2);color:#222;border-radius:0}
+body #app .seg{border:1px solid var(--ln2);border-radius:0;background:var(--p);gap:0;overflow:hidden}
+body #app .seg button{height:24px;padding:0 10px;font:12px var(--f);border:0;border-right:1px solid var(--ln2);background:var(--p2);color:var(--tx);border-radius:0}
 body #app .seg button:last-child{border-right:0}
-body #app .seg button.on,body #app .seg button[aria-pressed=true]{background:var(--nf);color:#fff;font-weight:700}
-body #app .chip{height:22px;padding:0 9px;border:1px solid #9b9b9b;border-radius:1px;background:linear-gradient(#fefefe,#e2e2e2);color:#222;font:12px Arial}
-body #app .chip b{font:700 11px Arial;color:#555}
-body #app .chip.on{background:var(--nf);border-color:var(--nf2);color:#fff}
-body #app .chip.on b{color:#cfe6ef}
-body #app .tgl{font:12px Arial}
+body #app .seg button.on,body #app .seg button[aria-pressed=true]{background:var(--nf);color:var(--on-mk);font-weight:700}
+body #app .chip{height:22px;padding:0 9px;border:1px solid var(--ln2);border-radius:1px;background:var(--p2);color:var(--tx);font:12px var(--f)}
+body #app .chip b{font:700 11px var(--f);color:var(--mu)}
+body #app .chip.on{background:var(--nf);border-color:var(--nf2);color:var(--on-mk)}
+body #app .chip.on b{color:var(--on-mk)}
+body #app .tgl{font:12px var(--f)}
 
 /* ---------- panels ---------- */
-body #app .sheet{border:1px solid #9aa3a8;border-top:1px solid #9aa3a8;border-radius:0;box-shadow:none;background:#fff}
-body #app .sheet-h{background:var(--nf);color:#fff;padding:2px 6px;border:0;gap:8px;min-height:19px}
-body #app .sheet-h h3{font:700 11px/16px Arial,sans-serif;color:#fff;margin:0}
-body #app .sheet-h .meta,body #app .sheet-h .mu{color:#cfe6ef;font-size:11px}
+body #app .sheet{border:1px solid var(--ln2);border-top:1px solid var(--ln2);border-radius:0;box-shadow:none;background:var(--p)}
+body #app .sheet-h{background:var(--nf);color:var(--on-mk);padding:2px 6px;border:0;gap:8px;min-height:19px}
+body #app .sheet-h h3{font:700 11px/16px var(--f);color:var(--on-mk);margin:0}
+body #app .sheet-h .meta,body #app .sheet-h .mu{color:var(--on-mk);font-size:11px}
 body #app .sheet-h .nb,body #app .sheet-h .lnk{height:17px;font-size:11px;padding:0 7px}
-body #app .sheet-h .lnk{color:#fff}
+body #app .sheet-h .lnk{color:var(--on-mk)}
 body #app .sheet-b{padding:8px 10px}
 body #app .sheet-b.flush{padding:0}
 body #app .sheet+.sheet{margin-top:10px}
-body #app .stats{border:1px solid #9aa3a8;border-radius:0;background:#fff}
-body #app .stats>div{border-right:1px solid #cfd4d7;padding:6px 10px}
-body #app .stats b{font:700 20px/1.1 Arial,sans-serif;letter-spacing:0;color:var(--nf)}
-body #app .stats span{font:11px Arial;color:#444;margin-top:1px}
-body #app .stamp{border-radius:0;height:17px;padding:0 5px;font:700 10px Arial,sans-serif;letter-spacing:.03em}
-body #app .kv{font:12px/1.5 Arial,sans-serif;gap:3px 14px}
-body #app .kv dt{color:#222;font-weight:700}
-body #app .kv dd{color:#222}
-body #app .mu,body #app .meta{color:#555}
-body #app .empty{color:#555}
+body #app .stats{border:1px solid var(--ln2);border-radius:0;background:var(--p)}
+body #app .stats>div{border-right:1px solid var(--ln);padding:6px 10px}
+body #app .stats b{font:700 20px/1.1 var(--f);letter-spacing:0;color:var(--nf)}
+body #app .stats span{font:11px var(--f);color:var(--mu);margin-top:1px}
+body #app .stamp{border-radius:0;height:17px;padding:0 5px;font:700 10px var(--f);letter-spacing:.03em}
+body #app .kv{font:12px/1.5 var(--f);gap:3px 14px}
+body #app .kv dt{color:var(--tx);font-weight:700}
+body #app .kv dd{color:var(--tx)}
+body #app .mu,body #app .meta{color:var(--mu)}
+body #app .empty{color:var(--mu)}
 body #app .note{border-radius:0}
-body #app .tl-d{font:700 11px Arial;text-transform:uppercase;color:#555}
+body #app .tl-d{font:700 11px var(--f);text-transform:uppercase;color:var(--mu)}
 body #app .lane{border-radius:0}
-body #app .lane-h{background:var(--nfl);border-bottom:1px solid #9aa3a8;font:700 11px Arial}
+body #app .lane-h{background:var(--nfl);border-bottom:1px solid var(--ln2);font:700 11px var(--f)}
 body #app .kc{border-radius:0}
 
 /* ---------- tables ---------- */
-body #app table.dtab{font:12px/1.4 Arial,sans-serif;color:#222;border-collapse:collapse;width:100%}
-body #app table.dtab th{background:#dfe6ea;color:#222;font:700 11px Arial,sans-serif;text-transform:none;letter-spacing:0;padding:3px 7px;border:1px solid #b6bec3;text-align:left}
-body #app table.dtab td{padding:3px 7px;border:1px solid #d5dadd;color:#222}
-body #app table.dtab tbody tr:nth-child(even) td{background:#f7f9fa}
-body #app table.dtab tbody tr:hover td{background:#e7f0f4}
+body #app table.dtab{font:12px/1.4 var(--f);color:var(--tx);border-collapse:collapse;width:100%}
+body #app table.dtab th{background:var(--acs);color:var(--tx);font:700 11px var(--f);text-transform:none;letter-spacing:0;padding:3px 7px;border:1px solid var(--ln2);text-align:left}
+body #app table.dtab td{padding:3px 7px;border:1px solid var(--ln);color:var(--tx)}
+body #app table.dtab tbody tr:nth-child(even) td{background:var(--p2)}
+body #app table.dtab tbody tr:hover td{background:var(--acs)}
 body #app table.dtab tr.sel td{background:var(--nfl)}
 
 /* ---------- drawers and dialogs ---------- */
-body .dw{border-radius:0;border-left:1px solid #666;box-shadow:-3px 0 10px rgba(0,0,0,.25)}
-body .dw-h{background:var(--nf);color:#fff;padding:5px 10px}
-body .dw-t{color:#fff;font:700 13px Arial,sans-serif}
-body .dw-s{color:#cfe6ef;font:11px Arial}
-body .dw-h .ib{color:#fff}
-body .dlg{border-radius:0;border:1px solid #666}
-body .dlg-h,body .dlg h2,body .dlg-t{font-family:Arial,sans-serif}
+body .dw{border-radius:0;border-left:1px solid var(--ln2);box-shadow:-3px 0 10px rgba(0,0,0,.25)}
+body .dw-h{background:var(--nf);color:var(--on-mk);padding:5px 10px}
+body .dw-t{color:var(--on-mk);font:700 13px var(--f)}
+body .dw-s{color:var(--on-mk);font:11px var(--f)}
+body .dw-h .ib{color:var(--on-mk)}
+body .dlg{border-radius:0;border:1px solid var(--ln2)}
+body .dlg-h,body .dlg h2,body .dlg-t{font-family:var(--f)}
 
 /* ---------- messages ---------- */
-body #app .cw{height:calc(100vh - 17rem);border-radius:0;border-color:#9aa3a8}
-body #app .cw-l,body #app .cw-r{background:#f4f6f7}
+body #app .cw{height:calc(100vh - 17rem);border-radius:0;border-color:var(--ln2)}
+body #app .cw-l,body #app .cw-r{background:var(--p2)}
 body #app .cw-i.on{background:var(--nfl);box-shadow:inset 3px 0 0 var(--nf)}
-body #app .cw-mh{background:#fff}
-body #app .cw-t h2{font:700 14px Arial,sans-serif}
+body #app .cw-mh{background:var(--p)}
+body #app .cw-t h2{font:700 14px var(--f)}
 body #app .cm-e{border-radius:0}
 body #app .cw-b{border-radius:0}
 
@@ -1682,16 +1689,16 @@ body #app .cw-b{border-radius:0}
 .nfpw input{display:block}
 #login .nfl-p .nfpw{border:0!important;padding:0!important;margin:0!important;background:none!important;box-shadow:none!important;width:auto!important;min-height:0!important}
 /* older pages */
-body #app h2.sh{background:var(--nf);color:#fff;font:700 12px/18px Arial,sans-serif;padding:1px 6px;margin:14px 0 8px;letter-spacing:0;text-transform:none;border:0}
+body #app h2.sh{background:var(--nf);color:var(--on-mk);font:700 12px/18px var(--f);padding:1px 6px;margin:14px 0 8px;letter-spacing:0;text-transform:none;border:0}
 body #app .tab>.sec>.in>h2.sh:first-child{margin-top:0}
-body #app h3.f,body #app .f{font:700 12px Arial,sans-serif;color:#222;letter-spacing:0;text-transform:none}
+body #app h3.f,body #app .f{font:700 12px var(--f);color:var(--tx);letter-spacing:0;text-transform:none}
 body #app .two>div,body #app .fg>div,body #app .fm>div{border-radius:0}
-body #app .two>div{border:1px solid #b6bec3;background:#fff;padding:6px 8px}
-body #app .two>div label,body #app .fm label{font:700 11px Arial;color:#222}
-body #app .st4{border:1px solid #9aa3a8;border-radius:0}
-body #app .phead h1{font:700 18px Arial}
+body #app .two>div{border:1px solid var(--ln2);background:var(--p);padding:6px 8px}
+body #app .two>div label,body #app .fm label{font:700 11px var(--f);color:var(--tx)}
+body #app .st4{border:1px solid var(--ln2);border-radius:0}
+body #app .phead h1{font:700 18px var(--f)}
 body #app .av{border-radius:0}
-body #app .sb{border-radius:1px;border:1px solid #9b9b9b;background:linear-gradient(#fefefe,#e2e2e2);color:#222}
+body #app .sb{border-radius:1px;border:1px solid var(--ln2);background:var(--p2);color:var(--tx)}
 body #app .card,body #app .rl,body #app .box{border-radius:0}
 body #app .nbg{display:inline;white-space:nowrap;line-height:1.75}
 body #app .nbg.hidden{display:none}
@@ -1701,6 +1708,102 @@ body #app .te-side{position:static;max-height:none}
 body #app .te-main{padding:10px;border-radius:0}
 body #app .tlw{top:8px}
 @media(max-width:860px){body #app .tpl{grid-template-columns:minmax(0,1fr)}}
+
+/* ---------- black header with the department logo ---------- */
+.nfh,.nfl-h{background:#000;border-bottom:1px solid #333}
+.nfh-emb{height:64px;width:auto;max-width:150px;object-fit:contain;display:block}
+.nfl-h .nfh-emb{height:60px}
+.nfh-t span,.nfl-h .nfh-t span{color:#cfd3d8}
+.nfbar{background:#0d0d0d;border-bottom:1px solid #2a2a2a}
+.nftabs a{background:linear-gradient(#2b2b2b,#141414);border-color:#4a4a4a;color:#f2f2f2}
+.nftabs a:hover{background:linear-gradient(#3a3a3a,#1c1c1c);border-color:#9aa0a6}
+.nftabs a.on{background:#fff;color:#000;border-color:#fff;box-shadow:inset 0 -3px 0 #337ab7}
+body #app .nfbar .srvc,body #app .nfbar .srvc-t b{color:#fff}
+.nfbar .srvc-t small{color:#aeb4ba}
+.nfu{background:#000;border-bottom:1px solid #2a2a2a;color:#d6d9dc}
+.nfu .nfbot,.nfu .who-r,.nfu .who-r b,.nfu .stt{color:#e8eaec}
+.nflo{color:#7db4e6}
+.nfu .adv-ib{background:linear-gradient(#2b2b2b,#141414);border-color:#4a4a4a;color:#f2f2f2}
+.nfbar .srvm{background:#fff;color:#222}
+
+/* ---------- second pass: every older page in the same form style ---------- */
+body #app .nflo,.nfu .nflo{color:#7db4e6!important}
+/* field groups become one plain panel instead of a box around every field */
+body #app .two>div,body #app .fg>div,body #app .fm>div,body #app .form>div{border:0!important;background:none!important;padding:0!important;box-shadow:none!important}
+body #app .two,body #app .form,body #app .ctl,body #app .gms,body #app .fm,body #app .fg>.two{border:1px solid var(--ln2);background:var(--p2);padding:8px 10px;border-radius:0;box-shadow:none;gap:8px 16px;max-width:none}
+body #app .fg,body #app .fm{border:0;background:none;padding:0;max-width:none;gap:10px}
+body #app .fg>.two{margin:0}
+body #app .gms{margin-bottom:10px}
+body #app .gms>h3,body #app .pnl>h3{margin:-8px -10px 8px;background:var(--nf);color:var(--on-mk);font:700 11px/16px var(--f);padding:1px 6px;letter-spacing:0;text-transform:none}
+body #app .gms>h3{margin:-18px -18px 10px}
+body #app .ctl{margin-bottom:10px}
+body #app .ctl>div{min-width:0}
+body #app .pnl,body #app .cd,body #app .tb,body #app .tile,body #app .box{border:1px solid var(--ln2);border-radius:0;background:var(--p);box-shadow:none}
+body #app .tile{padding:6px 10px}
+body #app .tile .v{font:700 20px/1.1 var(--f);color:var(--nf)}
+body #app .tile .k{font:11px var(--f);color:var(--mu)}
+body #app .tiles{gap:8px;margin-bottom:10px}
+body #app .runwarn{border:1px solid var(--am);border-left:4px solid var(--am);background:var(--ams);color:var(--tx);border-radius:0;padding:7px 10px;font:12px/1.5 var(--f);margin-bottom:10px}
+body #app .runwarn b{color:var(--tx)}
+body #app .hint,body #app .mu,body #app small{color:var(--mu)}
+body #app .pill,body #app .tag{border-radius:0;font:700 10px var(--f);padding:0 5px;height:17px;display:inline-flex;align-items:center}
+body #app .runout{border-radius:0;background:var(--p2);border:1px solid var(--ln2);font:12px/1.5 "Courier New",monospace;color:var(--tx);padding:8px 10px}
+body #app textarea.mono,body #app #runcode,body #app textarea[spellcheck=false]{font:12px/1.45 "Courier New",monospace}
+body #app .row{gap:6px}
+body #app h2{font-family:var(--f)}
+body #app .sh{font:700 12px/18px var(--f)}
+body #app .tabs,body #app .tabbar{border-bottom:1px solid var(--ln2)}
+body #app .tabs a,body #app .tabs button{font:12px var(--f);border-radius:0}
+body #app hr{border:0;border-top:1px solid var(--ln)}
+/* toggles */
+body #app .tg2,body #app .sw{border-radius:0;height:16px;width:34px;background:#9aa3a8}
+body #app .tg2::after,body #app .sw::after{border-radius:0;width:12px;height:12px}
+body #app .tg2.on::after,body #app .sw.on::after{left:20px}
+body #app .tg2.on,body #app .sw.on{background:var(--nf)}
+/* documents */
+body #app #dtpl,body #app #dgrid{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+body #app #dtpl>*,body #app #dgrid>*{border:1px solid var(--ln2)!important;border-radius:0!important;background:var(--p)!important;box-shadow:none!important;padding:6px 10px!important;width:160px;min-height:0!important;font:12px var(--f)!important;color:var(--tx)!important;text-align:left}
+body #app #dtpl>*:hover,body #app #dgrid>*:hover{background:var(--nfl)!important;border-color:var(--nf)!important}
+body #app #dtpl b,body #app #dgrid b{font:700 12px var(--f)!important;color:var(--nf)!important;display:block}
+body #app #dlist .row{margin:6px 0}
+body #app .dtop,body #app .dmenus,body #app .dtool,body #app .dfind,body #app #dstat{background:var(--p2)!important;border-color:var(--ln2)!important;border-radius:0!important;font-family:var(--f)}
+body #app #dtitle{font:700 13px var(--f)!important;border-radius:0}
+/* overview */
+body #app .hd{margin:0 0 8px}
+body #app .hd h1{font:700 15px/1.3 var(--f);text-transform:uppercase;color:var(--mu)}
+body #app .hd-m{font:12px var(--f);color:var(--mu)}
+body #app .hgrid{gap:10px}
+body #app .aq{grid-template-columns:20px minmax(0,1fr) auto;gap:8px;padding:4px 8px;border-left-width:3px;font:12px/1.35 var(--f)}
+body #app .aq-i{width:20px;height:20px;border:0;background:none;color:var(--mu)}
+body #app .aq-i svg{width:15px;height:15px}
+body #app .aq-t b{font:700 12px var(--f)}
+body #app .aq-t small{font:11px var(--f);color:var(--mu)}
+body #app .aq:hover{background:var(--acs)}
+body #app .aq.rd{background:var(--rds)}
+body #app .aq-ok{padding:8px 10px;font:12px var(--f)}
+body #app .hw .sheet{margin:0}
+/* any leftover rounded or shadowed block */
+body #app [class*="card"],body #app .dw-b{border-radius:0}
+body #app .nb.hot{background:var(--rd);border-color:var(--rd);color:var(--on-mk)}
+body #app .bigtog{border-radius:0;border:1px solid var(--ln2);background:var(--p2);padding:8px 10px}
+body #app .st4>div{border-color:var(--ln)}
+body #app .lead div{border-color:var(--ln);font:12px var(--f)}
+body #app .chart i{background:var(--nf)}
+body #app .filters,body #app .pager{border-color:var(--ln);font:12px var(--f)}
+body #app .seg button{color:var(--tx)}
+body #app .chip{margin:0 3px 0 0}
+body #app .nfcr+.banner-in{margin-top:0}
+body #app .sec h3:not(.f){font:700 13px/1.3 var(--f);margin:0 0 3px;color:var(--tx)}
+body #app .sheet-h h3{font:700 11px/16px var(--f);color:var(--on-mk)}
+body #app .st4{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--ln2)}
+body #app .st4>div{display:block;padding:6px 10px;border-right:1px solid var(--ln)}
+body #app .st4>div b{display:block;font:700 18px/1.1 var(--f);color:var(--nf)}
+@media(max-width:700px){body #app .st4{grid-template-columns:1fr 1fr}}
+body #app .master,body #app .rb{border:1px solid var(--ln2);background:var(--p2);padding:8px 10px;border-radius:0}
+body #app .sec .sheet-h h3{font:700 11px/16px var(--f);color:var(--on-mk);margin:0}
+body #app .srch{display:flex;align-items:center;gap:6px;padding:0 6px}
+body #app .srch svg{position:static;flex:none}
+body #app .srch input{padding:0!important;flex:1;min-width:0}
 
 </style><script>/* ===== theme engine: runs in <head>, before the page paints ===== */
 /* A theme is eight colours plus a few settings. Everything else (rules, hover, inputs, soft status backgrounds, text on accents)
@@ -1806,7 +1909,7 @@ try{apply(load());if(matchMedia)matchMedia("(prefers-color-scheme: dark)").addEv
 })(window);
 </script></head><body><div id="login">
  <div class="nfl">
-  <div class="nfl-h"><svg class="nfh-emb" viewBox="0 0 80 80" width="64" height="64" aria-hidden="true"><circle cx="40" cy="40" r="38" fill="#0b3b57" stroke="#d8b552" stroke-width="3"/><circle cx="40" cy="40" r="30" fill="none" stroke="#d8b552" stroke-width="1.5"/><path d="M40 14l6 20 20 6-20 6-6 20-6-20-20-6 20-6z" fill="#d8b552"/><circle cx="40" cy="40" r="5" fill="#0b3b57"/><path d="M14 60q13-8 26 0t26 0" fill="none" stroke="#9cc9de" stroke-width="2.5" stroke-linecap="round"/></svg><div class="nfh-t"><b>USAF</b><span>Discord Server Management</span></div><span style="width:64px"></span></div>
+  <div class="nfl-h"><img class="nfh-emb" src="img/usaf-logo.png" alt="Department of the Air Force" onerror="this.style.display='none'"><div class="nfh-t"><b>USAF</b><span>Discord Server Management</span></div><span style="width:64px"></span></div>
   <div class="nfl-b">
    <h2>Welcome</h2>
    <p>This is the staff site for the USAF Discord server and its bot.</p>
@@ -1827,7 +1930,7 @@ try{apply(load());if(matchMedia)matchMedia("(prefers-color-scheme: dark)").addEv
 
 <div id="app" class="wb hidden">
  <header class="top nfhead">
-  <div class="nfh"><svg class="nfh-emb" viewBox="0 0 80 80" width="64" height="64" aria-hidden="true"><circle cx="40" cy="40" r="38" fill="#0b3b57" stroke="#d8b552" stroke-width="3"/><circle cx="40" cy="40" r="30" fill="none" stroke="#d8b552" stroke-width="1.5"/><path d="M40 14l6 20 20 6-20 6-6 20-6-20-20-6 20-6z" fill="#d8b552"/><circle cx="40" cy="40" r="5" fill="#0b3b57"/><path d="M14 60q13-8 26 0t26 0" fill="none" stroke="#9cc9de" stroke-width="2.5" stroke-linecap="round"/></svg><div class="nfh-t"><b>USAF</b><span>Discord Server Management</span></div></div>
+  <div class="nfh"><img class="nfh-emb" src="img/usaf-logo.png" alt="Department of the Air Force" onerror="this.style.display='none'"><div class="nfh-t"><b>USAF</b><span>Discord Server Management</span></div></div>
   <div class="nfbar"><nav class="nftabs" id="nftabs" aria-label="Sections"></nav>
    <div class="srvc-w"><button class="srvc" id="srvc" aria-haspopup="menu" aria-label="Switch server"></button><div class="srvm hidden" id="srvm" role="menu"></div></div></div>
   <div class="nfu"><span class="nfbot">Bot status: <span class="stt" id="hp"></span></span><select id="gsel" class="hidden" title="Server" aria-label="Server"></select><span id="bn" class="hidden"></span>
@@ -1842,6 +1945,7 @@ try{apply(load());if(matchMedia)matchMedia("(prefers-color-scheme: dark)").addEv
  <section class="banner hidden" id="banner"><div class="nfcr" id="nfcr"></div><div class="banner-in"><div class="ph-t"><h1 id="bt1"></h1><p id="bds"></p></div><div class="ph-a"><span id="ph-act"></span></div></div></section>
 
  <div class="tab" id="t-appear"><div class="sec"><div class="in" id="appearbox"></div></div></div>
+<div class="tab" id="t-locks"><div class="sec"><div class="in" id="lockspage"></div></div></div>
 <div class="tab" id="t-docs"><div class="sec"><div class="in">
  <div id="dlist"><h2 class="sh">Documents</h2>
   <div class="row"><button class="nb" id="dnew">New blank document</button><button class="nb s" id="dimp">Open a file from this computer</button><span class="mu" style="font-size:13px">Opens .docx, .html, .md, .txt and PIN-locked .usafdoc files</span></div>
@@ -1923,7 +2027,7 @@ try{apply(load());if(matchMedia)matchMedia("(prefers-color-scheme: dark)").addEv
 
 <div class="tab" id="t-appeals"><div class="sec"><div class="in" id="apbox"></div></div></div>
 
-<div class="tab" id="t-sched"><div class="sec"><div class="in"><h2 class="sh">Scheduled and info messages</h2><div id="schbox"></div><h2 class="sh" style="margin-top:46px">Channel locks</h2><div id="lockbox"></div><h2 class="sh" style="margin-top:46px">Rules and info messages</h2><div id="infobox"></div></div></div></div>
+<div class="tab" id="t-sched"><div class="sec"><div class="in"><h2 class="sh">Scheduled and info messages</h2><div id="schbox"></div><h2 class="sh" style="margin-top:46px">Rules and info messages</h2><div id="infobox"></div></div></div></div>
  <div class="tab" id="t-logins"><div class="sec"><div class="in"><h2 class="sh">Login and action log</h2><div id="logbox"></div></div></div></div>
  <div class="tab" id="t-run"><div class="sec"><div class="in"><h2 class="sh">Run code</h2><div id="runbox"></div></div></div></div>
  <div class="tab" id="t-kills"><div class="sec"><div class="in"><h2 class="sh">Kill log</h2><div id="killbox"></div></div></div></div>
@@ -2331,6 +2435,10 @@ function mockApi(p,m,b){
  }
  if(path.match(/^\/api\/guilds\/\w+\/appeals\/config$/)){if(m==="POST"){["channel","on","form"].forEach(k=>{if(b[k]!==undefined)APCFG[k]=b[k]});return out({ok:true})}return out(APCFG)}
  if(x=path.match(/^\/api\/guilds\/\w+\/appeals(?:\/(\d+)\/decision)?$/)){if(x[1]){const a=APPS.find(z=>z.n===+x[1]);if(a){a.status=b.status;a.decidedBy="Dashboard";a.note=b.note||"";a.decidedAt=Date.now()}return out({ok:true})}return out(APPS.slice().reverse())}
+ if(path.match(/^\/api\/guilds\/\w+\/lockdown(\/lift)?$/)){window.LDM=window.LDM||{active:false};const M=window.LDM;
+  if(/lift$/.test(path)){window.LDM={active:false};return out({ok:true})}
+  if(m==="POST"){const q=/^(\d+)\s*([mhdw])?$/i.exec(String(b.time||"").trim());window.LDM={active:true,reason:b.reason||"",by:"admin",at:Date.now(),until:q?Date.now()+(+q[1])*({m:6e4,h:36e5,d:864e5,w:6048e5}[(q[2]||"m").toLowerCase()]):null,locked:12,failed:[],open:[]};return out(window.LDM)}
+  return out(M)}
  if(x=path.match(/^\/api\/guilds\/\w+\/locks(?:\/(unlock|schedule))?(?:\/(\w+))?$/)){window.LKM=window.LKM||{active:[],schedule:[]};const M=window.LKM;
   const dur=v=>{v=String(v||"").trim();if(!v||/^(inf|forever|0)$/i.test(v))return null;const q=/^(\d+)\s*([mhdw])?$/i.exec(v);if(!q)return undefined;return +q[1]*{m:6e4,h:36e5,d:864e5,w:6048e5}[(q[2]||"m").toLowerCase()]};
   if(!x[1]){if(m==="POST"){const ms=dur(b.time);if(ms===undefined)return Promise.reject(new Error("Time must look like 30m, 2h, 1d or inf."));(b.channels||[]).forEach(c=>{const ch=gInfo().channels.find(z=>z.id===c);M.active=M.active.filter(a=>a.channel!==c);M.active.push({channel:c,name:ch?ch.name:"deleted",by:"Dashboard",reason:b.reason||"",at:Date.now(),until:ms?Date.now()+ms:null,scheduled:false})});return out({done:b.channels||[],failed:[]})}return out(M)}
@@ -2400,7 +2508,7 @@ CMDS.push(...[["automod",2,"[on|off]"],["wordfilter",2,"<add|remove|list> [match
 const MENU=[
  ["Moderation","Act on members and review everything on record.",[["look","Member lookup","Roblox account, linked Discord accounts and full record"],["mem","Members","Search, warn, time out, kick and ban"],["cases","Cases","Every moderation action on record"],["warn","Warnings","Totals and escalation thresholds"],["vio","Automod violations","What Automod caught, with excerpts"],["appeals","Appeals","Review and decide member appeals"]]],
  ["Automod","Automatic rules that protect the server.",[["auto","Automod rules","Spam, duplicates, links, mentions, caps, invites"],["wf","Word filter","Your own word and phrase rules"],["raid","Raid protection","Join gate and raid mode"]]],
- ["Server","Day-to-day server operations.",[["comms","Messages","Read and send as the bot"],["tickets","Tickets","Open support tickets"],["audit","Audit log","Discord's own audit trail"],["docs","Documents","Write, edit and export documents"],["awards","Awards","Award catalog and member awards"],["sched","Scheduled and info messages","Post at a set time, keep rules and info posts"],["kills","Kill log","Kills and deaths reported by the game"],["tools","Channels and backups","Purge, slowmode, lock, announce, backup and restore"],["srv","Servers","Servers the bot is in"]]],
+ ["Server","Day-to-day server operations.",[["comms","Messages","Read and send as the bot"],["tickets","Tickets","Open support tickets"],["audit","Audit log","Discord's own audit trail"],["docs","Documents","Write, edit and export documents"],["awards","Awards","Award catalog and member awards"],["locks","Channel locks","Lock channels or the whole server, with schedules"],["sched","Scheduled and info messages","Post at a set time, keep rules and info posts"],["kills","Kill log","Kills and deaths reported by the game"],["tools","Channels and backups","Purge, slowmode, lock, announce, backup and restore"],["srv","Servers","Servers the bot is in"]]],
  ["Bot","Configure the bot itself.",[["cmds","Commands","Turn commands on or off and set levels"],["tpl","Message templates","Every message the bot sends, editable"],["appear","Appearance","Colours, type, layout and how this dashboard looks"],["set","Settings","Roles, channels, messages, templates"],["run","Run code","Run a script as the bot"],["logins","Login and action log","Who signed in, and everything done in the dashboard"],["id","Bot identity","Name, avatar and status"],["priv","Data and privacy","What the bot stores and why"]]]];
 const META={home:{t:"Overview"},bots:{t:"Our bots",d:"Every bot website we have built",g:"Bots"}};MENU.forEach(g=>g[2].forEach(i=>META[i[0]]={t:i[1],d:i[2],g:g[0]}));
 /* ---------- our bots ----------
@@ -2427,7 +2535,7 @@ function go(t){
  scrollTo(0,0);
  if(home)renderHome();
  if(t=="comms"){const el=$("msgs");if(S.stick)el.scrollTop=el.scrollHeight;updJump()}
- document.body.classList.toggle("dediting",t=="docs"&&!$("dedv").classList.contains("hidden"));if(t=="docs"&&window.docsOpen)docsOpen();if(t=="mem")loadMem();if(t=="cases")loadCases();if(t=="audit")loadAudit(true);if(t=="tickets")loadTickets();if(t=="awards")loadAwards();if(t=="cmds")loadCmds();if(t=="set")loadSet();
+ if(t=="locks"&&window.loadLocks2)loadLocks2();document.body.classList.toggle("dediting",t=="docs"&&!$("dedv").classList.contains("hidden"));if(t=="docs"&&window.docsOpen)docsOpen();if(t=="mem")loadMem();if(t=="cases")loadCases();if(t=="audit")loadAudit(true);if(t=="tickets")loadTickets();if(t=="awards")loadAwards();if(t=="cmds")loadCmds();if(t=="set")loadSet();
  if(t=="auto"){loadAuto();loadProb()}if(t=="wf")loadWF();if(t=="raid")loadRaid();if(t=="warn")loadWarn();if(t=="vio")loadVio();if(t=="priv")loadPriv();if(t=="bots")loadBots();if(t=="tpl")loadTpl();if(t=="look")loadLook();if(t=="tools")loadBk();if(t=="raid"){loadFrz();loadNuke();loadEvade();loadInv()}if(t=="kills")loadKills();if(t=="run")loadRun();if(t=="appeals")loadAppeals();if(t=="sched")loadSched();if(t=="logins")loadLogins();
 }
 async function enter(){$("login").classList.add("hidden");$("app").classList.remove("hidden");
@@ -3366,7 +3474,7 @@ function bind(){gmBind();$("gmann").onclick=()=>gmOpen("ann");$("gmgame").onclic
 }
 
 try{const ru=localStorage.getItem("usaf-ru");if(ru){$("u").value=ru;$("rm").checked=true}}catch(e){}
-try{if((sessionStorage.getItem("usaf-in")||TOK)&&!/^#\/doc\//.test(location.hash))enter()}catch(e){}
+/* the sign-in page always comes first */
 </script><script>/* touch press: keep the swapped state long enough for the 0.45s animation to be seen, even if the tap re-renders the page */
 (function(){var t=new WeakMap();function on(e){var b=e.target.closest&&e.target.closest(".nb,.sb");if(!b)return;b.classList.add("pr");clearTimeout(t.get(b));t.set(b,setTimeout(function(){b.classList.remove("pr")},700))}
 document.addEventListener("touchstart",on,{passive:true});document.addEventListener("pointerdown",function(e){if(e.pointerType!=="mouse")on(e)},{passive:true});
@@ -5844,10 +5952,15 @@ $("adv-gear").onclick=openSettings;
 /* ---------- notification history (every message shown as a toast) ---------- */
 const bellUpd=()=>{const n=Math.max(0,ST.notifs.length-ST.seen),b=$("adv-bn");b.textContent=n>9?"9+":n;b.classList.toggle("hidden",!n)};
 const toastEl=$("toast");
-function note(t){
+const NDEF={major:true,errors:true,appeals:true,logins:true,tickets:false,vio:false,confirm:false,vioMin:10};
+const NS=()=>{try{return Object.assign({},NDEF,JSON.parse(localStorage.getItem("usaf-notify-v1")||"{}"))}catch(e){return Object.assign({},NDEF)}};
+window.NOTIFY={defaults:NDEF,get:NS,set:p=>{try{localStorage.setItem("usaf-notify-v1",JSON.stringify(Object.assign(NS(),p)))}catch(e){}}};
+function note(t,cat){
  t=(t||"").trim();if(!t)return;
+ const bad=/fail|could not|couldn't|cannot|can't|error|wrong|not right|too many|rejected|expired/i.test(t);
+ if(!NS()[cat||(bad?"errors":"confirm")])return;
  const last=ST.notifs[0];if(last&&last.t===t&&Date.now()-last.at<1500)return;
- ST.notifs.unshift({t,at:Date.now(),bad:/fail|could not|couldn't|cannot|can't|error|wrong|not right|too many|rejected|expired/i.test(t)});
+ ST.notifs.unshift({t,at:Date.now(),bad:bad||cat==="major"});
  ST.notifs.length=Math.min(ST.notifs.length,40);save();bellUpd()}
 if(toastEl)new MutationObserver(()=>{if(toastEl.classList.contains("on"))note(toastEl.textContent)}).observe(toastEl,{childList:true,characterData:true,subtree:true,attributes:true,attributeFilter:["class"]});
 $("adv-bell").onclick=()=>{
@@ -5859,10 +5972,11 @@ bellUpd();
 /* ---------- connection watch ---------- */
 const NET={ok:0,ms:0,fail:0};let netBar=null,netT=0;
 function netUp(ms){NET.ok=Date.now();NET.ms=ms;NET.fail=0;if(netBar){netBar.remove();netBar=null;clearInterval(netT)}}
+window.advNote=(t,c)=>note(t,c);
 function netDown(){
  NET.fail++;if(NET.fail<2||netBar||$("app").classList.contains("hidden"))return;
  netBar=el('<div id="adv-net" role="alert"><b>Offline</b><span>The dashboard cannot reach the bot. It may be restarting. Trying again every 10 seconds.</span><button>Try now</button></div>');
- const app=$("docs");app.parentNode.insertBefore(netBar,app);
+ const app=$("docs");app.parentNode.insertBefore(netBar,app);note("The dashboard lost contact with the bot","major");
  const retry=async()=>{try{await refresh();netUp(0);toast("Reconnected")}catch(e){}};
  netBar.querySelector("button").onclick=retry;netT=setInterval(retry,10000)}
 if(typeof API==="string"&&API){
@@ -6170,7 +6284,7 @@ if(lc){
 
 /* ===== app shell behaviour ===== */
 (function(){
-const ICON={home:"home",bots:"bot",look:"lookup",mem:"users",cases:"case",warn:"warn",vio:"flag",appeals:"scale",auto:"shield",wf:"wordban",raid:"bolt",comms:"chat",tickets:"inbox",audit:"list",docs:"doc",awards:"award",sched:"calendar",kills:"kill",tools:"archive",srv:"server",cmds:"terminal",tpl:"template",appear:"palette",set:"sliders",run:"code",logins:"lock",id:"bot",priv:"book"};
+const ICON={home:"home",bots:"bot",look:"lookup",mem:"users",cases:"case",warn:"warn",vio:"flag",appeals:"scale",auto:"shield",wf:"wordban",raid:"bolt",comms:"chat",tickets:"inbox",audit:"list",docs:"doc",awards:"award",sched:"calendar",kills:"kill",tools:"archive",srv:"server",cmds:"terminal",tpl:"template",appear:"palette",locks:"lock",set:"sliders",run:"code",logins:"lock",id:"bot",priv:"book"};
 UX.pageIcon=id=>ICON[id]||"list";
 const root=document.documentElement;
 try{if(localStorage.getItem("usaf-rail")==="min")root.setAttribute("data-rail","min")}catch(e){}
@@ -6224,7 +6338,7 @@ function paintBadges(){
  if(f&&f.active){a.className="abar";a.innerHTML=`${UX.icon("snow",18)}<span><b>Emergency freeze is on.</b> Messages are locked${f.until?" until "+UX.z(f.until)+" ("+UX.local(f.until)+" local)":""}.</span><span class="sp"></span><button data-ab="unfreeze">Lift the freeze</button>`}
  else if(r){a.className="abar am";a.innerHTML=`${UX.icon("bolt",18)}<span><b>Raid mode is on.</b> New members are being removed as they join.</span><span class="sp"></span><button data-ab="raidoff">Turn it off</button>`}
  else{a.className="abar hidden";a.innerHTML=""}}
-window.paintBadges=paintBadges;
+window.paintBadges=paintBadges;window.__BADGE=()=>BADGE;
 window.refreshBadges=async function(){
  const g=curG();if(!g){BADGE={};paintBadges();return}
  const [tk,ap,vi,fr,cf]=await Promise.all([soft(api(`/api/guilds/${g}/tickets`),[]),soft(api(`/api/guilds/${g}/appeals`),[]),soft(api(`/api/guilds/${g}/violations`),[]),soft(api(`/api/guilds/${g}/freeze`),{active:false}),soft(api(`/api/guilds/${g}/config`),{})]);
@@ -7331,7 +7445,8 @@ async function aDecide(st){
 const ONT=[["ban","Bans"],["tempban","Temporary bans"],["kick","Kicks"],["timeout","Timeouts"]];
 function cfgBody(){
  const d=P.draft,chs=gInfo().channels||[];
- return `<div class="fld"><label>Where staff see new appeals</label><div id="apch"></div><div class="fhint">The post there has Accept and Deny buttons too.</div></div>
+ return `<div class="fld"><label for="apbtn">Text on the button in the member's message</label><input id="apbtn" data-apbtn maxlength="80" value="${esc(d.button||"Submit Appeal")}" placeholder="Submit Appeal"><div class="fhint">The blue button under the ban, kick or timeout message.</div></div>
+ <div class="fld" style="margin-top:1.2rem"><label>Where staff see new appeals</label><div id="apch"></div><div class="fhint">The post there has Accept and Deny buttons too.</div></div>
  <div class="fld" style="margin-top:1.2rem"><label>Offer the appeal button after</label><div class="apon">${ONT.map(o=>UX.sw(`data-apon="${o[0]}"`,!!d.on[o[0]],o[1])).join("")}</div></div>
  <div class="fld" style="margin-top:1.2rem"><label>Questions the member answers <span class="mu">up to 5, in the direct message</span></label><div id="apqs">${d.form.map((q,i)=>qRow(q,i)).join("")}</div><button class="nb s" data-apc2="add" ${d.form.length>=5?"disabled":""}>${UX.icon("plus",15)}Add a question</button></div>
  <p class="fhint" style="margin-top:1.2rem">The messages the member and staff receive are edited under Message templates, in the Appeals group.</p>`}
@@ -7359,6 +7474,7 @@ document.addEventListener("keydown",e=>{
  if(e.key!=="Enter"||e.target.tagName==="INPUT"||e.target.tagName==="TEXTAREA")return;
  const r=e.target.closest&&e.target.closest("[data-tko],[data-apo]");
  if(r&&e.target===r){if(S.tab==="tickets"&&r.dataset.tko)kOpen(+r.dataset.tko);else if(S.tab==="appeals"&&r.dataset.apo)aOpen(+r.dataset.apo)}});
+document.addEventListener("input",e=>{if(e.target.dataset&&e.target.dataset.apbtn!==undefined&&P.draft)P.draft.button=e.target.value});
 document.addEventListener("click",async e=>{
  const t=e.target;
  if(S.tab==="tickets"){
@@ -7384,7 +7500,7 @@ document.addEventListener("click",async e=>{
    if(k==="add"){if(P.draft.form.length<5){P.draft.form.push({label:"",long:true,required:false});cfgRedraw();const q=document.querySelectorAll("[data-apq]");if(q.length)q[q.length-1].focus()}}
    else if(k.startsWith("rm|")){P.draft.form.splice(+k.slice(3),1);cfgRedraw()}
    else if(k==="save"){const f=P.draft.form.filter(q=>q.label.trim());if(!f.length)return toast("Keep at least one question");
-    const r=await T(()=>api(`/api/guilds/${curG()}/appeals/config`,"POST",{channel:P.draft.channel||null,on:P.draft.on,form:f}),"Appeal settings saved");
+    const r=await T(()=>api(`/api/guilds/${curG()}/appeals/config`,"POST",{button:(P.draft.button||"").trim()||"Submit Appeal",channel:P.draft.channel||null,on:P.draft.on,form:f}),"Appeal settings saved");
     if(r){P.cfg=Object.assign({},P.draft,{form:f});UX.drawer.close()}}}}});
 })();
 
@@ -7633,8 +7749,9 @@ const T=()=>window.THEMING;
 const KEYS=[["desk","Page background"],["panel","Panels"],["text","Text"],["accent","Buttons and links"],["marker","Bars and highlights"],["ok","Good"],["warn","Warning"],["bad","Problem"]];
 const commit=patch=>{const t=T().merge(T().get(),patch);T().set(t);window.dispatchEvent(new Event("themechange"));draw()};
 const variant=()=>T().active(T().get(),T().sysDark());
+const NROWS=[["major","Major events","Raid mode, emergency freeze and the bot going offline."],["errors","Problems","Something failed or could not be saved."],["appeals","New appeals","A member submits an appeal."],["tickets","New tickets","A ticket is opened."],["vio","Automod violations","A burst of violations."],["confirm","Confirmations","Messages such as Saved or Deleted."]];
 function draw(){
- const box=document.getElementById("appearbox");if(!box)return;
+ const box=document.getElementById("appearbox");if(!box)return;const N=window.NOTIFY?window.NOTIFY.get():{};
  const t=T().get(),v=variant(),c=T().colorsOf(t,v),P=T().PRESETS,F=T().FONTS;
  const r1=T().ratio(c.text,c.panel),r2=T().ratio(c.accent,c.panel);
  const ok=r=>r>=4.5?`<span class="stamp gn">${r.toFixed(1)} : 1 readable</span>`:`<span class="stamp rd">${r.toFixed(1)} : 1 hard to read</span>`;
@@ -7660,6 +7777,12 @@ function draw(){
   ${row("Animation","Turn off for a still page.",UX.sw('data-apt="motion"',!!t.motion,"Animate"))}
   ${row("Focus outline","Stronger outlines help keyboard use.",seg("data-apk6",[["normal","Normal"],["strong","Strong"]],t.focus))}
  </div></div>
+ <div class="sheet"><div class="sheet-h"><h3>Notifications</h3><span class="meta">What goes in the bell</span></div><div class="sheet-b">
+  ${NROWS.map(r=>row(r[1],r[2],UX.sw(`data-apn="${r[0]}"`,!!N[r[0]],"On"))).join("")}
+  ${row("Violations: only when this many arrive","Used by the Automod violations setting above.",`<input type="number" min="1" max="500" value="${N.vioMin}" data-apnv style="width:6rem">`)}
+  <div class="ap2-b" style="margin-top:.7rem"><button class="nb s" data-ap="ntest">Send a test notification</button><button class="nb s" data-ap="nmajor">Only major events</button><button class="nb s" data-ap="nall">Everything</button></div></div></div>
+ <div class="sheet"><div class="sheet-h"><h3>Header logo</h3></div><div class="sheet-b">
+  ${row("Logo image","Shown at the top left. Choose a picture (PNG with a clear background looks best). It is kept in this browser only; to change it for everyone, put the file in the site's img folder as usaf-logo.png.",`<div class="ap2-b"><button class="nb s" data-ap="logo">Choose a picture</button><button class="nb s" data-ap="logoreset">Use the default</button><input type="file" id="aplogo" accept="image/*" class="hidden"></div>`)}</div></div>
  <div class="sheet"><div class="sheet-h"><h3>Save, share and reset</h3></div><div class="sheet-b"><div class="ap2-b">
   <button class="nb s" data-ap="push">Save to the bot for other staff</button><button class="nb s" data-ap="pull">Load the bot's copy</button><button class="nb s" data-ap="exp">Export a file</button><button class="nb s" data-ap="imp">Import a file</button><input type="file" id="apfile" accept=".json,application/json" class="hidden"><button class="nb s d" data-ap="reset">Reset everything</button></div>
   <p class="mu" style="margin:.6rem 0 0">Changes apply at once and are remembered in this browser.</p></div></div>`}
@@ -7671,6 +7794,11 @@ document.addEventListener("click",async e=>{
  if(a.startsWith("pre:"))return commit({preset:a.slice(4),colors:{light:null,dark:null}});
  if(a==="resetc")return commit({colors:{light:null,dark:null}});
  if(a==="reset"){if(await UX.confirm("Put every appearance setting back to the default?",{title:"Reset appearance",ok:"Reset",danger:true})){T().set(T().merge(T().DEFAULT,{}));window.dispatchEvent(new Event("themechange"));draw()}return}
+ if(a==="ntest"){advNote("This is a test notification","major");toast("Test sent. Look at the bell.");return}
+ if(a==="nmajor"){NOTIFY.set({major:true,errors:true,appeals:false,tickets:false,vio:false,confirm:false});return draw()}
+ if(a==="nall"){NOTIFY.set({major:true,errors:true,appeals:true,tickets:true,vio:true,confirm:true});return draw()}
+ if(a==="logo")return document.getElementById("aplogo").click();
+ if(a==="logoreset"){try{localStorage.removeItem("usaf-logo")}catch(x){}document.querySelectorAll(".nfh-emb").forEach(i=>{i.src="img/usaf-logo.png"});toast("Default logo");return}
  if(a==="exp"){const x=new Blob([JSON.stringify(t,null,1)],{type:"application/json"}),l=document.createElement("a");l.href=URL.createObjectURL(x);l.download="appearance.json";l.click();setTimeout(()=>URL.revokeObjectURL(l.href),2000);return}
  if(a==="imp")return document.getElementById("apfile").click();
  if(a==="push"){const r=await T_(()=>api("/api/theme","POST",t),"Saved to the bot");return}
@@ -7683,11 +7811,145 @@ document.addEventListener("input",e=>{
 document.addEventListener("change",e=>{
  if(S.tab!=="appear")return;const t=e.target;
  if(t.dataset.aps==="font")commit({font:t.value});
+ else if(t.dataset.apn){const p={};p[t.dataset.apn]=t.checked;NOTIFY.set(p)}
+ else if(t.dataset.apnv!==undefined){NOTIFY.set({vioMin:Math.max(1,+t.value||10)})}
+ else if(t.id==="aplogo"&&t.files[0]){const f=t.files[0];if(f.size>1.5e6){toast("Pick a picture under 1.5 MB");return}const r=new FileReader();r.onload=()=>{try{localStorage.setItem("usaf-logo",r.result)}catch(x){toast("The browser could not keep that picture");return}document.querySelectorAll(".nfh-emb").forEach(i=>{i.src=r.result});toast("Logo changed")};r.readAsDataURL(f);t.value=""}
  else if(t.dataset.apt){const p={};p[t.dataset.apt]=t.checked;commit(p)}
  else if(t.dataset.apc){draw()}
  else if(t.id==="apfile"&&t.files[0]){const f=t.files[0],r=new FileReader();r.onload=()=>{try{T().set(T().merge(T().DEFAULT,JSON.parse(r.result)));window.dispatchEvent(new Event("themechange"));draw();toast("Imported")}catch(x){toast("That file is not a saved appearance")}};r.readAsText(f);t.value=""}});
 const _go=go;go=function(t){const r=_go.apply(this,arguments);if(t==="appear")setTimeout(draw,0);return r};
 window.loadAppear=draw;
+})();
+
+/* ===== Channel locks: lock channels or the whole server from here, see what is locked, and schedule locks ===== */
+(function(){
+const L={act:[],sch:[],ld:{active:false},sel:new Set(),time:"1h",custom:"",reason:"",q:"",ldTime:"1h",ldCustom:"",ldReason:"",f:null};
+const arr=a=>Array.isArray(a)?a:[];
+const DUR=[["15m","15 minutes"],["1h","1 hour"],["4h","4 hours"],["12h","12 hours"],["1d","1 day"],["1w","1 week"],["inf","Until staff unlock"]];
+const REP={none:"Once",daily:"Every day",weekly:"Every week"};
+const left=u=>{if(!u)return"No end time";const s=Math.round((u-Date.now())/1000);if(s<=0)return"ending now";if(s<90)return s+" sec";if(s<5400)return Math.round(s/60)+" min";if(s<172800)return Math.floor(s/3600)+" h "+Math.round((s%3600)/60)+" min";return Math.round(s/86400)+" days"};
+const dfmt=ms=>!ms?"until staff unlock":ms%864e5===0?ms/864e5+" d":ms%36e5===0?ms/36e5+" h":Math.round(ms/6e4)+" min";
+const chName=id=>{const c=(gInfo().channels||[]).find(x=>x.id===id);return c?c.name:"deleted"};
+const timeOf=(t,c)=>(c&&c.trim())||t;
+let tm=0;
+async function load(){
+ const g=curG(),box=document.getElementById("lockspage");if(!box)return;
+ if(!g){box.innerHTML=UX.empty("The bot is not in a server yet","Locks show up here once it is.");return}
+ const [v,ld]=await Promise.all([soft(api(`/api/guilds/${g}/locks`),{active:[],schedule:[]}),soft(api(`/api/guilds/${g}/lockdown`),{active:false})]);
+ L.act=arr(v.active);L.sch=arr(v.schedule);L.ld=ld||{active:false};draw();
+ UX.actions(`<button class="nb s" data-lk2="new">${UX.icon("calendar",15)}Schedule a lock</button><button class="nb s" data-lk2="reload">${UX.icon("refresh",15)}Reload</button>`);
+ clearInterval(tm);tm=setInterval(()=>{if(S.tab!=="locks")return clearInterval(tm);document.querySelectorAll("[data-lku]").forEach(e=>e.textContent=left(+e.dataset.lku||0))},1000)}
+window.loadLocks2=load;
+function picker(sel,key,q){
+ const chs=(gInfo().channels||[]).filter(c=>!q||c.name.toLowerCase().includes(q.toLowerCase()));
+ const by={};chs.forEach(c=>{(by[c.cat||""]=by[c.cat||""]||[]).push(c)});
+ return Object.keys(by).map(cat=>`${cat?`<div class="lkcat">${esc(cat)}</div>`:""}${by[cat].map(c=>`<label class="lkc"><input type="checkbox" data-lkc="${key}" value="${c.id}" ${sel.has(c.id)?"checked":""}><span># ${esc(c.name)}</span></label>`).join("")}`).join("")||'<p class="mu" style="margin:.6rem">No channel matches.</p>'}
+function durChips(cur,attr){return `<div class="chips">${DUR.map(d=>`<button type="button" class="chip ${cur===d[0]?"on":""}" ${attr}="${d[0]}">${d[1]}</button>`).join("")}</div>`}
+function draw(){
+ const box=document.getElementById("lockspage");if(!box)return;
+ const ld=L.ld,n=L.act.length;
+ box.innerHTML=`
+ <div class="stats" style="margin-bottom:1rem"><div><b>${n}</b><span>Channels locked now</span></div><div><b>${ld.active?"On":"Off"}</b><span>Server lockdown</span></div><div><b>${L.sch.filter(s=>s.on!==false&&s.status!=="done").length}</b><span>Schedules waiting</span></div></div>
+ <div class="lk2-g">
+  <div class="sheet"><div class="sheet-h"><h3>Lock channels</h3><span class="meta">${L.sel.size} picked</span></div><div class="sheet-b">
+   <div class="srch sm" style="margin-bottom:.5rem">${UX.icon("search",16)}<input id="lk2q" placeholder="Find a channel" value="${esc(L.q)}" autocomplete="off" aria-label="Find a channel"></div>
+   <div class="lk2-l" id="lk2list">${picker(L.sel,"now",L.q)}</div>
+   <div class="row" style="margin:.4rem 0 .8rem"><button class="lnk" data-lk2="all">Pick every channel shown</button><button class="lnk" data-lk2="none">Clear</button></div>
+   <label class="fl">How long</label>${durChips(L.time,"data-lkt")}
+   <input id="lk2c" placeholder="Or type a time, such as 45m, 3h, 2d" value="${esc(L.custom)}" style="margin-top:.5rem" aria-label="Custom time">
+   <label class="fl" style="margin-top:.8rem">Reason (shown in the notice, optional)</label><input id="lk2r" maxlength="200" value="${esc(L.reason)}" placeholder="For example: staff briefing">
+   <p class="fhint">Members can no longer send messages or start threads. The bot posts a notice with a countdown and puts [LOCKED] on the channel topic. Everything is put back when the lock ends.</p>
+   <button class="nb" data-lk2="lock" ${L.sel.size?"":"disabled"}>${UX.icon("lock",15)}Lock ${L.sel.size?UX.plural(L.sel.size,"channel"):"the picked channels"}</button></div></div>
+  <div class="sheet"><div class="sheet-h"><h3>Whole server lockdown</h3><span class="stamp ${ld.active?"rd":""}">${ld.active?"Active":"Off"}</span></div><div class="sheet-b">${ld.active?`
+   <dl class="kv"><dt>Started by</dt><dd>${esc(ld.by||"")}</dd><dt>Started</dt><dd>${UX.zdate(ld.at)}</dd><dt>Reason</dt><dd>${esc(ld.reason||"None")}</dd><dt>Ends</dt><dd>${ld.until?`<span data-lku="${ld.until}">${left(ld.until)}</span> (${UX.zdate(ld.until)})`:"When staff lift it"}</dd><dt>Channels locked</dt><dd>${ld.locked||0}</dd></dl>
+   ${arr(ld.failed).length?`<div class="note bad" style="margin-top:.8rem"><b>Not locked</b><br>${arr(ld.failed).slice(0,6).map(esc).join("<br>")}</div>`:""}
+   ${arr(ld.open).length?`<div class="note warn" style="margin-top:.8rem"><b>These people can still type</b><br>${arr(ld.open).slice(0,6).map(esc).join("<br>")}<br><span class="mu">Check their roles and the channel permissions.</span></div>`:""}
+   <button class="nb" style="margin-top:1rem" data-lk2="lift">Lift the lockdown</button>`:`
+   <p style="margin-top:0">Stops everyone except staff from typing in every text channel at once. Use it for raids or emergencies.</p>
+   <label class="fl">How long</label>${durChips(L.ldTime,"data-lkdt")}
+   <input id="lk2dc" placeholder="Or type a time, such as 45m, 3h, 2d (up to 7 days)" value="${esc(L.ldCustom)}" style="margin-top:.5rem" aria-label="Custom time">
+   <label class="fl" style="margin-top:.8rem">Reason (optional)</label><input id="lk2dr" maxlength="200" value="${esc(L.ldReason)}" placeholder="For example: raid in progress">
+   <button class="nb d" style="margin-top:1rem" data-lk2="ldstart">${UX.icon("lock",15)}Lock the whole server</button>`}</div></div>
+ </div>
+ <div class="sheet" style="margin-top:1rem"><div class="sheet-h"><h3>Locked now</h3></div><div class="sheet-b flush">${n?`<div class="tw"><table class="dtab"><thead><tr><th>Channel</th><th>Locked by</th><th>Reason</th><th>Unlocks in</th><th></th></tr></thead><tbody>${L.act.map(a=>`<tr><td># ${esc(a.name)}${a.scheduled?' <span class="stamp">Schedule</span>':""}</td><td>${esc(a.by)}</td><td class="mu">${esc(a.reason||"")}</td><td class="mono"><span data-lku="${a.until||0}">${left(a.until)}</span></td><td class="r"><button class="nb s" data-lk2="un:${a.channel}">Unlock</button></td></tr>`).join("")}</tbody></table></div>`:UX.empty("No channel is locked","Pick channels above to lock them.")}</div></div>
+ <div class="sheet" style="margin-top:1rem"><div class="sheet-h"><h3>Lock schedules</h3><button class="nb s" data-lk2="new">New schedule</button></div><div class="sheet-b flush">${L.sch.length?`<div class="tw"><table class="dtab"><thead><tr><th>Next lock (UTC)</th><th>Channels</th><th>Stays locked</th><th>Repeat</th><th>Status</th><th></th></tr></thead><tbody>${L.sch.map(s=>`<tr><td class="mono">${UX.zdate(s.at)}</td><td>${arr(s.channels).map(c=>"# "+esc(chName(c))).join(", ")}</td><td>${dfmt(s.duration)}</td><td>${REP[s.repeat]||""}</td><td><span class="stamp ${s.status==="done"?"gn":s.on===false?"am":""}" ${s.lastError?`title="${esc(s.lastError)}"`:""}>${s.status==="done"?"Finished":s.on===false?"Paused":"Waiting"}</span></td><td class="r"><button class="nb s" data-lk2="edit:${s.id}">Edit</button> <button class="nb s" data-lk2="pause:${s.id}">${s.on===false?"Resume":"Pause"}</button> <button class="nb s d" data-lk2="del:${s.id}">Delete</button></td></tr>`).join("")}</tbody></table></div>`:UX.empty("No schedules","A schedule locks channels at a set time, for example every night.")}</div></div>
+ <p class="mu" style="margin-top:.8rem">Commands do the same: lock [#channel] [30m, 2h, 1d or inf] [reason], unlock, lockdown, unlockdown. All times here are UTC.</p>`}
+const toLocal=ms=>{const d=new Date(ms),p=n=>String(n).padStart(2,"0");return `${d.getUTCFullYear()}-${p(d.getUTCMonth()+1)}-${p(d.getUTCDate())}T${p(d.getUTCHours())}:${p(d.getUTCMinutes())}`};
+function sched(s){
+ L.f=s?{id:s.id,channels:new Set(s.channels),at:toLocal(s.at),duration:dfmtIn(s.duration),repeat:s.repeat,reason:s.reason||"",on:s.on!==false}:{id:"",channels:new Set(),at:toLocal(Date.now()+36e5),duration:"8h",repeat:"daily",reason:"",on:true};
+ UX.drawer({title:s?"Edit lock schedule":"Schedule a lock",sub:"Times are UTC",wide:true,body:fBody(),foot:`<button class="nb" data-lkf="save">Save schedule</button><button class="nb s gh" data-dw="x">Cancel</button>`})}
+const dfmtIn=ms=>!ms?"inf":ms%864e5===0?ms/864e5+"d":ms%36e5===0?ms/36e5+"h":Math.round(ms/6e4)+"m";
+function fBody(){const f=L.f;return `<label class="fl">Channels to lock</label><div class="lk2-l" id="lkfl">${picker(f.channels,"sch","")}</div>
+ <div class="fgrid" style="margin-top:1rem"><div class="fld"><label for="lkfa">Lock at (UTC)</label><input type="datetime-local" id="lkfa" value="${esc(f.at)}"></div><div class="fld"><label for="lkfd">Stays locked for (30m, 8h, 1d or inf)</label><input id="lkfd" value="${esc(f.duration)}"></div></div>
+ <label class="fl" style="margin-top:1rem">Repeat</label>${UX.seg(Object.keys(REP).map(k=>({k,l:REP[k]})),f.repeat,"data-lkfr")}
+ <label class="fl" style="margin-top:1rem" for="lkfr">Reason (optional)</label><input id="lkfr" maxlength="200" value="${esc(f.reason)}">
+ <p class="fhint">A repeating lock needs an end time shorter than the repeat, such as 8h.</p>`}
+document.addEventListener("input",e=>{
+ if(S.tab!=="locks")return;const t=e.target;
+ if(t.id==="lk2q"){L.q=t.value;const l=document.getElementById("lk2list");if(l)l.innerHTML=picker(L.sel,"now",L.q)}
+ else if(t.id==="lk2c")L.custom=t.value;else if(t.id==="lk2r")L.reason=t.value;else if(t.id==="lk2dc")L.ldCustom=t.value;else if(t.id==="lk2dr")L.ldReason=t.value;
+ else if(t.id==="lkfa"&&L.f)L.f.at=t.value;else if(t.id==="lkfd"&&L.f)L.f.duration=t.value;else if(t.id==="lkfr"&&L.f)L.f.reason=t.value});
+document.addEventListener("change",e=>{
+ const t=e.target;if(!t.dataset||!t.dataset.lkc)return;
+ const set=t.dataset.lkc==="now"?L.sel:L.f&&L.f.channels;if(!set)return;
+ if(t.checked)set.add(t.value);else set.delete(t.value);
+ if(t.dataset.lkc==="now"){draw()}});
+document.addEventListener("click",async e=>{
+ const t=e.target;
+ const f=t.closest("[data-lkf]");
+ if(f&&L.f){const g=curG(),b=L.f;if(!b.channels.size)return toast("Pick at least one channel");
+  const at=Date.parse(b.at+":00Z");if(!Number.isFinite(at))return toast("Pick the date and time");
+  const r=await T(()=>api(`/api/guilds/${g}/locks/schedule`,"POST",{id:b.id||undefined,channels:[...b.channels],at,duration:b.duration.trim()||"inf",repeat:b.repeat,reason:b.reason.trim(),on:b.on}),"Schedule saved");
+  if(r){UX.drawer.close(true);L.f=null;load()}return}
+ const fr=t.closest("[data-lkfr]");if(fr&&L.f){L.f.repeat=fr.dataset.lkfr;const b=document.querySelector(".dw-b");if(b){const y=b.scrollTop;b.innerHTML=fBody();b.scrollTop=y}return}
+ if(S.tab!=="locks")return;
+ const lt=t.closest("[data-lkt]");if(lt){L.time=lt.dataset.lkt;L.custom="";draw();return}
+ const dt=t.closest("[data-lkdt]");if(dt){L.ldTime=dt.dataset.lkdt;L.ldCustom="";draw();return}
+ const a=t.closest("[data-lk2]");if(!a)return;const k=a.dataset.lk2,g=curG();
+ if(k==="reload")load();
+ else if(k==="all"){document.querySelectorAll("#lk2list input[data-lkc=now]").forEach(i=>L.sel.add(i.value));draw()}
+ else if(k==="none"){L.sel.clear();draw()}
+ else if(k==="new")sched(null);
+ else if(k.startsWith("edit:"))sched(L.sch.find(s=>s.id===k.slice(5)));
+ else if(k==="lock"){
+  const time=timeOf(L.time,L.custom),n=L.sel.size;
+  if(!n)return;
+  if(!await UX.confirm(`Lock ${UX.plural(n,"channel")} ${time==="inf"?"until staff unlock them":"for "+time}? Members will not be able to send messages there.`,{title:"Lock channels",ok:"Lock"}))return;
+  const r=await T(()=>api(`/api/guilds/${g}/locks`,"POST",{channels:[...L.sel],time,reason:L.reason.trim()}));
+  if(r){const bad=arr(r.failed),w=arr(r.warn);L.sel.clear();
+   if(bad.length||w.length)await UX.dialog({title:bad.length?"Some channels were not locked":"Locked, with a warning",body:`<p style="margin-top:0">${UX.plural(arr(r.done).length,"channel")} locked.</p>${bad.length?`<div class="note bad"><b>Could not lock</b><br>${bad.map(x=>"# "+esc(chName(x.channel))+": "+esc(x.error)).join("<br>")}</div>`:""}${w.length?`<div class="note warn" style="margin-top:.7rem"><b>Warning</b><br>${w.map(x=>"# "+esc(chName(x.channel))+": "+esc(x.warn)).join("<br>")}</div>`:""}`,actions:[{k:"ok",l:"Close",pri:true}]});
+   else toast(UX.plural(arr(r.done).length,"channel")+" locked");
+   L.reason="";load()}}
+ else if(k.startsWith("un:")){const r=await T(()=>api(`/api/guilds/${g}/locks/unlock`,"POST",{channels:[k.slice(3)]}),"Channel unlocked");if(r)load()}
+ else if(k.startsWith("pause:")){const s=L.sch.find(z=>z.id===k.slice(6));if(!s)return;const r=await T(()=>api(`/api/guilds/${g}/locks/schedule`,"POST",Object.assign({},s,{on:s.on===false,status:"pending",duration:dfmtIn(s.duration)})),s.on===false?"Schedule resumed":"Schedule paused");if(r)load()}
+ else if(k.startsWith("del:")){if(!await UX.confirm("Delete this lock schedule?",{title:"Delete schedule",ok:"Delete",danger:true}))return;const r=await T(()=>api(`/api/guilds/${g}/locks/schedule/${k.slice(4)}`,"DELETE"),"Deleted");if(r)load()}
+ else if(k==="ldstart"){
+  const time=timeOf(L.ldTime,L.ldCustom);
+  if(!await UX.confirm(`Lock every text channel ${time==="inf"?"until staff lift it":"for "+time}? Only staff will be able to type.`,{title:"Server lockdown",ok:"Lock the server",danger:true}))return;
+  const r=await T(()=>api(`/api/guilds/${g}/lockdown`,"POST",{time,reason:L.ldReason.trim()}));
+  if(r){if(arr(r.failed).length||arr(r.open).length)await UX.dialog({title:"Lockdown started, with warnings",body:`<p style="margin-top:0">${UX.plural(r.locked||0,"channel")} locked.</p>${arr(r.failed).length?`<div class="note bad"><b>Not locked</b><br>${r.failed.slice(0,8).map(esc).join("<br>")}</div>`:""}${arr(r.open).length?`<div class="note warn" style="margin-top:.7rem"><b>These people can still type</b><br>${r.open.slice(0,8).map(esc).join("<br>")}</div>`:""}`,actions:[{k:"ok",l:"Close",pri:true}]});else toast("Server locked down");L.ldReason="";load();if(window.refreshBadges)refreshBadges()}}
+ else if(k==="lift"){if(!await UX.confirm("Lift the lockdown and put every channel back as it was?",{title:"Lift lockdown",ok:"Lift it"}))return;const r=await T(()=>api(`/api/guilds/${g}/lockdown/lift`,"POST",{}),"Lockdown lifted");if(r){load();if(window.refreshBadges)refreshBadges()}}});
+const _go=go;go=function(t){const r=_go.apply(this,arguments);if(t==="locks")setTimeout(load,0);return r};
+})();
+
+/* ===== major-event notifications: only what is switched on in Appearance, Notifications ===== */
+(function(){
+let prev=null;
+const _r=window.refreshBadges;
+window.refreshBadges=async function(){
+ const r=await _r.apply(this,arguments);
+ try{
+  const B=window.__BADGE(),n=window.NOTIFY?window.NOTIFY.get():{},cur={ap:(B.appeals||{}).n||0,tk:(B.tickets||{}).n||0,vio:(B.vio||{}).n||0,frz:!!(B.frz&&B.frz.active),raid:!!B.raid};
+  if(prev){
+   if(cur.frz!==prev.frz)advNote(cur.frz?"Emergency freeze was turned on":"Emergency freeze was lifted","major");
+   if(cur.raid!==prev.raid)advNote(cur.raid?"Raid mode was turned on":"Raid mode was turned off","major");
+   if(cur.ap>prev.ap)advNote(UX.plural(cur.ap-prev.ap,"new appeal")+" waiting for a decision","appeals");
+   if(cur.tk>prev.tk)advNote(UX.plural(cur.tk-prev.tk,"new ticket")+" opened","tickets");
+   if(cur.vio-prev.vio>=Math.max(1,n.vioMin||10))advNote(UX.plural(cur.vio-prev.vio,"new Automod violation")+" in the last day","vio");
+  }
+  prev=cur;
+ }catch(e){}
+ return r};
 })();
 
 /* ===== USAF shell: section tabs across the top, link list on the left ===== */
@@ -7696,7 +7958,7 @@ const G=[
  ["home","Home","Information",["home","bots"]],
  ["cad","Members","Members",["look","mem","awards","docs"]],
  ["dis","Discipline","Discipline",["cases","warn","vio","appeals"]],
- ["ops","Operations","Operations",["comms","tickets","sched","tools","kills"]],
+ ["ops","Operations","Operations",["comms","tickets","locks","sched","tools","kills"]],
  ["aut","Automod","Automod",["auto","wf","raid"]],
  ["rep","Reports","Reports",["audit","logins","priv"]],
  ["sys","System","System",["set","cmds","tpl","appear","id","srv","run"]]];
@@ -7718,7 +7980,7 @@ window.addEventListener("pinschange",()=>buildNav());
 function crumb(){
  const el=document.getElementById("nfcr");if(!el)return;
  const t=S.tab,g=groupOf(t);
- el.innerHTML=t==="home"?"":`<a data-go="home" href="#">Home</a><i>&rsaquo;</i><a data-go="${g[3][0]}" href="#">${esc(g[1])}</a><i>&rsaquo;</i><span>${esc(label(t))}</span>`}
+ el.innerHTML=t==="home"?"":g[0]==="home"?`<a data-go="home" href="#">Home</a><i>&rsaquo;</i><span>${esc(label(t))}</span>`:`<a data-go="home" href="#">Home</a><i>&rsaquo;</i><a data-go="${g[3][0]}" href="#">${esc(g[1])}</a><i>&rsaquo;</i><span>${esc(label(t))}</span>`}
 const _go=go;
 go=function(t){const r=_go.apply(this,arguments);try{if(groupOf(S.tab)[0]!==built)buildNav();crumb()}catch(e){}return r};
 })();
@@ -7800,7 +8062,7 @@ function tBoxHtml(b,d,main){
  if(!(an||tt||b.desc||fl||th||b.image||ft))return `<div class="dem dempty" style="border-left-color:${esc(b.color)}">This box is empty and will not be sent.</div>`;
  return `<div class="dem" style="border-left-color:${esc(b.color)}"><div class="demr"><div style="min-width:0;flex:1">${an}${tt}${b.desc?`<div class="dd">${mdFull(b.desc)}</div>`:""}${fl?`<div class="dfs">${fl}</div>`:""}</div>${th}</div>${tUrl(b.image)?`<img class="dim" src="${esc(tUrl(b.image))}" alt="" onerror="this.style.display='none'">`:""}${ft}</div>`}
 function tplPv(){const t=TWK,d=tdef(TSEL);if(!$("tpv"))return;
- const where=d.kind==="dm"?"Delivered to the member by direct message":d.kind==="log"?"Posted in "+(t.channel?"the channel you picked":"the log channel"):"Posted in the channel set for this message";
+ const where=d.kind==="reply"?"Sent as the reply to the command":d.kind==="dm"?"Delivered to the member by direct message":d.kind==="log"?"Posted in "+(t.channel?"the channel you picked":"the log channel"):"Posted in the channel set for this message";
  const boxes=(t.box?tBoxHtml(t,d,true):"")+t.more.map(b=>tBoxHtml(b,d,false)).join("");
  const btns=t.buttons.filter(b=>b.label).map(b=>`<span class="dbtn${tUrl(b.url)?"":" off"}">${mdPlain(b.label)}<i>&#8599;</i></span>`).join("");
  const empty=!t.content.trim()&&!(t.box&&boxes);
@@ -7820,7 +8082,7 @@ async function loadTpl(){const g=curG();if(!g)return noGuild("tplbox");
  if(!document.getElementById("tpllist")){$("tplbox").innerHTML='<div class="tpl"><div class="tlw"><input id="tq" placeholder="Search templates"><div id="tpllist"></div></div><div id="tpled"></div></div>';tplBind()}
  TWK=teff(TSEL);TSAVED=JSON.stringify(TWK);TBOX=0;tplList();tplEd()}
 function tplList(){const q=($("tq").value||"").toLowerCase();let h="";
- TG.forEach(g=>{const it=TPLS.filter(t=>t.g===g&&(t.name+" "+t.when).toLowerCase().includes(q));if(it.length)h+=`<div class="tlg">${esc(g)}</div>`+it.map(t=>`<button class="tli${t.id===TSEL?" on":""}" data-t="${t.id}"><span>${esc(t.name)}</span><i>${t.kind==="dm"?"DM":t.kind==="log"?"Log":"Channel"}${TOV[t.id]?" &middot; edited":""}</i></button>`).join("")});
+ TG.forEach(g=>{const it=TPLS.filter(t=>t.g===g&&(t.name+" "+t.when).toLowerCase().includes(q));if(it.length)h+=`<div class="tlg">${esc(g)}</div>`+it.map(t=>`<button class="tli${t.id===TSEL?" on":""}" data-t="${t.id}"><span>${esc(t.name)}</span><i>${t.kind==="reply"?"Reply":t.kind==="dm"?"DM":t.kind==="log"?"Log":"Channel"}${TOV[t.id]?" &middot; edited":""}</i></button>`).join("")});
  $("tpllist").innerHTML=h||'<div class="mu" style="padding:12px">No template matches.</div>'}
 
 /* ---------- editor ---------- */
@@ -7852,9 +8114,9 @@ function tplEd(){const t=TWK,d=tdef(TSEL),ch=gInfo().channels;
  <div class="tth"><div><h3>${esc(d.name)}</h3><span class="mu">${esc(d.when)}</span></div><label class="ck"><input type="checkbox" data-t="enabled" ${t.enabled?"checked":""}><span>Send this message</span></label></div>
  <div class="fmtbar" id="te_fmt" title="Formatting applies to the text box you last clicked in">${FMTBAR.map(x=>x[0]==="|"?'<i></i>':`<button type="button" data-fm="${x[0]}" title="${x[2]}" class="fm-${x[0]}">${x[1]}</button>`).join("")}<span class="fmhint">Formats the box you are typing in</span></div>
  <h4 class="teh">Where it goes</h4>
- <div class="two">${d.kind==="dm"?"":`<div><label>Send to</label><select data-t="channel"><option value="">${d.kind==="log"?"Default log channel":"Channel set in Settings"}</option>${ch.map(c=>`<option value="${c.id}" ${c.id===t.channel?"selected":""}># ${esc(c.name)}</option>`).join("")}</select></div>`}
- ${d.kind==="dm"?"":`<div><label>Delete the message after</label><select data-t="deleteAfter">${dur.map(x=>`<option value="${x[0]}" ${x[0]===t.deleteAfter?"selected":""}>${x[1]}</option>`).join("")}</select></div>`}</div>
- ${d.kind==="dm"?"":`<label class="ck" style="margin-top:10px"><input type="checkbox" data-t="ping" ${t.ping?"checked":""}><span>Allow this message to ping the members and roles it mentions</span></label>`}
+ <div class="two">${(d.kind==="dm"||d.kind==="reply")?"":`<div><label>Send to</label><select data-t="channel"><option value="">${d.kind==="log"?"Default log channel":"Channel set in Settings"}</option>${ch.map(c=>`<option value="${c.id}" ${c.id===t.channel?"selected":""}># ${esc(c.name)}</option>`).join("")}</select></div>`}
+ ${(d.kind==="dm"||d.kind==="reply")?"":`<div><label>Delete the message after</label><select data-t="deleteAfter">${dur.map(x=>`<option value="${x[0]}" ${x[0]===t.deleteAfter?"selected":""}>${x[1]}</option>`).join("")}</select></div>`}</div>
+ ${(d.kind==="dm"||d.kind==="reply")?"":`<label class="ck" style="margin-top:10px"><input type="checkbox" data-t="ping" ${t.ping?"checked":""}><span>Allow this message to ping the members and roles it mentions</span></label>`}
  <h4 class="teh">Text above the boxes ${cnt("content",2000)}</h4><textarea data-t="content" rows="3" placeholder="Optional. Normal message text shown above the boxes, for example a mention. Formatting works here.">${esc(t.content)}</textarea>
  <h4 class="teh">Boxes</h4><div id="te_box"></div>
  <h4 class="teh">Buttons</h4><div id="te_btns"></div>
