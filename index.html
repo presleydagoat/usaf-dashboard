@@ -2123,7 +2123,7 @@ try{apply(load());if(matchMedia)matchMedia("(prefers-color-scheme: dark)").addEv
 <div id="toast"></div>
 <div id="gmov" class="hidden"><div class="gmp"><div class="gmh"><h2>Game tools</h2><div class="gmtabs" id="gmtabs"><button data-gt="ann">Announcement</button><button data-gt="sd">Shut down servers</button><button data-gt="ban">Game bans</button><button data-gt="hist">History</button></div><button class="nb s" id="gmx">Close</button></div><div class="gmb" id="gmb"></div></div></div>
 <script>
-const BACKEND="https://usaf-bot.onrender.com"; // after the bot is deployed, put its Render address between the quotes, like "https://usaf-bot.onrender.com"
+const BACKEND="https://usaf-backend-ud1t.onrender.com"; // after the bot is deployed, put its Render address between the quotes, like "https://usaf-bot.onrender.com"
 const $=i=>document.getElementById(i)||UXNO(i),esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const toast=t=>{const e=$("toast");e.textContent=t;e.classList.add("on");clearTimeout(toast.h);toast.h=setTimeout(()=>e.classList.remove("on"),2400)};
 const ls=(k,v)=>{try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){}};
