@@ -1899,6 +1899,268 @@ body #app .sticky{border-radius:0;border:0;border-top:1px solid #b9b9b9;backgrou
 body #app .pnl>h3,body #app .cd>h3,body #app .bigtog h3,body #app .pnl>h3 *,body #app .cd>h3 *{color:var(--on-mk)!important}
 body #app .bigtog{display:flex;align-items:center;justify-content:space-between;gap:8px;padding-right:6px}
 body #app .bigtog>div:first-child{flex:1}
+body #app #dedv{border:1px solid #b9b9b9;background:var(--p)}
+body #app .dtop{background:var(--nf);border:0;padding:3px 6px;gap:6px}
+body #app .dtop #dtitle{background:var(--nf)!important;border:1px solid #7fb0c4!important;color:var(--on-mk);font:700 11px var(--f);height:19px}
+body #app .dtop .nb{height:19px;font-size:11px}
+body #app .dmenus{background:#f2f2f2;border-bottom:1px solid #b9b9b9;padding:0 4px}
+body #app .dmenus *{font:11px var(--f)}
+body #app .dtool{background:#e9e9e9;border-bottom:1px solid #999;padding:2px 4px;gap:2px;height:auto}
+body #app .dtool button{height:22px;min-width:22px;border:1px solid transparent;border-radius:0;background:none;font:11px var(--f);padding:0 5px}
+body #app .dtool button:hover{background:var(--p);border-color:#999}
+body #app .dtool button.on{background:var(--p);border-color:var(--nf)}
+body #app .dtool select,body #app .dtool input{height:22px;font:11px var(--f);border:1px solid #999;background:var(--p);padding:0 3px}
+body #app .dtool svg{width:15px;height:15px}
+body #app #dscroll{background:#b9b9b9}
+body #app #dstat{background:#f2f2f2;border-top:1px solid #999;font:11px var(--f);color:#525252}
+body #app .dd{background:var(--p);border:1px solid var(--ln2);box-shadow:2px 3px 6px rgba(0,0,0,.3);padding:1px 0;min-width:220px;border-radius:0}
+body #app .dd button{padding:0 14px;height:20px;font:11px var(--f);color:var(--tx);gap:20px;border-radius:0;align-items:center}
+body #app .dd button:hover{background:var(--nf);color:var(--on-mk)}
+body #app .dd button small{font-size:10px;color:inherit;opacity:.7}
+body #app .dd hr{margin:2px 0;border-top:1px solid #ccc}
+body #app .dd h6{margin:0;padding:2px 14px;font:700 10px/14px var(--f);color:var(--on-mk);background:#999;text-transform:none;letter-spacing:0;height:auto}
+body #app .dmenus button,body #app .dmenus>*{font:11px var(--f);height:21px;padding:0 9px;border-radius:0}
+body #app .dmenus button:hover,body #app .dmenus .open>button{background:var(--p);box-shadow:inset 0 0 0 1px #999}
+body #app .dfind{background:#f2f2f2;border-bottom:1px solid #999;padding:3px 6px;gap:5px}
+body #app .dfind input:not([type=checkbox]){height:21px;width:150px;outline:0}
+body #app .dfind input:focus,body #app #dtitle:focus,body #app .dtool input:focus{outline:1px solid var(--nf)!important;outline-offset:0}
+body #app .dfind .nb{height:21px}
+body #app .dfind label{font:11px var(--f);color:#525252}
+body #app #ddlg{background:rgba(120,120,120,.6)}
+body #app #ddlg .box{background:var(--p);border:1px solid var(--ln2);border-top:1px solid var(--ln2);border-radius:0;padding:0 0 10px;width:min(480px,100%);box-shadow:2px 3px 8px rgba(0,0,0,.35)}
+body #app #ddlg .box>*{margin-left:10px;margin-right:10px}
+body #app #ddlg h3{background:var(--nf);color:var(--on-mk);font:700 11px/17px var(--f);margin:0 0 8px;padding:0 6px;border:0}
+body #app #ddlg .form,body #app #ddlg .fm{border:0;background:none;padding:0}
+body #app #ddlg .row,body #app #ddlg .acts{display:flex;gap:6px;justify-content:flex-end}
+body #app #ddlg .nb{height:21px}
+body #app .dmenus>*{padding:0;height:auto}
+body #app .dmenus>*>button{padding:0 9px}
+body #app .dd button{height:auto;min-height:20px;white-space:nowrap}
+body #app .dd{min-width:260px}
+body #app #dscroll{height:calc(100vh - 345px);min-height:360px;padding:14px 0 30px}
+body #app #dstat{gap:0;padding:0;background:#e9e9e9;border-top:1px solid var(--ln2);font:11px/20px var(--f);color:var(--tx);flex-wrap:nowrap}
+body #app #dstat>span{padding:0 12px;border-right:1px solid #999;height:20px}
+body #app #dstat #dcc::after{content:"";}
+body #app #dstat::before{content:"Default Style";padding:0 12px;border-right:1px solid #999;order:5}
+body #app #dstat>button{height:18px;min-width:18px;margin:0 2px;border:1px solid #999;background:#f2f2f2;border-radius:0;font:11px var(--f)}
+body #app #dstat>input[type=range]{width:110px;height:14px}
+body #app .dtool select{max-width:118px}
+body #app .dtool select:first-of-type{max-width:100px}
+body #app .dtool .sp{height:18px}
+body #app #dedv *:not(#dedit):not(#dedit *):not(svg):not(path){font-family:Arial,Helvetica,sans-serif!important}
+body #app #dedv .dmenus,body #app #dedv .dmenus *,body #app #dedv .dtool,body #app #dedv .dtool *,body #app #dedv .dtop *,body #app #dedv #dstat,body #app #dedv #dstat *,body #app #dedv .dfind,body #app #dedv .dfind *{font-size:11px!important;border-radius:0!important}
+body #app #dedv .dtool button.on{background:var(--p)!important;border-color:var(--nf)!important;color:var(--nf)}
+/* ===== Writer-style document window ===== */
+body #app #dedv{border:1px solid #6b7686;background:#e9edf3;display:block}
+body #app #dedv .dtop{background:linear-gradient(#0a6a8c,var(--nf) 55%,#00445d);border:0;border-bottom:1px solid #00384e;padding:3px 6px;gap:6px;min-height:26px;align-items:center}
+body #app #dedv .dtop #dtitle{flex:1;order:2;text-align:center;background:transparent!important;border:0!important;color:var(--on-mk);font:700 12px var(--f)!important;height:20px;box-shadow:none}
+body #app #dedv .dtop #dback{order:1}body #app #dedv .dtop #dsave{order:3;color:var(--on-mk)}
+body #app #dedv .dtop>span[style]{display:none}
+body #app #dedv .dtop [data-da^="x:"]{order:4}
+body #app #dedv .dmenus{background:var(--p2);border-bottom:1px solid #b6bcc6;padding:0 2px;display:flex}
+body #app #dedv .dmenus button{font-size:12px!important;height:22px;padding:0 9px;color:var(--tx)}
+body #app #dedv .dmenus>div.on>button,body #app #dedv .dmenus button:hover{background:#d8e6f3;box-shadow:inset 0 0 0 1px #8fb3d6}
+body #app #dedv .dtool{background:var(--p2);border-bottom:1px solid #a9b1bd;padding:2px 4px;gap:1px;display:flex;flex-wrap:wrap;align-items:center}
+body #app #dedv .dtool .brk{flex-basis:100%;height:0;border-top:1px solid #c5ccd6;margin:2px 0}
+body #app #dedv .dtool button{height:24px;min-width:24px;border:1px solid transparent!important;background:none;border-radius:2px!important;font-size:12px!important}
+body #app #dedv .dtool button:hover{background:var(--p2);border-color:#8fb3d6!important}
+body #app #dedv .dtool button.on{background:var(--p2);border-color:#5d8fc4!important;color:var(--tx)}
+body #app #dedv .dtool select,body #app #dedv .dtool input{height:22px;border:1px solid #8e9bb0;background:var(--p);font-size:12px!important;border-radius:0}
+body #app #dedv .dtool .sp{height:20px;margin:0 3px;background:#aab3c0}
+body #app #dedv #dview{display:grid;grid-template-columns:minmax(0,1fr) 190px;grid-template-rows:auto 1fr}
+body #app #dedv #druler{grid-column:1;grid-row:1;background:var(--p2);border-bottom:1px solid #a9b1bd}
+body #app #dedv #dnavp{grid-column:1;grid-row:2}
+body #app #dedv #dscroll{grid-column:1;grid-row:2;background:#dfe3e8;height:calc(100vh - 360px);min-height:340px}
+body #app #dedv #dsheet{box-shadow:0 0 0 1px #8b94a1,2px 3px 6px rgba(0,0,0,.28)}
+body #app #dedv #dprop{grid-column:2;grid-row:1/3;background:#f3f5f8;border-left:1px solid #8b94a1;font:12px var(--f);overflow:auto}
+body #app #dedv #dprop .pt{background:var(--p2);border-bottom:1px solid #a9b1bd;font-weight:700;padding:3px 8px;color:var(--tx)}
+body #app #dedv #dprop .ps{background:var(--p2);border-top:1px solid #c0c8d2;border-bottom:1px solid #c0c8d2;padding:2px 8px;font-weight:700;color:var(--tx);margin-top:6px}
+body #app #dedv #dprop .pr{display:flex;flex-wrap:wrap;gap:1px;padding:4px 6px}
+body #app #dedv #dprop button{height:24px;min-width:24px;border:1px solid transparent;background:none;border-radius:2px;font:12px var(--f);color:var(--tx);padding:0 5px;cursor:pointer}
+body #app #dedv #dprop button:hover{background:var(--p2);border-color:#8fb3d6}
+body #app #dedv #dprop svg{width:16px;height:16px}
+body #app #dedv #dprop .pl{display:flex;flex-wrap:wrap;align-items:center;gap:2px;padding:3px 6px;color:var(--tx)}
+body #app #dedv #dprop .pl span{width:100%;font-size:11px;color:var(--mu)}
+body #app #dedv #dprop .pl button{border-color:#a9b1bd;background:var(--p2);height:21px;font-size:11px}
+body #app #dedv #dstat{grid-column:1/-1;background:var(--p2);border-top:1px solid #8b94a1}
+body #app #dedv #dstat::before{content:"Default";order:5}
+@media(max-width:900px){body #app #dedv #dview{grid-template-columns:minmax(0,1fr)}body #app #dedv #dprop{display:none}}
+body #app #dedv .dtop{background:#00526f!important;background-image:var(--p2)!important}
+body #app #dedv .dtop #dtitle{color:var(--on-mk)!important;opacity:1}
+body #app #dedv .dtop #dsave{color:var(--on-mk)!important}
+body #app #dedv #dprop svg{width:16px;height:16px;stroke:#222;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;display:block}
+body #app #dedv .dtool #dsty{width:92px}body #app #dedv .dtool #dfont{width:98px}body #app #dedv .dtool #dls{width:72px}body #app #dedv .dtool #dlt{width:54px}body #app #dedv .dtool #dcase{width:44px}body #app #dedv .dtool #dins{width:84px}
+body #app #dedv .dtool #dcase{display:none}body #app #dedv .dtool #dls{width:66px}
+/* ===== Full-window Writer editor ===== */
+body #app #dedv:not(.hidden){position:fixed;inset:0;z-index:9000;display:flex;flex-direction:column;border:0;background:#dfe3e9;font-family:"Segoe UI",Arial,sans-serif}
+body #app #dedv .dtop{background:var(--p2)!important;background-image:var(--p2)!important;border-bottom:1px solid #b8c0cc;padding:0 6px;min-height:24px;gap:6px}
+body #app #dedv .dtop #dtitle{color:var(--tx)!important;font:12px "Segoe UI",var(--f)!important;font-weight:400!important;height:22px}
+body #app #dedv .dtop #dsave{color:#667!important}
+body #app #dedv .dtop [data-da^="x:"]{display:none}
+body #app #dedv .dtop #dback{height:19px;font-size:11px!important;background:#f4f6f9;border:1px solid #98a2b3}
+body #app #dedv .dmenus{background:#f7f9fb;border-bottom:1px solid #c6ccd6}
+body #app #dedv .dmenus button{height:20px;font-size:12px!important;padding:0 7px}
+body #app #dedv .dtool{background:var(--p2);border-bottom:1px solid #b0b8c4;padding:1px 3px}
+body #app #dedv .dtool .brk{display:none}
+body #app #dedv .dtool button{height:22px;min-width:22px}
+body #app #dedv #dview{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) 200px;grid-template-rows:auto minmax(0,1fr)}
+body #app #dedv #dscroll{height:auto;min-height:0;background:#d3d7dd;position:relative;padding:12px 0 40px 22px}
+body #app #dedv #dscroll::before{content:"";position:sticky;left:0;top:0;float:left;width:18px;height:100%;margin-left:-22px;background:repeating-linear-gradient(#e9edf3 0 11px,#9aa4b2 11px 12px);border-right:1px solid #8b94a1}
+body #app #dedv #dstat{background:var(--p2);border-top:1px solid #8b94a1;flex-shrink:0}
+body #app #dedv #dprop{background:#f4f6f9;font:12px "Segoe UI",var(--f)}
+body #app #dedv #dprop .pt{background:#e9eef5;border-bottom:1px solid #b8c0cc}
+body #app #dedv #dprop .ps{cursor:pointer;background:#e4e9f0;color:#1d3d6b;display:flex;gap:5px;margin-top:0}
+body #app #dedv #dprop .ps i{font-style:normal;width:10px}
+body #app #dedv #dprop select{height:22px;border:1px solid #8e9bb0;background:var(--p);font-size:12px;flex:1;min-width:0}
+body #app #dedv #dprop .pl select{flex:0 0 100px}
+body #app #dedv #dnavp{position:absolute}
+body #app #dedv .dtool .brk{display:block;flex-basis:100%;height:0;border:0;margin:0}body #app #dedv #dscroll::before{height:100vh}
+@media(max-width:900px){
+body #app #dedv:not(.hidden){inset:0 auto auto 0;width:700px;height:calc(100vh / var(--z,.55));zoom:var(--z,.55)}
+body #app #dedv #dview{grid-template-columns:minmax(0,1fr) 150px}
+body #app #dedv #dprop{display:block}
+body #app #dedv .dtool button{height:22px;min-width:22px}
+body #app #dedv .dd{position:absolute;left:auto;right:auto;max-height:none}
+}
+body #app #dedv #dscroll::before{height:100%!important;min-height:300px}
+/* ===== OpenOffice Writer fidelity ===== */
+body #app #dedv{--oo:#2b5c98}
+body #app #dedv .dtop{background:var(--p2)!important;border-bottom:1px solid #9ba6b6;min-height:26px;padding:0 0 0 6px}
+body #app #dedv .dtop #dapp{order:2;font:12px "Segoe UI",var(--f);color:var(--tx);white-space:nowrap}
+body #app #dedv .dtop #dtitle{flex:0 1 auto;order:3;text-align:left;width:auto;min-width:80px;max-width:50%;field-sizing:content}
+body #app #dedv .dtop #dtitle::before{content:""}
+body #app #dedv .dtop #dback{display:none}
+body #app #dedv .dtop #dsave{display:none}
+body #app #dedv .dtop>span:not(#dapp):not(#dwin){flex:1;order:4}
+body #app #dedv .dtop #dwin{order:9;margin-left:auto;display:flex}
+body #app #dedv .dtop #dwin button{width:46px;height:24px;border:0;background:#c75050;color:var(--on-mk);font-size:13px!important;cursor:pointer;border-radius:0!important}
+body #app #dedv .dtop #dtitle{margin-left:0}
+body #app #dedv .dtop #dapp::before{content:"\2013  ";color:var(--tx)}
+body #app #dedv .dtop{justify-content:center}
+body #app #dedv .dmenus{background:var(--p);border-bottom:1px solid #c6ccd6}
+body #app #dedv .dtool{background:var(--p2);padding:1px 4px}
+body #app #dedv .dtool svg{stroke:var(--oo)!important;width:16px;height:16px}
+body #app #dedv .dtool button{height:24px;min-width:24px;border-radius:2px!important}
+body #app #dedv .dtool select{appearance:none;-webkit-appearance:none;background:var(--p) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='6'%3E%3Cpath d='M0 0h9L4.5 6z' fill='%23333'/%3E%3C/svg%3E") no-repeat right 4px center;padding:0 16px 0 4px;border:1px solid #8e9bb0;height:21px;font-size:12px!important}
+body #app #dedv .dtool #dins,body #app #dedv .dtool #dls,body #app #dedv .dtool #dlt,body #app #dedv .dtool #dcase{width:36px;color:transparent;background-color:transparent;border-color:transparent}
+body #app #dedv .dtool #dins{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='6'%3E%3Cpath d='M0 0h9L4.5 6z' fill='%23333'/%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%232b5c98' stroke-width='1.6'%3E%3Cpath d='M8 2v12M2 8h12'/%3E%3C/svg%3E");background-position:right 4px center,4px center}
+body #app #dedv .dtool #dls{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='6'%3E%3Cpath d='M0 0h9L4.5 6z' fill='%23333'/%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%232b5c98' stroke-width='1.5'%3E%3Cpath d='M6 3h9M6 8h9M6 13h9M3 3v10M1 5l2-2 2 2M1 11l2 2 2-2'/%3E%3C/svg%3E");background-position:right 4px center,4px center}
+body #app #dedv .dtool #dlt{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='6'%3E%3Cpath d='M0 0h9L4.5 6z' fill='%23333'/%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%232b5c98' stroke-width='1.5'%3E%3Cpath d='M6 3h9M6 8h9M6 13h9M2 3h1M2 8h1M2 13h1'/%3E%3C/svg%3E");background-position:right 4px center,4px center}
+body #app #dedv .dtool #dcase{width:36px}
+body #app #dedv .dtool select:hover{border-color:#5d8fc4;background-color:#eaf2fb}
+body #app #dedv .dtool [data-da="lockdlg"]{font-size:0!important;width:26px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%232b5c98' stroke-width='1.6'%3E%3Crect x='3' y='7' width='10' height='7'/%3E%3Cpath d='M5 7V5a3 3 0 016 0v2'/%3E%3C/svg%3E") center no-repeat}
+body #app #dedv .dtool button.cb b{font-size:13px}
+body #app #dedv #dscroll{background:#d4d8de}
+body #app #dedv #dview.noprop{grid-template-columns:minmax(0,1fr) 28px}
+body #app #dedv #dview.noprop #dprop{display:none}
+body #app #dedv #dview{grid-template-columns:minmax(0,1fr) 200px 28px}
+body #app #dedv #dview.noprop{grid-template-columns:minmax(0,1fr) 0 28px}
+body #app #dedv #dtabs{grid-column:3;grid-row:1/3;background:#e7ebf1;border-left:1px solid #9ba6b6;display:flex;flex-direction:column;gap:4px;padding:6px 2px}
+body #app #dedv #dtabs button{width:24px;height:26px;border:1px solid transparent;background:none;padding:0;cursor:pointer;display:grid;place-items:center;border-radius:2px}
+body #app #dedv #dtabs button.on{background:var(--p);border-color:#8fb3d6}
+body #app #dedv #dtabs button:hover{border-color:#8fb3d6}
+body #app #dedv #dtabs svg{width:16px;height:16px;stroke:var(--oo);fill:none}
+body #app #dedv #dprop{grid-column:2}
+body #app #dedv #dprop .pt{display:flex;justify-content:space-between}
+body #app #dedv #dstat>.sx{padding:0 12px;border-right:1px solid #999;height:20px}
+body #app #dedv #dstat::before{content:"Default"}
+@media(max-width:900px){body #app #dedv #dview{grid-template-columns:minmax(0,1fr) 150px 26px}body #app #dedv #dview.noprop{grid-template-columns:minmax(0,1fr) 0 26px}}
+body #app #dedv .dtool #dins,body #app #dedv .dtool #dls,body #app #dedv .dtool #dlt,body #app #dedv .dtool #dcase{width:38px!important}
+body #app #dedv .dtop{display:flex;justify-content:flex-start}
+body #app #dedv .dtop #dapp{order:3}body #app #dedv .dtop #dtitle{order:2;text-align:right}
+body #app #dedv .dtop::before{content:"";flex:1;order:1}
+body #app #dedv .dtop #dwin{margin-left:0}
+body #app #dedv .dtop{position:relative;justify-content:center!important;padding:0 50px}
+body #app #dedv .dtop::before{display:none}
+body #app #dedv .dtop #dwin{position:absolute;right:0;top:0}
+body #app #dedv .dtop #dtitle{border:0!important;background:transparent!important;box-shadow:none!important;outline:0!important;text-align:right;padding:0 2px;color:var(--tx)!important;width:auto}
+body #app #dedv .dtop #dapp{margin-right:0}
+
+/* ===== OpenOffice 4 on Windows 8 frame (final pass) ===== */
+body #app #dedv{border:0!important;border-left:8px solid #67abef!important;border-right:8px solid #67abef!important;border-bottom:8px solid #67abef!important;background:#67abef!important;box-shadow:0 0 0 1px #3b7cc2}
+body #app #dedv .dtop{position:relative;background:linear-gradient(#85bdf4,#5eacf1 100%)!important;height:30px;min-height:30px;border:0!important;padding:0 130px 0 30px!important;justify-content:center!important;box-shadow:none}
+body #app #dedv .dtop::before{content:"";display:block!important;position:absolute;left:4px;top:6px;width:14px;height:17px;flex:none;background:var(--p);border:1px solid #2a5ea3;border-radius:1px;box-shadow:inset 0 5px 0 -2px #4a8fdc}
+body #app #dedv .dtop #dtitle,body #app #dedv .dtop #dapp{color:#0b2d63!important;font:12px "Segoe UI",Tahoma,var(--f)!important}
+body #app #dedv .dtop #dwin{position:absolute;right:0;top:0;display:flex;height:20px}
+body #app #dedv .dtop #dwin button{height:20px;border:0;background:transparent;color:var(--on-mk);cursor:pointer;display:grid;place-items:center;padding:0;border-radius:0!important}
+body #app #dedv .dtop #dwin .wm{width:29px}
+body #app #dedv .dtop #dwin button[data-da=back]{width:46px;background:#d9453f!important;color:var(--on-mk);font-size:12px!important}
+body #app #dedv .wmn{display:block;width:9px;height:0;border-top:2px solid #14407f}
+body #app #dedv .wmx{display:block;width:9px;height:6px;border:1px solid #14407f;border-top-width:2px}
+body #app #dedv .dmenus{background:#fcfcfd!important;border:0!important;border-bottom:1px solid #d5d8de!important;padding:0 2px}
+body #app #dedv .dmenus>div>button{font:12px "Segoe UI",Tahoma,var(--f)!important;color:var(--tx)!important;padding:3px 7px!important}
+body #app #dedv .dmenus>div>button::first-letter{text-decoration:underline}
+body #app #dedv .dtool{background:linear-gradient(#fdfdfe,#eceef2 100%)!important;border-bottom:1px solid #cdd1d8!important;padding:1px 3px!important;gap:1px}
+body #app #dedv .dtool .gr{flex:none;width:5px;height:22px;margin:0 3px 0 1px;background:radial-gradient(#8d939c 1px,transparent 1.3px) 0 0/4px 4px}
+body #app #dedv .dtool button{border:1px solid transparent!important;background:transparent!important}
+body #app #dedv .dtool button:hover{background:#e4effb!important;border-color:#a9cbef!important}
+body #app #dedv .dtool button.on,body #app #dedv .dtool button.active{background:#cfe4f9!important;border-color:#7eb0e3!important}
+body #app #dedv .dtool button svg{stroke-width:1.7}
+body #app #dedv .dtool [data-da=undo] svg,body #app #dedv .dtool [data-da=redo] svg,body #app #dedv .dtool [data-da=link] svg{stroke:#2a7fd4!important}
+body #app #dedv .dtool [data-da=print] svg{stroke:#59636f!important}
+body #app #dedv .dtool [data-da=image] svg{stroke:#2e9e5b!important}
+body #app #dedv .dtool [data-da="pop:tbl"] svg{stroke:#2d5fa8!important}
+body #app #dedv .dtool [data-da=pbrk] svg{stroke:#b3702a!important}
+body #app #dedv .dtool [data-da=sym] svg{stroke:#7b4fb0!important}
+body #app #dedv .dtool [data-da=find] svg{stroke:#1c1c1c!important}
+body #app #dedv .dtool [data-da=painter] svg{stroke:#b3702a!important}
+body #app #dedv .dtool [data-da=clearfmt] svg{stroke:#c0392b!important}
+body #app #dedv .dtool [data-da^="c:insert"] svg,body #app #dedv .dtool [data-da=outdent] svg,body #app #dedv .dtool [data-da=indent] svg{stroke:#2f7d4a!important}
+body #app #dedv .dtool [data-da^="c:justify"] svg{stroke:#2f6db5!important}
+body #app #dedv .dtool #dsty,body #app #dedv .dtool #dfont,body #app #dedv .dtool #dsz{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='6'%3E%3Cpath d='M0 0h9L4.5 6z' fill='%232b4f7e'/%3E%3C/svg%3E") no-repeat right 4px center,linear-gradient(#f4f5f7,#d2d6dd 100%) no-repeat right/16px 100%,#fff!important;border:1px solid #a7b0bb!important;padding:0 20px 0 4px!important;font:11px "Segoe UI",Tahoma,var(--f)!important;color:var(--tx);height:22px}
+body #app #dedv .dtool #dsty{width:130px}body #app #dedv .dtool #dfont{width:130px}body #app #dedv .dtool #dsz{width:58px}
+body #app #dedv #druler{position:relative;background:var(--p)!important;border-top:1px solid #c9c9c9;border-bottom:1px solid #9a9a9a!important}
+body #app #dedv #druler::after{content:"";position:absolute;left:0;top:0;width:18px;height:100%;background:#f1f1f1;border-right:1px solid var(--ln2);box-shadow:inset 5px 5px 0 -3px #fff,inset -5px -5px 0 -4px #555}
+body #app #dedv #dscroll{background:#b4b4b4!important;overflow:scroll!important}
+body #app #dedv #dsheet{box-shadow:0 0 0 1px #4d4d4d,3px 3px 7px rgba(0,0,0,.5)!important}
+body #app #dedv #dscroll::-webkit-scrollbar{width:17px;height:17px}
+body #app #dedv #dscroll::-webkit-scrollbar-track{background:#f0f0f0}
+body #app #dedv #dscroll::-webkit-scrollbar-thumb{background:#cdcdcd;border:1px solid #a6a6a6}
+body #app #dedv #dscroll::-webkit-scrollbar-corner{background:#f0f0f0}
+body #app #dedv #dscroll::-webkit-scrollbar-button:single-button{display:block;width:17px;height:17px;background-color:#f0f0f0;background-repeat:no-repeat;background-position:center}
+body #app #dedv #dscroll::-webkit-scrollbar-button:vertical:decrement{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='9'%3E%3Cpath d='M0 6l4.5-5 4.5 5z' fill='%23555'/%3E%3C/svg%3E")}
+body #app #dedv #dscroll::-webkit-scrollbar-button:vertical:increment{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='9'%3E%3Cpath d='M0 3l4.5 5 4.5-5z' fill='%23555'/%3E%3C/svg%3E")}
+body #app #dedv #dscroll::-webkit-scrollbar-button:horizontal:decrement{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='9'%3E%3Cpath d='M6 0L1 4.5 6 9z' fill='%23555'/%3E%3C/svg%3E")}
+body #app #dedv #dscroll::-webkit-scrollbar-button:horizontal:increment{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='9'%3E%3Cpath d='M3 0l5 4.5L3 9z' fill='%23555'/%3E%3C/svg%3E")}
+body #app #dedv #dprop{background:#f3f3f3!important;border-left:1px solid #c9c9c9!important;font:11px "Segoe UI",Tahoma,var(--f);color:var(--tx)}
+body #app #dedv #dprop .pt{background:#f1f1f1;font-weight:700;padding:6px 8px;display:flex;justify-content:space-between;align-items:center;text-transform:none;letter-spacing:0;font-size:11px}
+body #app #dedv #dprop .px{border:0;background:none;font-size:11px;cursor:pointer;color:var(--mu);padding:0 2px}
+body #app #dedv #dprop .ps{background:linear-gradient(#e6e6e6,#f5f5f5 100%)!important;font-weight:700;padding:5px 6px;position:relative;color:var(--tx);text-transform:none;letter-spacing:0;font-size:11px;border:0!important;cursor:pointer}
+body #app #dedv #dprop .ps i{display:inline-block;width:9px;height:9px;border:1px solid #777;font:700 9px/8px var(--f);text-align:center;margin-right:6px;font-style:normal;background:var(--p);color:var(--tx);vertical-align:1px}
+body #app #dedv #dprop .ps::after{content:"";position:absolute;right:8px;top:7px;width:10px;height:7px;border:1px solid #6d93c4;background:#eaf2fb}
+body #app #dedv #dprop .pr{background:var(--p);margin:4px 6px;padding:2px;display:flex;flex-wrap:wrap;gap:1px;border-radius:3px}
+body #app #dedv #dprop .pb{padding-bottom:4px}
+body #app #dedv #dprop .pg{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:2px 6px}
+body #app #dedv #dprop .pg .lb{display:block;font-size:11px;color:var(--tx)}
+body #app #dedv #dprop .pg label{display:flex;align-items:center;gap:2px;margin:3px 0}
+body #app #dedv #dprop .pg svg{width:14px;height:14px;flex:none;fill:none}
+body #app #dedv #dprop .pg input{width:100%;min-width:0;height:20px;border:1px solid #a7b0bb;background:var(--p) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='16'%3E%3Cpath d='M1 6l4-4 4 4zM1 10l4 4 4-4z' fill='%23555'/%3E%3C/svg%3E") no-repeat right 2px center;font:11px var(--f);padding:0 12px 0 3px;border-radius:0}
+body #app #dedv #dtabs{background:#f2f0f1!important;border-left:1px solid #c8c8c8!important;padding:28px 3px 0!important;gap:7px!important;position:relative}
+body #app #dedv #dtabs::before{content:"";position:absolute;top:8px;left:8px;width:10px;height:10px;border:2px solid #777;border-radius:50%}
+body #app #dedv #dtabs button{width:22px;height:24px}
+body #app #dedv #dtabs button.on{background:#cfe4f9!important;border-color:#7eb0e3!important}
+body #app #dedv #dtabs svg{width:18px;height:18px;stroke:none}
+body #app #dedv #dstat{display:flex;align-items:center;height:22px;background:linear-gradient(#f7f7f7,#e2e2e2 100%)!important;border-top:1px solid #9a9a9a!important;font:11px "Segoe UI",Tahoma,var(--f)!important;color:var(--tx);padding:0!important;gap:0}
+body #app #dedv #dstat::before{display:none!important}
+body #app #dedv #dstat>span{padding:0 8px!important;border-right:1px solid var(--ln2)!important;height:20px;line-height:20px;white-space:nowrap}
+body #app #dedv #dpgn{width:104px}body #app #dedv #dstyl{width:120px}body #app #dedv #dlng{width:120px;text-align:center}
+body #app #dedv #dstat .sm{width:40px;text-align:center}body #app #dedv #dstat .sv{width:28px;display:grid;place-items:center}
+body #app #dedv #dstat .sv svg{width:14px;height:14px}
+body #app #dedv #dlev{flex:1;text-align:center}
+body #app #dedv #dwc,body #app #dedv #dcc{display:none!important}
+body #app #dedv #dstat .sl{display:flex;gap:3px;border:0!important;align-items:center}
+body #app #dedv #dstat .sl i{width:11px;height:13px;border:1px solid #5b6b80;background:var(--p)}
+body #app #dedv #dstat .sl i:nth-child(2){width:18px}
+body #app #dedv #dstat>button{width:15px;height:15px;border-radius:50%!important;border:1px solid #6c7a8a!important;background:var(--p)!important;line-height:11px;padding:0!important;font:12px var(--f)!important;margin:0 3px;min-width:0}
+body #app #dedv #dstat>button.fit{width:auto;border-radius:2px!important;padding:0 6px!important;font-size:10px!important}
+body #app #dedv #dstat #dzp{width:40px;text-align:right;border:0!important}
+body #app #dedv #dstat input[type=range]{width:90px;accent-color:#2f6db5}
+body #app #dedv .ktab td{padding:3px 12px 3px 0}
+@media(max-width:900px){body #app #dedv .dtop{padding:0 100px 0 24px!important}}
+
+body #app #dedv #dscroll{scrollbar-width:auto!important;scrollbar-color:#cdcdcd #f0f0f0!important}
+body #app #dedv #dscroll::before{width:17px!important;background:repeating-linear-gradient(#fff 0 15px,#8a8a8a 15px 16px)!important;border-right:1px solid #999!important}
+body #app #dedv #dstat .sm{width:50px!important}
 
 </style><script>/* ===== theme engine: runs in <head>, before the page paints ===== */
 /* A theme is eight colours plus a few settings. Everything else (rules, hover, inputs, soft status backgrounds, text on accents)
@@ -2019,7 +2281,7 @@ try{apply(load());if(matchMedia)matchMedia("(prefers-color-scheme: dark)").addEv
    </div>
    <div class="lconn" id="lconn"></div>
   </div>
-  <div class="nff"><span></span><b>USAF - Staff access only</b><span>Version 2.0</span></div>
+  <div class="nff"><span></span><b>USAF - Staff access only</b><span>Version 3.1 (style NF-2026-11-06)</span></div>
  </div>
 </div>
 
@@ -2058,7 +2320,7 @@ try{apply(load());if(matchMedia)matchMedia("(prefers-color-scheme: dark)").addEv
   <div id="dview"><div id="druler"></div><div id="dnavp" class="hidden"></div>
    <div id="dscroll"><div id="dzw"><div id="dsheet"><div id="dhf"></div><div id="dedit" contenteditable="true" spellcheck="true" role="textbox" aria-multiline="true" aria-label="Document"></div></div></div>
     <div id="dimgbox"><i data-h="nw" style="left:-6px;top:-6px;cursor:nwse-resize"></i><i data-h="ne" style="right:-6px;top:-6px;cursor:nesw-resize"></i><i data-h="sw" style="left:-6px;bottom:-6px;cursor:nesw-resize"></i><i data-h="se" style="right:-6px;bottom:-6px;cursor:nwse-resize"></i></div>
-    <div id="dimgbar"></div></div></div>
+    <div id="dimgbar"></div></div><div id="dprop"></div></div>
   <div id="dstat"></div>
  </div></div></div></div>
 <div id="ddlg" class="hidden"><div class="box" id="ddbox"></div></div>
@@ -2194,7 +2456,7 @@ try{apply(load());if(matchMedia)matchMedia("(prefers-color-scheme: dark)").addEv
  </div></div></div>
 
  </main></div>
- <div class="nff app"><span></span><b>USAF - Staff access only</b><span>Version 2.0</span></div>
+ <div class="nff app"><span></span><b>USAF - Staff access only</b><span>Version 3.1 (style NF-2026-11-06)</span></div>
 
 </div>
 
@@ -3706,12 +3968,15 @@ const D_MENUS=[
  ["Insert",[["Image from this computer","image"],["Table","tbldlg"],["Link","link","Ctrl+K"],["Horizontal line","c:insertHorizontalRule"],["Page break","pbrk","Ctrl+Enter"],["Special characters","sym"],["Today's date","date"],["Date and time options","datedlg"],"-",["Picture from a web address","imgurl"],["Cover page","cover"],["Table of contents","toc"],["Update table of contents","tocup"],["Signature line","sign"],["h","Boxes"],["Note box","callout:note"],["Warning box","callout:warn"],["Tip box","callout:tip"],["Important box","callout:imp"],["h","Columns layout"],["Two columns","cols:2"],["Three columns","cols:3"]]],
  ["Format",[["Bold","c:bold","Ctrl+B"],["Italic","c:italic","Ctrl+I"],["Underline","c:underline","Ctrl+U"],["Strikethrough","c:strikeThrough"],["Superscript","c:superscript"],["Subscript","c:subscript"],"-",["h","Line spacing"],["Single","ls:1"],["1.15","ls:1.15"],["1.5","ls:1.5"],["Double","ls:2"],["Paragraph options","para"],["Add space before paragraph","sp:b1"],["Remove space before","sp:b0"],["Add space after","sp:a1"],["Remove space after","sp:a0"],"-",["Clear formatting","clearfmt","Ctrl+\\"]]],
  ["Table",[["Insert table","tbldlg"],"-",["Row above","t:rowA"],["Row below","t:rowB"],["Column left","t:colL"],["Column right","t:colR"],"-",["Delete row","t:delRow"],["Delete column","t:delCol"],["Delete table","t:delTbl"],"-",["Merge with the cell on the right","t:mergeR"],["Merge with the cell below","t:mergeD"],["Split cell","t:split"],"-",["Header row on or off","t:head"],["Cell shading","t:shade"],["Borders","t:borders"],"-",["h","Table style"],["Grid","tstyle:grid"],["Plain, no borders","tstyle:plain"],["Banded blue","tstyle:band"],["Dark header","tstyle:dark"],["Lines only","tstyle:lines"],"-",["Distribute columns evenly","t:dist"],["Align text to top","t:vt"],["Align text to middle","t:vm"],["Align text to bottom","t:vb"],["Sort by this column, A to Z","t:sortaz"],["Sort by this column, Z to A","t:sortza"]]],
- ["Page",[["Page setup","pgset"],["Header and footer","hfdlg"],["Insert page number in footer","pgnum"],["h","Margins"],["Normal (1 inch)","mg:1"],["Narrow (0.5 inch)","mg:0.5"],["Moderate (0.75 inch)","mg:0.75"],["Wide sides (2 inch)","mg:wide"],["h","Orientation"],["Portrait","orient:p"],["Landscape","orient:l"],["h","Paper size"],["Letter","psz:letter"],["A4","psz:a4"],["Legal","psz:legal"],["A5","psz:a5"]]]];
+ ["Tools",[["Find and replace","find"],["Word count","wc"],["Navigation pane","nav"],["Special characters","sym"],"-",["Lock with a PIN","lockdlg"]]],
+ ["Window",[["All documents","back"],["New blank document","new"],["Open a file from this computer","import"]]],
+ ["Page",[["Page setup","pgset"],["Header and footer","hfdlg"],["Insert page number in footer","pgnum"],["h","Margins"],["Normal (1 inch)","mg:1"],["Narrow (0.5 inch)","mg:0.5"],["Moderate (0.75 inch)","mg:0.75"],["Wide sides (2 inch)","mg:wide"],["h","Orientation"],["Portrait","orient:p"],["Landscape","orient:l"],["h","Paper size"],["Letter","psz:letter"],["A4","psz:a4"],["Legal","psz:legal"],["A5","psz:a5"]]],
+ ["Help",[["Keyboard shortcuts","kbd"],["Word count and statistics","wc"],"-",["About USAF Writer","about"]]]];
+{const o=["File","Edit","View","Insert","Format","Page","Table","Tools","Window","Help"];D_MENUS.sort((a,b)=>o.indexOf(a[0])-o.indexOf(b[0]))}
 function dBuildUI(){
  $("dmenus").innerHTML=D_MENUS.map((m,i)=>`<div data-m="${i}"><button>${m[0]}</button><div class="dd">${m[1].map(x=>x==="-"?"<hr>":x[0]==="h"?`<h6>${x[1]}</h6>`:`<button data-da="${x[1]}">${x[0]}${x[2]?`<small>${x[2]}</small>`:""}</button>`).join("")}</div></div>`).join("");
  const b=(a,t,ti)=>`<button data-da="${a}" title="${ti||""}" aria-label="${ti||""}">${t}</button>`,sp='<span class="sp"></span>';
- $("dtool").innerHTML=b("undo",dI("undo"),"Undo")+b("redo",dI("redo"),"Redo")+b("print",dI("print"),"Print")+sp+
-  `<select id="dsty" title="Paragraph style"><option value="p">Normal text</option><option value="title">Title</option><option value="sub">Subtitle</option><option value="h1">Heading 1</option><option value="h2">Heading 2</option><option value="h3">Heading 3</option><option value="h4">Heading 4</option><option value="quote">Quote</option><option value="code">Code block</option></select>`+
+ $("dtool").innerHTML='<span class="gr"></span>'+b("undo",dI("undo"),"Undo")+b("redo",dI("redo"),"Redo")+b("print",dI("print"),"Print")+sp+b("link",dI("link"),"Link (Ctrl+K)")+b("image",dI("image"),"Insert image")+b("pop:tbl",dI("table"),"Insert table")+b("c:insertHorizontalRule",dI("hr"),"Horizontal line")+b("pbrk",dI("pb"),"Page break")+b("sym",dI("sym"),"Special characters")+b("find",dI("find"),"Find and replace")+`<select id="dins" title="Insert more"><option value="">Insert...</option><option value="imgurl">Picture from web address</option><option value="cover">Cover page</option><option value="toc">Table of contents</option><option value="datedlg">Date and time</option><option value="sign">Signature line</option><option value="callout:note">Note box</option><option value="callout:warn">Warning box</option><option value="callout:tip">Tip box</option><option value="callout:imp">Important box</option><option value="cols:2">Two columns</option><option value="cols:3">Three columns</option><option value="nav">Navigation pane</option><option value="wc">Word count</option></select>`+b("lockdlg","Lock","Protect this document with a PIN")+'<span class="brk"></span><span class="gr"></span>'+`<select id="dsty" title="Paragraph style"><option value="p">Normal text</option><option value="title">Title</option><option value="sub">Subtitle</option><option value="h1">Heading 1</option><option value="h2">Heading 2</option><option value="h3">Heading 3</option><option value="h4">Heading 4</option><option value="quote">Quote</option><option value="code">Code block</option></select>`+
   `<select id="dfont" title="Font">${D_FONTS.map(f=>`<option>${f}</option>`).join("")}</select>`+
   `<button data-da="szm" title="Smaller">-</button><input class="sz" id="dsz" title="Font size in points" value="11" inputmode="decimal"><button data-da="szp" title="Larger">+</button>`+sp+
   b("c:bold","<b>B</b>","Bold (Ctrl+B)")+b("c:italic","<i>I</i>","Italic (Ctrl+I)")+b("c:underline","<u>U</u>","Underline (Ctrl+U)")+b("c:strikeThrough","<s>S</s>","Strikethrough")+b("c:superscript","x&sup2;","Superscript")+b("c:subscript","x&#8322;","Subscript")+
@@ -3720,11 +3985,25 @@ function dBuildUI(){
   `<select id="dls" title="Line spacing"><option value="">Spacing</option><option value="1">1.0</option><option value="1.15">1.15</option><option value="1.5">1.5</option><option value="2">2.0</option><option value="2.5">2.5</option><option value="3">3.0</option></select>`+sp+
   b("c:insertUnorderedList",dI("ul"),"Bulleted list")+b("c:insertOrderedList",dI("ol"),"Numbered list")+
   `<select id="dlt" title="List style"><option value="">List</option><option value="disc">Disc</option><option value="circle">Circle</option><option value="square">Square</option><option value="decimal">1. 2. 3.</option><option value="lower-alpha">a. b. c.</option><option value="upper-alpha">A. B. C.</option><option value="lower-roman">i. ii. iii.</option><option value="upper-roman">I. II. III.</option></select>`+
-  b("outdent",dI("outdent"),"Decrease indent")+b("indent",dI("indent"),"Increase indent")+sp+
-  b("link",dI("link"),"Link (Ctrl+K)")+b("image",dI("image"),"Insert image")+b("pop:tbl",dI("table"),"Insert table")+b("c:insertHorizontalRule",dI("hr"),"Horizontal line")+b("pbrk",dI("pb"),"Page break")+b("sym",dI("sym"),"Special characters")+b("find",dI("find"),"Find and replace")+`<select id="dins" title="Insert more"><option value="">Insert...</option><option value="imgurl">Picture from web address</option><option value="cover">Cover page</option><option value="toc">Table of contents</option><option value="datedlg">Date and time</option><option value="sign">Signature line</option><option value="callout:note">Note box</option><option value="callout:warn">Warning box</option><option value="callout:tip">Tip box</option><option value="callout:imp">Important box</option><option value="cols:2">Two columns</option><option value="cols:3">Three columns</option><option value="nav">Navigation pane</option><option value="wc">Word count</option></select>`+b("lockdlg","Lock","Protect this document with a PIN");
+  b("outdent",dI("outdent"),"Decrease indent")+b("indent",dI("indent"),"Increase indent");
+
+ const pb=(a,t,ti)=>`<button data-da="${a}" title="${ti}" aria-label="${ti}">${t}</button>`;
+ $("dprop").innerHTML='<div class="pt"><span>Properties</span><button class="px" data-da="noprop" title="Close sidebar">&#10005;</button></div><div class="ps" data-c="1"><i>&minus;</i>Text</div><div class="pb"><div class="pr"><select id="dpfont" title="Font">'+D_FONTS.map(f=>`<option>${f}</option>`).join("")+'</select><select id="dpsz" title="Font size in points">'+[8,9,10,11,12,14,16,18,20,24,28,36,48,72].map(n=>`<option>${n}</option>`).join("")+'</select></div><div class="pr">'+pb("c:bold","<b>B</b>","Bold")+pb("c:italic","<i>I</i>","Italic")+pb("c:underline","<u>U</u>","Underline")+pb("c:strikeThrough","<s>S</s>","Strikethrough")+pb("c:superscript","x&sup2;","Superscript")+pb("c:subscript","x&#8322;","Subscript")+'</div><div class="pr">'+pb("pal:fore","<b style=\"color:#c00\">A</b>","Text color")+pb("pal:back","<b style=\"background:#ffe599;padding:0 2px\">ab</b>","Highlight")+pb("clearfmt",dI("clear"),"Clear formatting")+pb("painter",dI("pnt"),"Format painter")+'</div></div><div class="ps" data-c="1"><i>&minus;</i>Paragraph</div><div class="pb"><div class="pr">'+pb("c:justifyLeft",dI("alignL"),"Align left")+pb("c:justifyCenter",dI("alignC"),"Center")+pb("c:justifyRight",dI("alignR"),"Align right")+pb("c:justifyFull",dI("alignJ"),"Justify")+'</div><div class="pr">'+pb("c:insertUnorderedList",dI("ul"),"Bulleted list")+pb("c:insertOrderedList",dI("ol"),"Numbered list")+pb("outdent",dI("outdent"),"Decrease indent")+pb("indent",dI("indent"),"Increase indent")+'</div><div class="pg"><div><span class="lb">Spacing:</span><label title="Space above paragraph (inches)"><svg viewBox="0 0 16 16"><path d="M2 3h12" stroke="#2f6db5" stroke-width="2"/><path d="M4 8h8M4 11h8M4 14h8" stroke="#999"/></svg><input data-pp="mt" value="0.00&quot;" inputmode="decimal" aria-label="Space above paragraph (inches)"></label><label title="Space below paragraph (inches)"><svg viewBox="0 0 16 16"><path d="M2 13h12" stroke="#2f6db5" stroke-width="2"/><path d="M4 2h8M4 5h8M4 8h8" stroke="#999"/></svg><input data-pp="mb" value="0.00&quot;" inputmode="decimal" aria-label="Space below paragraph (inches)"></label></div><div><span class="lb">Indent:</span><label title="Indent before text (inches)"><svg viewBox="0 0 16 16"><path d="M2 2v12" stroke="#2f6db5" stroke-width="2"/><path d="M5 4h9M5 8h9M5 12h9" stroke="#999"/></svg><input data-pp="ml" value="0.00&quot;" inputmode="decimal" aria-label="Indent before text (inches)"></label><label title="Indent after text (inches)"><svg viewBox="0 0 16 16"><path d="M14 2v12" stroke="#2f6db5" stroke-width="2"/><path d="M2 4h9M2 8h9M2 12h9" stroke="#999"/></svg><input data-pp="mr" value="0.00&quot;" inputmode="decimal" aria-label="Indent after text (inches)"></label><label title="First line indent (inches)"><svg viewBox="0 0 16 16"><path d="M3 4h4" stroke="#2f6db5" stroke-width="2"/><path d="M3 8h11M3 12h11" stroke="#999"/></svg><input data-pp="fl" value="0.00&quot;" inputmode="decimal" aria-label="First line indent (inches)"></label></div></div><div class="pl"><span>Line spacing</span><select id="dpls"><option value="">Default</option><option value="1">1.0</option><option value="1.15">1.15</option><option value="1.5">1.5</option><option value="2">2.0</option><option value="3">3.0</option></select></div></div><div class="ps" data-c="1"><i>&minus;</i>Page</div><div class="pb"><div class="pl"><span>Margins</span><button data-da="mg:1">Normal</button><button data-da="mg:0.5">Narrow</button><button data-da="mg:0.75">Moderate</button></div><div class="pl"><span>Orientation</span><button data-da="orient:p">Portrait</button><button data-da="orient:l">Landscape</button></div><div class="pl"><span>Paper</span><button data-da="psz:letter">Letter</button><button data-da="psz:a4">A4</button><button data-da="psz:legal">Legal</button></div><div class="pl"><button data-da="pgset">Page setup</button><button data-da="hfdlg">Header and footer</button></div></div>';
+ const mir=(from,to,v)=>{const t=$(to);if(!t)return;t.value=v;t.dispatchEvent(new Event("input",{bubbles:true}));t.dispatchEvent(new Event("change",{bubbles:true}))};
+ $("dpfont").onchange=e=>mir("dpfont","dfont",e.target.value);$("dpsz").onchange=e=>{const t=$("dsz");t.value=e.target.value;t.dispatchEvent(new Event("change",{bubbles:true}));t.dispatchEvent(new KeyboardEvent("keydown",{key:"Enter",bubbles:true}))};$("dpls").onchange=e=>mir("dpls","dls",e.target.value);
+ $("dprop").addEventListener("click",e=>{const h=e.target.closest(".ps");if(h){const n=h.nextElementSibling;const c=n.style.display==="none";n.style.display=c?"":"none";h.firstChild.innerHTML=c?"&minus;":"+"}});
+ $("dprop").onclick=e=>{const b=e.target.closest("button[data-da]");if(b)dAct(b.dataset.da,b)};
+ (()=>{const P={mt:"marginTop",mb:"marginBottom",ml:"marginLeft",mr:"marginRight",fl:"textIndent"},ap=(t,v)=>{dFocus();const px=Math.round(v*96)+"px";dBlocks().forEach(b=>{if(b.nodeName==="LI"&&t.dataset.pp!=="mt"&&t.dataset.pp!=="mb")return;b.style[P[t.dataset.pp]]=px});t.value=v.toFixed(2)+'"';dChanged()},pv=t=>parseFloat(String(t.value).replace(/[^0-9.\-]/g,""))||0;
+  $("dprop").addEventListener("change",e=>{const t=e.target;if(t.dataset&&t.dataset.pp)ap(t,pv(t))});
+  $("dprop").addEventListener("keydown",e=>{const t=e.target;if(t.dataset&&t.dataset.pp&&(e.key==="ArrowUp"||e.key==="ArrowDown")){e.preventDefault();ap(t,Math.max(-5,pv(t)+(e.key==="ArrowUp"?.05:-.05)))}});
+  $("dprop").addEventListener("click",e=>{const t=e.target;if(t.dataset&&t.dataset.pp){const r=t.getBoundingClientRect();if(e.clientX>r.right-14){ap(t,Math.max(-5,pv(t)+(e.clientY<r.top+r.height/2?.05:-.05)))}}})})();
+ $("dprop").onmousedown=e=>{if(e.target.closest("button"))e.preventDefault()};
+ if(!window._dfitObs){window._dfitObs=1;const dv=$("dedv"),fit=()=>{if(!dv.classList.contains("hidden")&&innerWidth>=900){setTimeout(()=>{try{dFit()}catch(e){}},80)}if(!dv.classList.contains("hidden")&&innerWidth<900){dv.style.setProperty("--z",(innerWidth/700).toFixed(3));setTimeout(()=>{try{dFit()}catch(e){}},80)}};new MutationObserver(fit).observe(dv,{attributes:true,attributeFilter:["class"]});addEventListener("resize",fit)}
+ if(!document.getElementById("dwin")){const tp=document.querySelector(".dtop"),w=document.createElement("span");w.id="dwin";w.innerHTML='<button class="wm" tabindex="-1" aria-hidden="true"><i class="wmn"></i></button><button class="wm" tabindex="-1" aria-hidden="true"><i class="wmx"></i></button><button data-da="back" title="Close">&#10005;</button>';tp.appendChild(w);tp.insertBefore(Object.assign(document.createElement("span"),{id:"dapp",textContent:"USAF Writer"}),tp.firstChild)}
+ if(!document.getElementById("dtabs")){const d=document.createElement("div");d.id="dtabs";d.innerHTML='<button class="on" data-tab="p" title="Properties"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="#2fb7a4"/><path d="M7 15l3-4 3 3 4-6" stroke="#fff" stroke-width="2" fill="none"/></svg></button><button data-da="find" title="Find and replace"><svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="6" fill="#cfe6fb" stroke="#2b6cb0" stroke-width="2"/><path d="M15 15l6 6" stroke="#e8890c" stroke-width="3"/></svg></button><button data-da="wc" title="Word count"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2" fill="#e6f4e0" stroke="#4f9d3a" stroke-width="1.5"/><path d="M8 8h8M8 12h8M8 16h5" stroke="#4f9d3a" stroke-width="2"/></svg></button><button data-da="nav" title="Navigator"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="#fff3dc" stroke="#e8890c" stroke-width="2"/><path d="M16 8l-2.5 5.5L8 16l2.5-5.5z" fill="#e8890c"/></svg></button>';$("dview").appendChild(d);d.onclick=e=>{const b=e.target.closest("button");if(!b)return;if(b.dataset.da){dAct(b.dataset.da,b)}else{$("dview").classList.toggle("noprop")}};d.onmousedown=e=>e.preventDefault()}
  const t=(a,x)=>`<button data-da="t:${a}">${x}</button>`;
  $("dttbl").innerHTML='<span class="mu" style="padding:0 8px;font:600 11px Chakra Petch;letter-spacing:.14em;text-transform:uppercase">Table</span>'+t("rowA","Row above")+t("rowB","Row below")+t("delRow","Delete row")+sp+t("colL","Column left")+t("colR","Column right")+t("delCol","Delete column")+sp+t("mergeR","Merge right")+t("mergeD","Merge down")+t("split","Split cell")+sp+t("head","Header row")+t("shade","Shading")+t("borders","Borders")+t("align","Align table")+t("delTbl","Delete table");
- const st=$("dstat");st.innerHTML='<span id="dpgn">Page 1 of 1</span><span id="dwc">0 words</span><span id="dcc">0 characters</span><span style="flex:1"></span><button data-da="zm">-</button><input type="range" id="dzr" min="50" max="200" step="5" value="100"><button data-da="zp">+</button><span id="dzp" style="width:44px">100%</span><button data-da="zfit" style="padding:0 8px">Fit</button>';
+ const st=$("dstat");st.innerHTML='<span id="dpgn">Page 1 / 1</span><span id="dstyl">Default</span><span id="dlng">English (USA)</span><span class="sm">INSRT</span><span class="sm">STD</span><span class="sv"><svg viewBox="0 0 16 16"><rect x="2" y="2" width="12" height="12" rx="1" fill="#e9eef5" stroke="#6b7d95"/><rect x="5" y="2" width="6" height="4" fill="#6b7d95"/><rect x="4" y="9" width="8" height="4" fill="#fff" stroke="#6b7d95"/></svg></span><span id="dlev">Level 1</span><span id="dwc">0 words</span><span id="dcc">0 characters</span><span class="sl"><i></i><i></i><i></i></span><button data-da="zm" title="Zoom out">-</button><input type="range" id="dzr" min="50" max="200" step="5" value="100"><button data-da="zp" title="Zoom in">+</button><span id="dzp">100%</span><button data-da="zfit" class="fit" title="Fit page width">Fit</button>';
 }
 /* dropdown menus */
 document.addEventListener("mousedown",e=>{if(!e.target.closest(".dmenus"))document.querySelectorAll(".dmenus>.on").forEach(x=>x.classList.remove("on"));if(!e.target.closest("#dpop")&&!e.target.closest('[data-da^="pal"],[data-da="pop:tbl"],[data-da="sym"],[data-da="t:shade"],[data-da="t:borders"]'))dPopHide()});
@@ -4142,7 +4421,7 @@ function dLayout(){
  dPaginate();dRuler();
 }
 function dZoom(z){DS.zoom=Math.min(2.5,Math.max(.4,z));dLayout()}
-function dFit(){const g=dPg();dZoom(($("dscroll").clientWidth-36)/g.w)}
+function dFit(){const g=dPg();dZoom(($("dscroll").clientWidth-90)/g.w)}
 function dRuler(){
  const r=$("druler");r.classList.toggle("hidden",!DS.ruler);if(!DS.ruler)return;
  const g=dPg(),z=DS.zoom,sc=$("dscroll"),left0=Math.max(0,(sc.clientWidth-g.w*z)/2),W=g.w*z;
@@ -4168,13 +4447,16 @@ function dUpdUI(){
  const r=dSelRange(),el=r&&dIn(r.startContainer)?dElOf(r.startContainer):null;
  if(el){const cs=getComputedStyle(el);
   if(document.activeElement!==$("dsz"))$("dsz").value=String(Math.round(parseFloat(cs.fontSize)*.75*2)/2);
+  {const q=document.getElementById("dpsz");if(q&&document.activeElement!==q)q.value=$("dsz").value}
   const fam=cs.fontFamily.split(",")[0].replace(/["']/g,"").trim(),f=$("dfont");if(document.activeElement!==f){const o=[...f.options].find(x=>x.value.toLowerCase()===fam.toLowerCase());f.value=o?o.value:"Arial"}
   const blk=el.closest("h1,h2,h3,h4,p,div,pre,li,td,th");let v="p";if(blk){if(/^H[1-4]$/.test(blk.nodeName))v=blk.nodeName.toLowerCase();else if(blk.nodeName==="PRE")v="code";else if(blk.classList.contains("t-title"))v="title";else if(blk.classList.contains("t-sub"))v="sub";else if(blk.classList.contains("quote"))v="quote"}
   if(document.activeElement!==$("dsty"))$("dsty").value=v;
+  {const so=$("dsty").selectedOptions[0],sl=document.getElementById("dstyl"),lv=document.getElementById("dlev");if(sl)sl.textContent=!so||v==="p"?"Default":so.text;if(lv)lv.textContent=/^h[1-4]$/.test(v)?"Level "+v[1]:"Body Text"}
+  document.querySelectorAll("#dprop [data-pp]").forEach(i=>{if(document.activeElement===i)return;const P={mt:"marginTop",mb:"marginBottom",ml:"marginLeft",mr:"marginRight",fl:"textIndent"}[i.dataset.pp];i.value=((blk?parseFloat(getComputedStyle(blk)[P]):0)/96||0).toFixed(2)+'"'});
   const inT=!!el.closest("td,th");$("dttbl").classList.toggle("hidden",!inT);
   const pg=(()=>{const rc=r.getBoundingClientRect();if(!rc||(!rc.top&&!rc.height)){return null}const y=(rc.top-dEd().getBoundingClientRect().top)/DS.zoom;return Math.floor(y/(dPg().h+D_GAP))+1})();
-  $("dpgn").textContent=`Page ${Math.min(pg||1,DS.pages)} of ${DS.pages}`}
- else $("dpgn").textContent=`Page 1 of ${DS.pages}`;
+  $("dpgn").textContent=`Page ${Math.min(pg||1,DS.pages)} / ${DS.pages}`}
+ else $("dpgn").textContent=`Page 1 / ${DS.pages}`;
  const cs=dCount();
 }
 /* ===== actions ===== */
@@ -4198,6 +4480,7 @@ function dAct(a,btn){
   new:async()=>{await dLeave();const d=await dCreate(D_TPLS[0].h,"Untitled document");dEnter(d)},
   copy:async()=>{await dSave();await dCopy(DS.cur.id)},rename:()=>{$("dtitle").focus();$("dtitle").select()},
   back:()=>dLeave(),savetpl:()=>dSaveTpl(),share:()=>dShareDlg(),delete:async()=>{if(!confirm(`Delete "${DS.cur.title}"? This cannot be undone.`))return;const id=DS.cur.id,auth=await dAuthFor(id);if(auth===null)return;try{await api("/api/docs/"+id,"DELETE",auth?{auth}:undefined)}catch(e){return toast(e.message)}DS.cur=null;DS.dirty=false;DS.unl=null;DS.ro=false;await dLocalDel(id);await dLoadList();dShowList()},
+  noprop:()=>$("dview").classList.toggle("noprop"),kbd:()=>dDlg("Keyboard shortcuts","<table class=\"ktab\"><tr><td>Ctrl+B / I / U</td><td>Bold, italic, underline</td></tr><tr><td>Ctrl+Z / Y</td><td>Undo, redo</td></tr><tr><td>Ctrl+K</td><td>Insert link</td></tr><tr><td>Ctrl+F</td><td>Find and replace</td></tr><tr><td>Ctrl+Enter</td><td>Page break</td></tr><tr><td>Ctrl+P</td><td>Print</td></tr><tr><td>Alt+Up / Down</td><td>Move paragraph</td></tr></table>","Close",null,true),about:()=>dDlg("About USAF Writer","<p>Documents are stored in this browser and can be exported to PDF, Word, OpenDocument, RTF, HTML, text and Markdown.</p>","Close",null,true),
   print:()=>dPrint(),import:()=>{$("dfile").click()},
   undo:()=>dUndo(),redo:()=>dRedo(),
   paste:async()=>{try{const t=await navigator.clipboard.readText();dFocus();document.execCommand("insertText",false,t);dChanged()}catch(e){toast("Press Ctrl+V to paste")}},
